@@ -41,7 +41,7 @@ Beide sehen dieselben Tools und denselben Agent-Prompt, nur der Memory-Teil unte
 
 ## Demo
 
-`site/` ist eine statische Seite ohne Build und erzählt die Szenarien als Fragen, Schritt für Schritt: das Gespräch in der Mitte, darunter, was A sich merkt und was B speichert. Standardmäßig zeigt sie den aussagekräftigsten Lauf (der erste, in dem A und B verschieden ausgehen). Experiment, Lauf und Variante von A stehen unter „Details“. Alle Gespräche sind aufgezeichnete Läufe, es gibt keinen Live-Modus. Die Seite braucht wegen `fetch` einen lokalen Server, alle Pfade sind relativ:
+`site/` ist eine statische Seite ohne Build und zeigt nur die zwei Fragen, bei denen A und B verschieden ausgehen: die späte Löschung aus E2 (A mit Mem0-Prompt gegen B) und die implizite Vorliebe aus E1. Pro Frage stehen die fünf Läufe als je ein Satz, ein Klick zeigt das Gespräch Schritt für Schritt und was A und B danach behalten haben. Die übrigen Szenarien stehen in den Daten und in [docs/findings.md](docs/findings.md), nicht auf der Seite. Alle Gespräche sind aufgezeichnete Läufe. Die Seite braucht wegen `fetch` einen lokalen Server, alle Pfade sind relativ:
 
 ```sh
 python3 -m http.server -d site 8000
