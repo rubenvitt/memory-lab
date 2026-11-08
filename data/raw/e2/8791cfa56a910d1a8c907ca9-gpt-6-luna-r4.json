@@ -1,0 +1,70 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 4,
+ "input_hash": "8791cfa56a910d1a8c907ca9",
+ "meta": {
+  "scenario": "stale",
+  "arch": "B",
+  "rep": 4,
+  "variant": "B",
+  "role": "agent",
+  "session": 2,
+  "turn": 1,
+  "step": 2
+ },
+ "duration_ms": 8395,
+ "text": "{\"tool\":\"get_profile\",\"query\":null,\"reason\":null,\"text\":null,\"key\":null,\"value\":null,\"quote\":null}",
+ "parsed": {
+  "tool": "get_profile",
+  "query": null,
+  "reason": null,
+  "text": null,
+  "key": null,
+  "value": null,
+  "quote": null
+ },
+ "usage": {
+  "input_tokens": 34881,
+  "cached_input_tokens": 26240,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 134,
+  "reasoning_output_tokens": 19
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bb63-4c06-7142-85b6-509d5b7e2773"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "Ich prüfe die im Bibliothekssystem hinterlegte Adresse, da sie verbindlich für den Bringdienst ist."
+   }
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_1",
+    "type": "agent_message",
+    "text": "{\"tool\":\"get_profile\",\"query\":null,\"reason\":null,\"text\":null,\"key\":null,\"value\":null,\"quote\":null}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 34881,
+    "cached_input_tokens": 26240,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 134,
+    "reasoning_output_tokens": 19
+   }
+  }
+ ]
+}

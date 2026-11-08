@@ -1,0 +1,67 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 4,
+ "input_hash": "65c6e7294ee98c59987408f7",
+ "meta": {
+  "scenario": "stale",
+  "arch": "A",
+  "rep": 4,
+  "variant": "A-v1",
+  "role": "agent",
+  "session": 2,
+  "turn": 1,
+  "step": 2
+ },
+ "duration_ms": 11592,
+ "text": "{\"tool\":\"search_docs\",\"query\":\"Bringdienst Liefergebiet an welche Adressen wird geliefert\",\"reason\":null,\"text\":null}",
+ "parsed": {
+  "tool": "search_docs",
+  "query": "Bringdienst Liefergebiet an welche Adressen wird geliefert",
+  "reason": null,
+  "text": null
+ },
+ "usage": {
+  "input_tokens": 34783,
+  "cached_input_tokens": 32896,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 132,
+  "reasoning_output_tokens": 24
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bb63-a2b0-7e63-a210-fa9241d37a49"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "Ich prüfe die Lieferbedingungen der Stadtbücherei, damit ich die Adresse nicht aus dem Profil ableite."
+   }
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_1",
+    "type": "agent_message",
+    "text": "{\"tool\":\"search_docs\",\"query\":\"Bringdienst Liefergebiet an welche Adressen wird geliefert\",\"reason\":null,\"text\":null}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 34783,
+    "cached_input_tokens": 32896,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 132,
+    "reasoning_output_tokens": 24
+   }
+  }
+ ]
+}

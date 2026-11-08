@@ -21,32 +21,61 @@ const TOOL_ARG = { search_docs: 'query', search_catalog: 'query', waive_fee: 're
 const KEEP = { history: 6, audit: 4, retrieval: 4 }; // newest entries shown per long store, hits always shown
 
 let demo;
-const view = { scenario: 'stale', rep: 1, point: 0, erased: false };
+const view = { exp: 'e1', scenario: 'stale', rep: 1, point: 0, erased: false, aVariant: 'A-mem0' };
 
-const runOf = (arch) => demo.runs.find((r) => r.scenario === view.scenario && r.arch === arch && r.rep === view.rep);
-const scenarioOf = () => demo.scenarios.find((s) => s.id === view.scenario);
+const expOf = (id = view.exp) => demo.experiments.find((e) => e.id === id);
+const variantOf = (arch) => (arch === 'B' ? 'B' : view.exp === 'e1' ? 'A' : view.aVariant);
+const labelOf = (arch) => expOf().variants.find((v) => v.id === variantOf(arch)).label;
+const runOf = (arch) => expOf().runs.find((r) => r.scenario === view.scenario && r.variant === variantOf(arch) && r.rep === view.rep);
+const scenarioOf = () => expOf().scenarios.find((s) => s.id === view.scenario);
 const marker = () => new RegExp(scenarioOf().marker.pattern, 'i');
+const lastPoint = () => runOf('A').points.length - 1;
 
+// #<experiment>/<scenario>/<run>/<point>[/<A variant>]. Links without experiment are E1.
 function readHash() {
-  const [scenario, rep, point] = decodeURIComponent(location.hash.slice(1)).split('/');
-  if (demo.scenarios.some((s) => s.id === scenario)) view.scenario = scenario;
+  const parts = decodeURIComponent(location.hash.slice(1)).split('/');
+  view.exp = demo.experiments.some((e) => e.id === parts[0]) ? parts.shift() : 'e1';
+  const [scenario, rep, point, aVariant] = parts;
+  view.scenario = expOf().scenarios.some((s) => s.id === scenario) ? scenario : expOf().scenarios[0].id;
   if (Number(rep) >= 1 && Number(rep) <= 5) view.rep = Number(rep);
+  if (expOf().variants.some((v) => v.id === aVariant && v.id !== 'B')) view.aVariant = aVariant;
   const n = runOf('A').points.length;
   view.point = Number(point) >= 1 && Number(point) <= n ? Number(point) - 1 : n - 1;
   view.erased = false;
 }
-const writeHash = () => history.replaceState(null, '', `#${view.scenario}/${view.rep}/${view.point + 1}`);
+const writeHash = () => history.replaceState(null, '', `#${view.exp}/${view.scenario}/${view.rep}/${view.point + 1}${view.exp === 'e1' ? '' : `/${view.aVariant}`}`);
+
+function select({ exp = view.exp, scenario = view.scenario }) {
+  view.exp = exp;
+  view.scenario = expOf().scenarios.some((s) => s.id === scenario) ? scenario : expOf().scenarios[0].id;
+  view.point = lastPoint();
+  view.erased = false;
+  render();
+}
 
 function renderControls() {
+  $('experiments').replaceChildren(...demo.experiments.map((e) => {
+    const b = el('button', null, e.label);
+    b.type = 'button';
+    b.setAttribute('aria-pressed', String(e.id === view.exp));
+    b.addEventListener('click', () => select({ exp: e.id }));
+    return b;
+  }));
   const seg = $('scenarios');
-  seg.replaceChildren(...demo.scenarios.map((s) => {
+  seg.replaceChildren(...expOf().scenarios.map((s) => {
     const b = el('button', null);
     b.type = 'button';
     b.append(el('code', null, s.id), el('span', 'seg-title', s.title));
     b.setAttribute('aria-pressed', String(s.id === view.scenario));
-    b.addEventListener('click', () => { view.scenario = s.id; view.point = runOf('A').points.length - 1; view.erased = false; render(); });
+    b.addEventListener('click', () => select({ scenario: s.id }));
     return b;
   }));
+  const av = $('avariant');
+  av.replaceChildren(...expOf().variants.filter((v) => v.id !== 'B').map((v) => new Option(v.label, v.id)));
+  av.value = variantOf('A');
+  av.onchange = () => { view.aVariant = av.value; view.erased = false; render(); };
+  $('avariant-field').hidden = view.exp === 'e1';
+  $('exp-note').hidden = view.exp === 'e1';
   const rep = $('rep');
   if (!rep.options.length) {
     for (let i = 1; i <= 5; i++) rep.append(new Option(String(i), String(i)));
@@ -108,18 +137,25 @@ function renderChat(arch) {
     const steps = t.steps.filter((s) => s.action.tool !== 'answer').map(stepLine);
     const answer = el('li', 'msg answer');
     answer.append(el('span', 'who', 'Assistent'), el('span', 'text', t.answer ?? `keine Antwort nach ${t.steps.length} Schritten`));
-    return [user, ...steps, answer];
+    // E2: extraction after every message pair.
+    const extraction = t.extraction ? [el('li', `msg extract${!deleted && t.extraction.applied.some((o) => o.text && re.test(o.text)) ? ' hit' : ''}`, `Extraktion nach diesem Paar: ${opsText(t.extraction.applied)}`)] : [];
+    return [user, ...steps, answer, ...extraction];
   }));
+  $(`title-${arch}`).textContent = labelOf(arch);
   $(`verdict-${arch}`).replaceChildren(el('span', `badge ${run.pass ? 'pass' : 'fail'}`, run.pass ? 'bestanden' : 'durchgefallen'), document.createTextNode(` ${run.verdict}`));
   const note = $(`note-${arch}`);
   note.replaceChildren(el('span', 'rec', `${deleted ? `Chat aus Session ${point.session} gelöscht, nur Aufzeichnung des Labors` : `Aufzeichnung Session ${point.session}`}${point.kind === 'session' ? '' : ' · '}`));
   if (point.kind === 'after' && arch === 'A') {
-    note.append(el('strong', null, 'Extraktor nach Session ' + point.session + ': '));
-    const ops = point.applied.filter((o) => o.op !== 'NOOP');
-    note.append(document.createTextNode(ops.length ? ops.map((o) => `${o.op}${o.skipped ? ' (übersprungen)' : ''} ${o.text ? `„${clip(o.text, 90)}“` : o.id}`).join(' · ') : 'nichts geschrieben'));
+    note.append(el('strong', null, `${point.note?.includes('Nachrichtenpaar') ? 'Extraktion nach jedem Paar in Session' : 'Extraktor nach Session'} ${point.session}: `));
+    note.append(document.createTextNode(opsText(point.applied)));
   }
   if (point.kind === 'after' && arch === 'B') note.append(el('strong', null, `Session ${point.session} endet: `), document.createTextNode('Verlauf und gelesene Treffer werden verworfen.'));
   if (point.kind === 'event') note.append(el('strong', null, 'Ereignis: '), document.createTextNode(point.label));
+}
+
+function opsText(applied) {
+  const ops = applied.filter((o) => o.op !== 'NOOP');
+  return ops.length ? ops.map((o) => `${o.op}${o.skipped ? ' (übersprungen)' : ''} ${o.text ? `„${clip(o.text, 90)}“` : o.id}`).join(' · ') : 'nichts geschrieben';
 }
 
 function auditText(text) {
@@ -147,7 +183,7 @@ function renderStores() {
   const groups = ['A', 'B'].map((arch) => {
     const entries = storeEntries(storesNow(arch));
     const group = el('div', `store-group g-${arch}`);
-    group.append(el('h3', 'group-title', arch === 'A' ? 'A · ein Topf' : 'B · getrennte Stores'));
+    group.append(el('h3', 'group-title', labelOf(arch)));
     const cols = el('div', 'cols');
     for (const info of demo.stores[arch]) {
       const list = entries[info.id] ?? [];
@@ -190,46 +226,62 @@ function renderErase() {
   if (!view.erased) { $('status').textContent = ''; return; }
   const re = marker();
   const left = (arch) => Object.entries(storeEntries(storesNow(arch))).filter(([, list]) => list.some((e) => re.test(e.text))).map(([store]) => demo.stores[arch].find((s) => s.id === store).label);
-  const say = (arch) => (left(arch).length ? `${arch}: Treffer bleiben in ${left(arch).join(', ')}` : `${arch}: keine Treffer mehr`);
+  const say = (arch) => (left(arch).length ? `${variantOf(arch)}: Treffer bleiben in ${left(arch).join(', ')}` : `${variantOf(arch)}: keine Treffer mehr`);
   $('status').textContent = `Chat aus Session ${p.session} gelöscht. ${say('A')}. ${say('B')}.`;
 }
 
-function renderMatrix() {
-  const table = $('matrix');
+function matrixTable(x) {
+  const wrap = el('div', 'matrix-block');
+  const title = el('h3', 'matrix-exp', x.id === 'e1' ? `E1 · Prompts ${x.prompt_version}` : `E2 · nach Sicht von E1 ergänzt · Prompts ${x.prompt_version}`);
+  title.id = `matrix-${x.id}`;
+  const scroll = el('div', 'matrix-scroll');
+  scroll.tabIndex = 0;
+  scroll.setAttribute('role', 'region');
+  scroll.setAttribute('aria-labelledby', title.id);
+  const table = el('table', null);
+  table.id = `table-${x.id}`;
   const head = el('thead');
   const hr = el('tr');
-  for (const [t, cls] of [['Szenario', null], ['A · ein Topf', null], ['B · getrennte Stores', null], ['Erwartung A', 'exp'], ['Erwartung B', 'exp']]) {
+  for (const [t, cls] of [['Szenario', null], ...x.variants.map((v) => [v.label, null]), ...x.variants.map((v) => [`Erwartung ${v.id}`, 'exp'])]) {
     const th = el('th', cls, t);
     th.scope = 'col';
     hr.append(th);
   }
   head.append(hr);
   const body = el('tbody');
-  for (const m of demo.matrix) {
+  for (const m of x.matrix) {
     const tr = el('tr');
-    if (m.scenario === view.scenario) tr.classList.add('current');
+    if (x.id === view.exp && m.scenario === view.scenario) tr.classList.add('current');
     const th = el('th');
     th.scope = 'row';
     const b = el('button', null);
     b.type = 'button';
     b.append(el('code', null, m.scenario), el('span', null, ` ${m.title}`));
-    b.addEventListener('click', () => { view.scenario = m.scenario; view.point = runOf('A').points.length - 1; view.erased = false; render(); $('scenarios').querySelector('[aria-pressed="true"]').focus(); });
+    b.addEventListener('click', () => { select({ exp: x.id, scenario: m.scenario }); $('scenarios').querySelector('[aria-pressed="true"]').focus(); });
     th.append(b);
     tr.append(th);
-    for (const arch of ['A', 'B']) {
-      const c = m[arch];
+    for (const v of x.variants) {
+      const c = m.cells[v.id];
       const td = el('td', c.pass === c.runs ? 'all' : c.pass === 0 ? 'none' : 'some');
       const dots = el('span', 'dots');
       dots.setAttribute('aria-hidden', 'true');
-      for (const r of demo.runs.filter((x) => x.scenario === m.scenario && x.arch === arch).sort((x, y) => x.rep - y.rep)) dots.append(el('span', r.pass ? 'dot pass' : 'dot fail'));
+      for (const r of x.runs.filter((y) => y.scenario === m.scenario && y.variant === v.id).sort((y, z) => y.rep - z.rep)) dots.append(el('span', r.pass ? 'dot pass' : 'dot fail'));
       td.append(el('span', 'frac', `${c.pass}/${c.runs}`), dots);
       tr.append(td);
     }
-    for (const arch of ['A', 'B']) tr.append(el('td', 'exp', m[arch].expected));
+    for (const v of x.variants) tr.append(el('td', 'exp', m.cells[v.id].expected));
     body.append(tr);
   }
-  table.replaceChildren(head, body);
-  $('matrix-source').textContent = `bestanden von Läufen · ${demo.models.agent}, Effort ${demo.models.effort}, Prompts ${demo.prompt_version} · Erwartung vor dem Lauf festgehalten`;
+  table.append(head, body);
+  scroll.append(table);
+  wrap.append(title, scroll);
+  return wrap;
+}
+
+function renderMatrix() {
+  $('matrices').replaceChildren(...demo.experiments.map(matrixTable));
+  const m = demo.experiments[0].models;
+  $('matrix-source').textContent = `bestanden von Läufen · ${m.agent}, Effort ${m.effort} · Erwartung jeweils vor dem Lauf festgehalten`;
 }
 
 function render() {

@@ -1,0 +1,67 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 2,
+ "input_hash": "e4ffa6bfd923a36e0b23a957",
+ "meta": {
+  "scenario": "stale",
+  "arch": "A",
+  "rep": 2,
+  "variant": "A-mem0",
+  "role": "agent",
+  "session": 2,
+  "turn": 1,
+  "step": 1
+ },
+ "duration_ms": 8437,
+ "text": "{\"tool\":\"get_profile\",\"query\":null,\"reason\":null,\"text\":null}",
+ "parsed": {
+  "tool": "get_profile",
+  "query": null,
+  "reason": null,
+  "text": null
+ },
+ "usage": {
+  "input_tokens": 34665,
+  "cached_input_tokens": 17152,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 109,
+  "reasoning_output_tokens": 16
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bb60-35b3-7560-9fd7-398d55230b96"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "Ich prüfe das angemeldete Profil, da das Bibliothekssystem für die gespeicherte Lieferadresse maßgeblich ist."
+   }
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_1",
+    "type": "agent_message",
+    "text": "{\"tool\":\"get_profile\",\"query\":null,\"reason\":null,\"text\":null}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 34665,
+    "cached_input_tokens": 17152,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 109,
+    "reasoning_output_tokens": 16
+   }
+  }
+ ]
+}

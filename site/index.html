@@ -23,9 +23,12 @@
   <main>
     <section class="stage" aria-label="Szenario">
       <div class="pick">
+        <div class="seg exp" id="experiments" role="group" aria-label="Experiment"></div>
         <div class="seg" id="scenarios" role="group" aria-label="Szenario"></div>
         <label class="field">Lauf <select id="rep"></select></label>
+        <label class="field" id="avariant-field" hidden>A-Variante <select id="avariant"></select></label>
       </div>
+      <p class="exp-note" id="exp-note" hidden data-prose>E2 ist nach Sicht der Ergebnisse von E1 ergänzt: Mem0-Original-Extraktor, Extraktion nach jedem Nachrichtenpaar.</p>
       <p class="check" id="check"></p>
       <ol class="timeline" id="timeline" aria-label="Zeitleiste"></ol>
       <div class="erase">
@@ -58,12 +61,10 @@
 
   <section class="matrix" aria-labelledby="matrix-title">
     <div class="group-head">
-      <h2 id="matrix-title">Szenario × Architektur</h2>
+      <h2 id="matrix-title">Szenario × Variante</h2>
       <p class="source" id="matrix-source"></p>
     </div>
-    <div class="matrix-scroll" tabindex="0" role="region" aria-labelledby="matrix-title">
-      <table id="matrix"></table>
-    </div>
+    <div id="matrices"></div>
   </section>
 
   <footer class="limits">

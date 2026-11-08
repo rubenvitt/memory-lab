@@ -1,0 +1,67 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 2,
+ "input_hash": "29cf8104734456ccae8738c3",
+ "meta": {
+  "scenario": "erasure-late",
+  "arch": "A",
+  "rep": 2,
+  "variant": "A-mem0",
+  "role": "agent",
+  "session": 1,
+  "turn": 1,
+  "step": 5
+ },
+ "duration_ms": 10890,
+ "text": "{\"tool\":\"search_catalog\",\"query\":\"Großdruck Romane Herbst\",\"reason\":null,\"text\":null}",
+ "parsed": {
+  "tool": "search_catalog",
+  "query": "Großdruck Romane Herbst",
+  "reason": null,
+  "text": null
+ },
+ "usage": {
+  "input_tokens": 35556,
+  "cached_input_tokens": 31488,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 168,
+  "reasoning_output_tokens": 63
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bb60-2dd9-7620-8799-fb0c377ee07b"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "Ich suche noch nach den neu verfügbaren Großdruck-Romanen im Katalog, damit ich konkrete Titel nennen kann."
+   }
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_1",
+    "type": "agent_message",
+    "text": "{\"tool\":\"search_catalog\",\"query\":\"Großdruck Romane Herbst\",\"reason\":null,\"text\":null}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 35556,
+    "cached_input_tokens": 31488,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 168,
+    "reasoning_output_tokens": 63
+   }
+  }
+ ]
+}

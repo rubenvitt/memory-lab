@@ -1,0 +1,67 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 5,
+ "input_hash": "83047f6ea3cd1f6e52fcb88c",
+ "meta": {
+  "scenario": "erasure-late",
+  "arch": "A",
+  "rep": 5,
+  "variant": "A-mem0",
+  "role": "agent",
+  "session": 1,
+  "turn": 1,
+  "step": 4
+ },
+ "duration_ms": 7832,
+ "text": "{\"tool\":\"search_catalog\",\"query\":\"Großdruck Bücher Großdruckschrift\",\"reason\":null,\"text\":null}",
+ "parsed": {
+  "tool": "search_catalog",
+  "query": "Großdruck Bücher Großdruckschrift",
+  "reason": null,
+  "text": null
+ },
+ "usage": {
+  "input_tokens": 34984,
+  "cached_input_tokens": 33024,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 94,
+  "reasoning_output_tokens": 0
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bb64-d513-7a80-ac25-625e3a9e899c"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "Ich prüfe, welche dieser Titel tatsächlich als Großdruck verfügbar sind, bevor ich sie empfehle."
+   }
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_1",
+    "type": "agent_message",
+    "text": "{\"tool\":\"search_catalog\",\"query\":\"Großdruck Bücher Großdruckschrift\",\"reason\":null,\"text\":null}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 34984,
+    "cached_input_tokens": 33024,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 94,
+    "reasoning_output_tokens": 0
+   }
+  }
+ ]
+}

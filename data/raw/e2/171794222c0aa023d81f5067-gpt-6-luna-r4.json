@@ -1,0 +1,70 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 4,
+ "input_hash": "171794222c0aa023d81f5067",
+ "meta": {
+  "scenario": "stale",
+  "arch": "B",
+  "rep": 4,
+  "variant": "B",
+  "role": "agent",
+  "session": 1,
+  "turn": 1,
+  "step": 2
+ },
+ "duration_ms": 10243,
+ "text": "{\"tool\":\"answer\",\"query\":null,\"reason\":null,\"text\":\"Der Bringdienst kommt alle zwei Wochen dienstags. Er liefert an die im Bibliothekssystem hinterlegte Adresse.\",\"key\":null,\"value\":null,\"quote\":null}",
+ "parsed": {
+  "tool": "answer",
+  "query": null,
+  "reason": null,
+  "text": "Der Bringdienst kommt alle zwei Wochen dienstags. Er liefert an die im Bibliothekssystem hinterlegte Adresse.",
+  "key": null,
+  "value": null,
+  "quote": null
+ },
+ "usage": {
+  "input_tokens": 35338,
+  "cached_input_tokens": 33152,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 229,
+  "reasoning_output_tokens": 108
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bb62-e526-7aa3-9582-9b0828a8a7ad"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "Ich prüfe zuerst die hinterlegte Adresse und den Bringdienst-Status im Bibliothekssystem."
+   }
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_1",
+    "type": "agent_message",
+    "text": "{\"tool\":\"answer\",\"query\":null,\"reason\":null,\"text\":\"Der Bringdienst kommt alle zwei Wochen dienstags. Er liefert an die im Bibliothekssystem hinterlegte Adresse.\",\"key\":null,\"value\":null,\"quote\":null}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 35338,
+    "cached_input_tokens": 33152,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 229,
+    "reasoning_output_tokens": 108
+   }
+  }
+ ]
+}

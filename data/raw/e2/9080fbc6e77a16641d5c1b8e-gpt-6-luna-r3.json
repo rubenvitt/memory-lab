@@ -1,0 +1,67 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 3,
+ "input_hash": "9080fbc6e77a16641d5c1b8e",
+ "meta": {
+  "scenario": "erasure-late",
+  "arch": "A",
+  "rep": 3,
+  "variant": "A-mem0",
+  "role": "agent",
+  "session": 1,
+  "turn": 1,
+  "step": 4
+ },
+ "duration_ms": 9147,
+ "text": "{\"tool\":\"search_docs\",\"query\":\"Großdruck barrierearme Medien Angebote\",\"reason\":null,\"text\":null}",
+ "parsed": {
+  "tool": "search_docs",
+  "query": "Großdruck barrierearme Medien Angebote",
+  "reason": null,
+  "text": null
+ },
+ "usage": {
+  "input_tokens": 34820,
+  "cached_input_tokens": 32896,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 113,
+  "reasoning_output_tokens": 20
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bb61-d797-7be2-a248-6adefe956e37"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "Ich suche in den Service-Informationen nach Angeboten für Großdruck oder barrierearme Medien."
+   }
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_1",
+    "type": "agent_message",
+    "text": "{\"tool\":\"search_docs\",\"query\":\"Großdruck barrierearme Medien Angebote\",\"reason\":null,\"text\":null}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 34820,
+    "cached_input_tokens": 32896,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 113,
+    "reasoning_output_tokens": 20
+   }
+  }
+ ]
+}

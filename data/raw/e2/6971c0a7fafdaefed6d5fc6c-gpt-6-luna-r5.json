@@ -1,0 +1,74 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 5,
+ "input_hash": "6971c0a7fafdaefed6d5fc6c",
+ "meta": {
+  "scenario": "stale",
+  "arch": "A",
+  "rep": 5,
+  "variant": "A-mem0",
+  "role": "mem0-update",
+  "session": 1,
+  "turn": 1
+ },
+ "duration_ms": 6760,
+ "text": "{\"memory\":[{\"id\":\"1\",\"text\":\"Der Nutzer ist seit Kurzem beim Bringdienst angemeldet.\",\"event\":\"ADD\",\"old_memory\":null},{\"id\":\"2\",\"text\":\"Die Adresse lautet Kastanienweg 7.\",\"event\":\"ADD\",\"old_memory\":null},{\"id\":\"3\",\"text\":\"Der Nutzer ist vormittags immer zu Hause.\",\"event\":\"ADD\",\"old_memory\":null}]}",
+ "parsed": {
+  "memory": [
+   {
+    "id": "1",
+    "text": "Der Nutzer ist seit Kurzem beim Bringdienst angemeldet.",
+    "event": "ADD",
+    "old_memory": null
+   },
+   {
+    "id": "2",
+    "text": "Die Adresse lautet Kastanienweg 7.",
+    "event": "ADD",
+    "old_memory": null
+   },
+   {
+    "id": "3",
+    "text": "Der Nutzer ist vormittags immer zu Hause.",
+    "event": "ADD",
+    "old_memory": null
+   }
+  ]
+ },
+ "usage": {
+  "input_tokens": 18400,
+  "cached_input_tokens": 0,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 92,
+  "reasoning_output_tokens": 0
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bb64-bb5b-76c2-995d-c185dd937632"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "{\"memory\":[{\"id\":\"1\",\"text\":\"Der Nutzer ist seit Kurzem beim Bringdienst angemeldet.\",\"event\":\"ADD\",\"old_memory\":null},{\"id\":\"2\",\"text\":\"Die Adresse lautet Kastanienweg 7.\",\"event\":\"ADD\",\"old_memory\":null},{\"id\":\"3\",\"text\":\"Der Nutzer ist vormittags immer zu Hause.\",\"event\":\"ADD\",\"old_memory\":null}]}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 18400,
+    "cached_input_tokens": 0,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 92,
+    "reasoning_output_tokens": 0
+   }
+  }
+ ]
+}

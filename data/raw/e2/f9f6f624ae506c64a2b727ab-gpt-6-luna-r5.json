@@ -1,0 +1,70 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 5,
+ "input_hash": "f9f6f624ae506c64a2b727ab",
+ "meta": {
+  "scenario": "stale",
+  "arch": "B",
+  "rep": 5,
+  "variant": "B",
+  "role": "agent",
+  "session": 1,
+  "turn": 1,
+  "step": 3
+ },
+ "duration_ms": 8791,
+ "text": "{\"tool\":\"remember\",\"query\":null,\"reason\":null,\"text\":null,\"key\":\"bringdienst_vormittags_zu_hause\",\"value\":\"Die Person ist vormittags zu Hause.\",\"quote\":\"da bin ich vormittags immer zu Hause\"}",
+ "parsed": {
+  "tool": "remember",
+  "query": null,
+  "reason": null,
+  "text": null,
+  "key": "bringdienst_vormittags_zu_hause",
+  "value": "Die Person ist vormittags zu Hause.",
+  "quote": "da bin ich vormittags immer zu Hause"
+ },
+ "usage": {
+  "input_tokens": 35332,
+  "cached_input_tokens": 33152,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 170,
+  "reasoning_output_tokens": 39
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bb64-b336-74c1-9bb9-adfff70a54a6"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "Ich speichere zuerst deinen ausdrücklich genannten Wunsch, vormittags zu Hause zu sein."
+   }
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_1",
+    "type": "agent_message",
+    "text": "{\"tool\":\"remember\",\"query\":null,\"reason\":null,\"text\":null,\"key\":\"bringdienst_vormittags_zu_hause\",\"value\":\"Die Person ist vormittags zu Hause.\",\"quote\":\"da bin ich vormittags immer zu Hause\"}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 35332,
+    "cached_input_tokens": 33152,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 170,
+    "reasoning_output_tokens": 39
+   }
+  }
+ ]
+}

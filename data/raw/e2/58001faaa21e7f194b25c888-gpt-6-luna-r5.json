@@ -1,0 +1,67 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 5,
+ "input_hash": "58001faaa21e7f194b25c888",
+ "meta": {
+  "scenario": "proxy",
+  "arch": "A",
+  "rep": 5,
+  "variant": "A-mem0",
+  "role": "agent",
+  "session": 1,
+  "turn": 1,
+  "step": 1
+ },
+ "duration_ms": 6621,
+ "text": "{\"tool\":\"search_docs\",\"query\":\"Bringdienst Voraussetzungen nicht mehr aus dem Haus\",\"reason\":null,\"text\":null}",
+ "parsed": {
+  "tool": "search_docs",
+  "query": "Bringdienst Voraussetzungen nicht mehr aus dem Haus",
+  "reason": null,
+  "text": null
+ },
+ "usage": {
+  "input_tokens": 34619,
+  "cached_input_tokens": 32896,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 112,
+  "reasoning_output_tokens": 26
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bb64-5485-7d91-b3e1-e27473cd6f40"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "Ich prüfe die Service-Informationen zum Bringdienst."
+   }
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_1",
+    "type": "agent_message",
+    "text": "{\"tool\":\"search_docs\",\"query\":\"Bringdienst Voraussetzungen nicht mehr aus dem Haus\",\"reason\":null,\"text\":null}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 34619,
+    "cached_input_tokens": 32896,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 112,
+    "reasoning_output_tokens": 26
+   }
+  }
+ ]
+}

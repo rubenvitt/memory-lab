@@ -52,3 +52,11 @@ Auftrag nach E1: die beiden für A günstigen Bedingungen aufheben, B unverände
 **Mem0-Prompts.** Der erste Versuch, die Prompts durch Ausführen von `prompts.py` mit festem Datum zu erzeugen, wurde von der Sandbox abgelehnt (heruntergeladener Code). Stattdessen sind sie per Textauszug übernommen, siehe `prompts/e2/README.md`.
 
 **Smoke E2** (8 Aufrufe, `data/raw/smoke/e2/`, nur Toy-Szenario, nur `A-mem0`): Schema für Fakten und Update wird angenommen, Fakten kommen auf Deutsch („Der Nutzer möchte Erinnerungen per SMS erhalten.“), `ADD` landet im Memory und bleibt nach dem Löschen des Chats stehen, ohne Fakten entfällt der Update-Aufruf. Keine Änderung nötig.
+
+**Lauf E2:** Tag `prompts-e2` (Commit `c2c8930`) gepusht vor dem ersten Aufruf. Ein Durchgang, 339 Aufrufe, 0 Fehlversuche, Budget 500 nicht berührt. Die Läufe enthalten 407 Aufrufe: A-mem0 und A-v1 einer Wiederholung haben bis zur ersten unterschiedlichen Extraktion identische Agent-Prompts, der Cache-Schlüssel enthält die Variante nicht, beide bekommen dieselbe Antwort. Das war nicht geplant, ist aber konsistent (gepaarter Vergleich) und in den Befunden ausgewiesen.
+
+**Panne bei der Auswertung:** `e2.json` trug zunächst `prompt_version: v1`, weil der Runner die Version der E1-Prompts eintrug. Korrigiert in `src/run.mjs`, `e2.json` per `--offline` aus dem Cache neu geschrieben, kein Aufruf.
+
+**Werkzeug:** Ein Agent-Aufruf (`proxy`, A-mem0, Lauf 3, Session 1, `8bc0448b593c85e3b6b4ee07-gpt-6-luna-r3.json`) hat die leere MCP-Ressourcenliste der Codex-CLI abgefragt. Bleibt in der Auswertung.
+
+**Abbildungen:** `chat-loeschen.png` zeigt jetzt `erasure-late` aus E2 nach der festen Regel in `scripts/check-site.cjs` (erster A-mem0-Lauf mit Diagnose im Memory nach dem Löschen: Lauf 1). `store-inspektor.png` bleibt bei E1 `injection`, Lauf 2. `matrix.png` zeigt beide Experimente.

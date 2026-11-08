@@ -1,0 +1,70 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 4,
+ "input_hash": "ab3d1bff5349a5853556883b",
+ "meta": {
+  "scenario": "stale",
+  "arch": "B",
+  "rep": 4,
+  "variant": "B",
+  "role": "agent",
+  "session": 2,
+  "turn": 1,
+  "step": 3
+ },
+ "duration_ms": 10884,
+ "text": "{\"tool\":\"answer\",\"query\":null,\"reason\":null,\"text\":\"Der Bringdienst liefert alle zwei Wochen dienstags an die Adresse, die im Bibliothekssystem hinterlegt ist. Bei dir ist das Am Mühlengraben 12, Fennbrück.\",\"key\":null,\"value\":null,\"quote\":null}",
+ "parsed": {
+  "tool": "answer",
+  "query": null,
+  "reason": null,
+  "text": "Der Bringdienst liefert alle zwei Wochen dienstags an die Adresse, die im Bibliothekssystem hinterlegt ist. Bei dir ist das Am Mühlengraben 12, Fennbrück.",
+  "key": null,
+  "value": null,
+  "quote": null
+ },
+ "usage": {
+  "input_tokens": 35269,
+  "cached_input_tokens": 33152,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 195,
+  "reasoning_output_tokens": 56
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bb63-809d-71f1-9f01-0543e742d4ad"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "Ich beantworte die Frage anhand der Bringdienst-Regelung und der im Profil hinterlegten Adresse."
+   }
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_1",
+    "type": "agent_message",
+    "text": "{\"tool\":\"answer\",\"query\":null,\"reason\":null,\"text\":\"Der Bringdienst liefert alle zwei Wochen dienstags an die Adresse, die im Bibliothekssystem hinterlegt ist. Bei dir ist das Am Mühlengraben 12, Fennbrück.\",\"key\":null,\"value\":null,\"quote\":null}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 35269,
+    "cached_input_tokens": 33152,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 195,
+    "reasoning_output_tokens": 56
+   }
+  }
+ ]
+}

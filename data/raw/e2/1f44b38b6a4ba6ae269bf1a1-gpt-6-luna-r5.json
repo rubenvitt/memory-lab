@@ -1,0 +1,62 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 5,
+ "input_hash": "1f44b38b6a4ba6ae269bf1a1",
+ "meta": {
+  "scenario": "stale",
+  "arch": "B",
+  "rep": 5,
+  "variant": "B",
+  "role": "agent",
+  "session": 1,
+  "turn": 1,
+  "step": 2
+ },
+ "duration_ms": 9899,
+ "text": "{\"tool\":\"search_docs\",\"query\":\"Bringdienst Liefertag Kastanienweg Fennbrück\",\"reason\":null,\"text\":null,\"key\":null,\"value\":null,\"quote\":null}",
+ "parsed": {
+  "tool": "search_docs",
+  "query": "Bringdienst Liefertag Kastanienweg Fennbrück",
+  "reason": null,
+  "text": null,
+  "key": null,
+  "value": null,
+  "quote": null
+ },
+ "usage": {
+  "input_tokens": 56185,
+  "cached_input_tokens": 52096,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 167,
+  "reasoning_output_tokens": 43
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bb64-78fc-72f2-950d-a6ec44e28e2f"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "{\"tool\":\"search_docs\",\"query\":\"Bringdienst Liefertag Kastanienweg Fennbrück\",\"reason\":null,\"text\":null,\"key\":null,\"value\":null,\"quote\":null}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 56185,
+    "cached_input_tokens": 52096,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 167,
+    "reasoning_output_tokens": 43
+   }
+  }
+ ]
+}

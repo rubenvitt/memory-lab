@@ -1,0 +1,62 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 4,
+ "input_hash": "3cef48318b93184a899eb1c6",
+ "meta": {
+  "scenario": "proxy",
+  "arch": "A",
+  "rep": 4,
+  "variant": "A-mem0",
+  "role": "mem0-update",
+  "session": 1,
+  "turn": 1
+ },
+ "duration_ms": 5470,
+ "text": "{\"memory\":[{\"id\":\"0\",\"text\":\"Die Mutter des Nutzers ist 82 Jahre alt und kann das Haus nicht mehr verlassen.\",\"event\":\"ADD\",\"old_memory\":null}]}",
+ "parsed": {
+  "memory": [
+   {
+    "id": "0",
+    "text": "Die Mutter des Nutzers ist 82 Jahre alt und kann das Haus nicht mehr verlassen.",
+    "event": "ADD",
+    "old_memory": null
+   }
+  ]
+ },
+ "usage": {
+  "input_tokens": 18382,
+  "cached_input_tokens": 0,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 48,
+  "reasoning_output_tokens": 0
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bb63-6219-7dd2-8e9e-b21f81b8171c"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "{\"memory\":[{\"id\":\"0\",\"text\":\"Die Mutter des Nutzers ist 82 Jahre alt und kann das Haus nicht mehr verlassen.\",\"event\":\"ADD\",\"old_memory\":null}]}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 18382,
+    "cached_input_tokens": 0,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 48,
+    "reasoning_output_tokens": 0
+   }
+  }
+ ]
+}

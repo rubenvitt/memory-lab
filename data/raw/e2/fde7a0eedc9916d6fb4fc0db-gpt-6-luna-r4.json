@@ -1,0 +1,59 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 4,
+ "input_hash": "fde7a0eedc9916d6fb4fc0db",
+ "meta": {
+  "scenario": "erasure-late",
+  "arch": "A",
+  "rep": 4,
+  "variant": "A-mem0",
+  "role": "agent",
+  "session": 1,
+  "turn": 1,
+  "step": 2
+ },
+ "duration_ms": 9535,
+ "text": "{\"tool\":\"search_catalog\",\"query\":\"Großdruck Romane\",\"reason\":null,\"text\":null}",
+ "parsed": {
+  "tool": "search_catalog",
+  "query": "Großdruck Romane",
+  "reason": null,
+  "text": null
+ },
+ "usage": {
+  "input_tokens": 35171,
+  "cached_input_tokens": 33152,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 111,
+  "reasoning_output_tokens": 40
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bb62-d93c-7972-909f-77ec2c2c6bf2"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "{\"tool\":\"search_catalog\",\"query\":\"Großdruck Romane\",\"reason\":null,\"text\":null}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 35171,
+    "cached_input_tokens": 33152,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 111,
+    "reasoning_output_tokens": 40
+   }
+  }
+ ]
+}

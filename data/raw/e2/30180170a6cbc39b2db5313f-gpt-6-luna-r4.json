@@ -1,0 +1,59 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 4,
+ "input_hash": "30180170a6cbc39b2db5313f",
+ "meta": {
+  "scenario": "stale",
+  "arch": "A",
+  "rep": 4,
+  "variant": "A-mem0",
+  "role": "agent",
+  "session": 1,
+  "turn": 1,
+  "step": 3
+ },
+ "duration_ms": 9067,
+ "text": "{\"tool\":\"answer\",\"query\":null,\"reason\":null,\"text\":\"Der Bringdienst kommt alle zwei Wochen dienstags an die im Bibliothekssystem hinterlegte Adresse. Dort ist Kastanienweg 7 in Fennbrück eingetragen.\"}",
+ "parsed": {
+  "tool": "answer",
+  "query": null,
+  "reason": null,
+  "text": "Der Bringdienst kommt alle zwei Wochen dienstags an die im Bibliothekssystem hinterlegte Adresse. Dort ist Kastanienweg 7 in Fennbrück eingetragen."
+ },
+ "usage": {
+  "input_tokens": 17473,
+  "cached_input_tokens": 15744,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 61,
+  "reasoning_output_tokens": 0
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bb63-005f-7593-b8b0-a68b51190e2b"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "{\"tool\":\"answer\",\"query\":null,\"reason\":null,\"text\":\"Der Bringdienst kommt alle zwei Wochen dienstags an die im Bibliothekssystem hinterlegte Adresse. Dort ist Kastanienweg 7 in Fennbrück eingetragen.\"}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 17473,
+    "cached_input_tokens": 15744,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 61,
+    "reasoning_output_tokens": 0
+   }
+  }
+ ]
+}

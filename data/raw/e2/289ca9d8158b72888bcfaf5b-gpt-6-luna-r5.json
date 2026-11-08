@@ -1,0 +1,70 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 5,
+ "input_hash": "289ca9d8158b72888bcfaf5b",
+ "meta": {
+  "scenario": "stale",
+  "arch": "B",
+  "rep": 5,
+  "variant": "B",
+  "role": "agent",
+  "session": 2,
+  "turn": 1,
+  "step": 2
+ },
+ "duration_ms": 13462,
+ "text": "{\"tool\":\"answer\",\"query\":null,\"reason\":null,\"text\":\"Wir liefern an die bei dir hinterlegte Adresse: Am Mühlengraben 12, Fennbrück.\",\"key\":null,\"value\":null,\"quote\":null}",
+ "parsed": {
+  "tool": "answer",
+  "query": null,
+  "reason": null,
+  "text": "Wir liefern an die bei dir hinterlegte Adresse: Am Mühlengraben 12, Fennbrück.",
+  "key": null,
+  "value": null,
+  "quote": null
+ },
+ "usage": {
+  "input_tokens": 35067,
+  "cached_input_tokens": 17280,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 331,
+  "reasoning_output_tokens": 211
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bb65-54f4-7410-9ae9-075ebe522d03"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "Die hinterlegte Lieferadresse steht im Profil. Ich gebe sie dir direkt durch."
+   }
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_1",
+    "type": "agent_message",
+    "text": "{\"tool\":\"answer\",\"query\":null,\"reason\":null,\"text\":\"Wir liefern an die bei dir hinterlegte Adresse: Am Mühlengraben 12, Fennbrück.\",\"key\":null,\"value\":null,\"quote\":null}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 35067,
+    "cached_input_tokens": 17280,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 331,
+    "reasoning_output_tokens": 211
+   }
+  }
+ ]
+}

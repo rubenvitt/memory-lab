@@ -1,0 +1,70 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 2,
+ "input_hash": "6eb19e6e19f52411b511d165",
+ "meta": {
+  "scenario": "proxy",
+  "arch": "B",
+  "rep": 2,
+  "variant": "B",
+  "role": "agent",
+  "session": 2,
+  "turn": 1,
+  "step": 1
+ },
+ "duration_ms": 8917,
+ "text": "{\"tool\":\"get_profile\",\"query\":null,\"reason\":null,\"text\":null,\"key\":null,\"value\":null,\"quote\":null}",
+ "parsed": {
+  "tool": "get_profile",
+  "query": null,
+  "reason": null,
+  "text": null,
+  "key": null,
+  "value": null,
+  "quote": null
+ },
+ "usage": {
+  "input_tokens": 34877,
+  "cached_input_tokens": 17280,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 117,
+  "reasoning_output_tokens": 26
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bb60-0aff-7c01-99c4-d9db11be8ed7"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "Ich prüfe das verbindliche Profil im Bibliothekssystem."
+   }
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_1",
+    "type": "agent_message",
+    "text": "{\"tool\":\"get_profile\",\"query\":null,\"reason\":null,\"text\":null,\"key\":null,\"value\":null,\"quote\":null}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 34877,
+    "cached_input_tokens": 17280,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 117,
+    "reasoning_output_tokens": 26
+   }
+  }
+ ]
+}

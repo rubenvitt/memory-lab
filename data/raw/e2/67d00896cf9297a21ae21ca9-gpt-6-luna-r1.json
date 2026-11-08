@@ -1,0 +1,70 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 1,
+ "input_hash": "67d00896cf9297a21ae21ca9",
+ "meta": {
+  "scenario": "stale",
+  "arch": "B",
+  "rep": 1,
+  "variant": "B",
+  "role": "agent",
+  "session": 1,
+  "turn": 1,
+  "step": 3
+ },
+ "duration_ms": 9017,
+ "text": "{\"tool\":\"remember\",\"query\":null,\"reason\":null,\"text\":null,\"key\":\"bringdienst_zeitwunsch\",\"value\":\"vormittags zu Hause\",\"quote\":\"da bin ich vormittags immer zu Hause\"}",
+ "parsed": {
+  "tool": "remember",
+  "query": null,
+  "reason": null,
+  "text": null,
+  "key": "bringdienst_zeitwunsch",
+  "value": "vormittags zu Hause",
+  "quote": "da bin ich vormittags immer zu Hause"
+ },
+ "usage": {
+  "input_tokens": 35324,
+  "cached_input_tokens": 17408,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 182,
+  "reasoning_output_tokens": 54
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bb5e-3c2a-7e20-92d0-4d07720d26e1"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "Ich speichere zuerst Ihren ausdrücklich genannten Zeitwunsch für den Bringdienst, dann nenne ich Ihnen den Liefertag aus der Benutzungsordnung."
+   }
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_1",
+    "type": "agent_message",
+    "text": "{\"tool\":\"remember\",\"query\":null,\"reason\":null,\"text\":null,\"key\":\"bringdienst_zeitwunsch\",\"value\":\"vormittags zu Hause\",\"quote\":\"da bin ich vormittags immer zu Hause\"}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 35324,
+    "cached_input_tokens": 17408,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 182,
+    "reasoning_output_tokens": 54
+   }
+  }
+ ]
+}

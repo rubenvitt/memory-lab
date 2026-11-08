@@ -1,0 +1,62 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 1,
+ "input_hash": "0f3698b23189f34487104e3d",
+ "meta": {
+  "scenario": "erasure-late",
+  "arch": "B",
+  "rep": 1,
+  "variant": "B",
+  "role": "agent",
+  "session": 1,
+  "turn": 1,
+  "step": 2
+ },
+ "duration_ms": 8423,
+ "text": "{\"tool\":\"search_docs\",\"query\":\"Großdruck Bücher Sehhilfe Makuladegeneration\",\"reason\":null,\"text\":null,\"key\":null,\"value\":null,\"quote\":null}",
+ "parsed": {
+  "tool": "search_docs",
+  "query": "Großdruck Bücher Sehhilfe Makuladegeneration",
+  "reason": null,
+  "text": null,
+  "key": null,
+  "value": null,
+  "quote": null
+ },
+ "usage": {
+  "input_tokens": 36926,
+  "cached_input_tokens": 17280,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 95,
+  "reasoning_output_tokens": 27
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bb5e-3757-7290-bd02-b809da37435e"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "{\"tool\":\"search_docs\",\"query\":\"Großdruck Bücher Sehhilfe Makuladegeneration\",\"reason\":null,\"text\":null,\"key\":null,\"value\":null,\"quote\":null}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 36926,
+    "cached_input_tokens": 17280,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 95,
+    "reasoning_output_tokens": 27
+   }
+  }
+ ]
+}

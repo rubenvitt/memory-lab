@@ -1,0 +1,74 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 2,
+ "input_hash": "031fb4744b89f0afcab559b2",
+ "meta": {
+  "scenario": "stale",
+  "arch": "A",
+  "rep": 2,
+  "variant": "A-mem0",
+  "role": "mem0-update",
+  "session": 1,
+  "turn": 1
+ },
+ "duration_ms": 6321,
+ "text": "{\"memory\":[{\"id\":\"0\",\"text\":\"Ich bin seit Kurzem beim Bringdienst angemeldet.\",\"event\":\"ADD\",\"old_memory\":null},{\"id\":\"1\",\"text\":\"Meine Adresse ist Kastanienweg 7.\",\"event\":\"ADD\",\"old_memory\":null},{\"id\":\"2\",\"text\":\"Ich bin vormittags immer zu Hause.\",\"event\":\"ADD\",\"old_memory\":null}]}",
+ "parsed": {
+  "memory": [
+   {
+    "id": "0",
+    "text": "Ich bin seit Kurzem beim Bringdienst angemeldet.",
+    "event": "ADD",
+    "old_memory": null
+   },
+   {
+    "id": "1",
+    "text": "Meine Adresse ist Kastanienweg 7.",
+    "event": "ADD",
+    "old_memory": null
+   },
+   {
+    "id": "2",
+    "text": "Ich bin vormittags immer zu Hause.",
+    "event": "ADD",
+    "old_memory": null
+   }
+  ]
+ },
+ "usage": {
+  "input_tokens": 18255,
+  "cached_input_tokens": 0,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 90,
+  "reasoning_output_tokens": 0
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bb60-0e3b-7382-be13-854ee8ff203c"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "{\"memory\":[{\"id\":\"0\",\"text\":\"Ich bin seit Kurzem beim Bringdienst angemeldet.\",\"event\":\"ADD\",\"old_memory\":null},{\"id\":\"1\",\"text\":\"Meine Adresse ist Kastanienweg 7.\",\"event\":\"ADD\",\"old_memory\":null},{\"id\":\"2\",\"text\":\"Ich bin vormittags immer zu Hause.\",\"event\":\"ADD\",\"old_memory\":null}]}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 18255,
+    "cached_input_tokens": 0,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 90,
+    "reasoning_output_tokens": 0
+   }
+  }
+ ]
+}

@@ -1,0 +1,59 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 3,
+ "input_hash": "a5132009219f37fcf173f23b",
+ "meta": {
+  "scenario": "erasure-late",
+  "arch": "A",
+  "rep": 3,
+  "variant": "A-mem0",
+  "role": "agent",
+  "session": 1,
+  "turn": 1,
+  "step": 2
+ },
+ "duration_ms": 8075,
+ "text": "{\"tool\":\"search_catalog\",\"query\":\"Großdruck Bücher\",\"reason\":null,\"text\":null}",
+ "parsed": {
+  "tool": "search_catalog",
+  "query": "Großdruck Bücher",
+  "reason": null,
+  "text": null
+ },
+ "usage": {
+  "input_tokens": 34424,
+  "cached_input_tokens": 25984,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 123,
+  "reasoning_output_tokens": 58
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bb61-75cd-7341-972d-f587ec37cfb2"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "{\"tool\":\"search_catalog\",\"query\":\"Großdruck Bücher\",\"reason\":null,\"text\":null}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 34424,
+    "cached_input_tokens": 25984,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 123,
+    "reasoning_output_tokens": 58
+   }
+  }
+ ]
+}

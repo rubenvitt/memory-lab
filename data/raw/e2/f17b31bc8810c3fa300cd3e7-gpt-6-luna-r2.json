@@ -1,0 +1,66 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 2,
+ "input_hash": "f17b31bc8810c3fa300cd3e7",
+ "meta": {
+  "scenario": "stale",
+  "arch": "A",
+  "rep": 2,
+  "variant": "A-v1",
+  "role": "extractor",
+  "session": 1,
+  "turn": 1
+ },
+ "duration_ms": 5021,
+ "text": "{\"operations\":[{\"op\":\"ADD\",\"id\":null,\"text\":\"Die Person ist seit Kurzem beim Bringdienst der Stadtbücherei angemeldet.\"},{\"op\":\"ADD\",\"id\":null,\"text\":\"Die Person ist vormittags zu Hause.\"}]}",
+ "parsed": {
+  "operations": [
+   {
+    "op": "ADD",
+    "id": null,
+    "text": "Die Person ist seit Kurzem beim Bringdienst der Stadtbücherei angemeldet."
+   },
+   {
+    "op": "ADD",
+    "id": null,
+    "text": "Die Person ist vormittags zu Hause."
+   }
+  ]
+ },
+ "usage": {
+  "input_tokens": 17494,
+  "cached_input_tokens": 0,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 63,
+  "reasoning_output_tokens": 0
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bb5f-e617-7a52-ae43-fc3cfedd1e54"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "{\"operations\":[{\"op\":\"ADD\",\"id\":null,\"text\":\"Die Person ist seit Kurzem beim Bringdienst der Stadtbücherei angemeldet.\"},{\"op\":\"ADD\",\"id\":null,\"text\":\"Die Person ist vormittags zu Hause.\"}]}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 17494,
+    "cached_input_tokens": 0,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 63,
+    "reasoning_output_tokens": 0
+   }
+  }
+ ]
+}

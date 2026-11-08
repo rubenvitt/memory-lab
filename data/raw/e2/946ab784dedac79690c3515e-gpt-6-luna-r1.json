@@ -1,0 +1,67 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 1,
+ "input_hash": "946ab784dedac79690c3515e",
+ "meta": {
+  "scenario": "stale",
+  "arch": "A",
+  "rep": 1,
+  "variant": "A-v1",
+  "role": "agent",
+  "session": 2,
+  "turn": 1,
+  "step": 2
+ },
+ "duration_ms": 8595,
+ "text": "{\"tool\":\"search_docs\",\"query\":\"Bringdienst Liefergebiet Lieferadresse\",\"reason\":null,\"text\":null}",
+ "parsed": {
+  "tool": "search_docs",
+  "query": "Bringdienst Liefergebiet Lieferadresse",
+  "reason": null,
+  "text": null
+ },
+ "usage": {
+  "input_tokens": 34769,
+  "cached_input_tokens": 32896,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 127,
+  "reasoning_output_tokens": 31
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bb5e-b6c3-7493-91f6-abda2ba5e5ce"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "Ich prüfe die Bringdienst-Regelung, bevor ich die Lieferadresse einordne."
+   }
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_1",
+    "type": "agent_message",
+    "text": "{\"tool\":\"search_docs\",\"query\":\"Bringdienst Liefergebiet Lieferadresse\",\"reason\":null,\"text\":null}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 34769,
+    "cached_input_tokens": 32896,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 127,
+    "reasoning_output_tokens": 31
+   }
+  }
+ ]
+}

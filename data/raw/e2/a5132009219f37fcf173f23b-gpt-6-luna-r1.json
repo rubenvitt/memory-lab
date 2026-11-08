@@ -1,0 +1,67 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 1,
+ "input_hash": "a5132009219f37fcf173f23b",
+ "meta": {
+  "scenario": "erasure-late",
+  "arch": "A",
+  "rep": 1,
+  "variant": "A-mem0",
+  "role": "agent",
+  "session": 1,
+  "turn": 1,
+  "step": 2
+ },
+ "duration_ms": 9333,
+ "text": "{\"tool\":\"search_docs\",\"query\":\"Großdruck barrierefreie Bücher Angebote\",\"reason\":null,\"text\":null}",
+ "parsed": {
+  "tool": "search_docs",
+  "query": "Großdruck barrierefreie Bücher Angebote",
+  "reason": null,
+  "text": null
+ },
+ "usage": {
+  "input_tokens": 34698,
+  "cached_input_tokens": 17152,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 113,
+  "reasoning_output_tokens": 16
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bb5e-17ba-7ec1-93fd-966857fd1109"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "Ich prüfe die Service-Informationen zu Großdruck und möglichen barrierefreien Angeboten."
+   }
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_1",
+    "type": "agent_message",
+    "text": "{\"tool\":\"search_docs\",\"query\":\"Großdruck barrierefreie Bücher Angebote\",\"reason\":null,\"text\":null}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 34698,
+    "cached_input_tokens": 17152,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 113,
+    "reasoning_output_tokens": 16
+   }
+  }
+ ]
+}

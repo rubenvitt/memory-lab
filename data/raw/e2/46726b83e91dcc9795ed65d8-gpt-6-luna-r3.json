@@ -1,0 +1,59 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 3,
+ "input_hash": "46726b83e91dcc9795ed65d8",
+ "meta": {
+  "scenario": "stale",
+  "arch": "A",
+  "rep": 3,
+  "variant": "A-v1",
+  "role": "agent",
+  "session": 2,
+  "turn": 1,
+  "step": 1
+ },
+ "duration_ms": 10298,
+ "text": "{\"tool\":\"answer\",\"query\":null,\"reason\":null,\"text\":\"Das kann ich gerade nicht zuverlässig nachschlagen. Bitte frag in der Stadtbücherei Fennbrück nach, für welche Adressen der Bringdienst verfügbar ist.\"}",
+ "parsed": {
+  "tool": "answer",
+  "query": null,
+  "reason": null,
+  "text": "Das kann ich gerade nicht zuverlässig nachschlagen. Bitte frag in der Stadtbücherei Fennbrück nach, für welche Adressen der Bringdienst verfügbar ist."
+ },
+ "usage": {
+  "input_tokens": 53980,
+  "cached_input_tokens": 50048,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 128,
+  "reasoning_output_tokens": 20
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bb61-f76b-7920-86fa-368abd3a9063"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "{\"tool\":\"answer\",\"query\":null,\"reason\":null,\"text\":\"Das kann ich gerade nicht zuverlässig nachschlagen. Bitte frag in der Stadtbücherei Fennbrück nach, für welche Adressen der Bringdienst verfügbar ist.\"}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 53980,
+    "cached_input_tokens": 50048,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 128,
+    "reasoning_output_tokens": 20
+   }
+  }
+ ]
+}

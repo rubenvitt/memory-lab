@@ -1,0 +1,55 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 2,
+ "input_hash": "85f5e64ffbd38b576662b5e3",
+ "meta": {
+  "scenario": "erasure-late",
+  "arch": "A",
+  "rep": 2,
+  "variant": "A-mem0",
+  "role": "mem0-facts",
+  "session": 2,
+  "turn": 1
+ },
+ "duration_ms": 5879,
+ "text": "{\"facts\":[]}",
+ "parsed": {
+  "facts": []
+ },
+ "usage": {
+  "input_tokens": 17819,
+  "cached_input_tokens": 15744,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 14,
+  "reasoning_output_tokens": 0
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bb61-20aa-7990-8d4b-1808dab1dcf5"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "{\"facts\":[]}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 17819,
+    "cached_input_tokens": 15744,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 14,
+    "reasoning_output_tokens": 0
+   }
+  }
+ ]
+}

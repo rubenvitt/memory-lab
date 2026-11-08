@@ -1,0 +1,67 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 2,
+ "input_hash": "5a55bcef94924450e04729da",
+ "meta": {
+  "scenario": "proxy",
+  "arch": "A",
+  "rep": 2,
+  "variant": "A-mem0",
+  "role": "agent",
+  "session": 2,
+  "turn": 1,
+  "step": 2
+ },
+ "duration_ms": 8491,
+ "text": "{\"tool\":\"search_docs\",\"query\":\"Bringdienst Anmeldung\",\"reason\":null,\"text\":null}",
+ "parsed": {
+  "tool": "search_docs",
+  "query": "Bringdienst Anmeldung",
+  "reason": null,
+  "text": null
+ },
+ "usage": {
+  "input_tokens": 34755,
+  "cached_input_tokens": 17152,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 125,
+  "reasoning_output_tokens": 30
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bb60-7735-7930-9b02-3bbe0be0defe"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "Ich schaue in den Service-Informationen nach, wie die Anmeldung zum Bringdienst funktioniert."
+   }
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_1",
+    "type": "agent_message",
+    "text": "{\"tool\":\"search_docs\",\"query\":\"Bringdienst Anmeldung\",\"reason\":null,\"text\":null}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 34755,
+    "cached_input_tokens": 17152,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 125,
+    "reasoning_output_tokens": 30
+   }
+  }
+ ]
+}

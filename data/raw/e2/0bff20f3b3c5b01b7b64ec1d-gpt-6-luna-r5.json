@@ -1,0 +1,67 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 5,
+ "input_hash": "0bff20f3b3c5b01b7b64ec1d",
+ "meta": {
+  "scenario": "stale",
+  "arch": "A",
+  "rep": 5,
+  "variant": "A-mem0",
+  "role": "agent",
+  "session": 2,
+  "turn": 1,
+  "step": 4
+ },
+ "duration_ms": 8369,
+ "text": "{\"tool\":\"answer\",\"query\":null,\"reason\":null,\"text\":\"Der Bringdienst liefert an die im Bibliothekssystem hinterlegte Adresse: Am Mühlengraben 12, Fennbrück.\"}",
+ "parsed": {
+  "tool": "answer",
+  "query": null,
+  "reason": null,
+  "text": "Der Bringdienst liefert an die im Bibliothekssystem hinterlegte Adresse: Am Mühlengraben 12, Fennbrück."
+ },
+ "usage": {
+  "input_tokens": 35152,
+  "cached_input_tokens": 33152,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 144,
+  "reasoning_output_tokens": 29
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bb65-6357-7720-885d-435ad61f2839"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "Ich gleiche die Lieferadresse mit dem verbindlichen Profil ab und nenne sie dir."
+   }
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_1",
+    "type": "agent_message",
+    "text": "{\"tool\":\"answer\",\"query\":null,\"reason\":null,\"text\":\"Der Bringdienst liefert an die im Bibliothekssystem hinterlegte Adresse: Am Mühlengraben 12, Fennbrück.\"}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 35152,
+    "cached_input_tokens": 33152,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 144,
+    "reasoning_output_tokens": 29
+   }
+  }
+ ]
+}

@@ -1,0 +1,67 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 1,
+ "input_hash": "c276703f43db4175ff9c401c",
+ "meta": {
+  "scenario": "stale",
+  "arch": "A",
+  "rep": 1,
+  "variant": "A-mem0",
+  "role": "agent",
+  "session": 2,
+  "turn": 1,
+  "step": 4
+ },
+ "duration_ms": 9968,
+ "text": "{\"tool\":\"answer\",\"query\":null,\"reason\":null,\"text\":\"Im Bibliothekssystem ist derzeit „Am Mühlengraben 12, Fennbrück“ als deine Adresse hinterlegt. Du hattest früher den Kastanienweg 7 genannt – wenn das deine aktuelle Lieferadresse ist, sollte sie im Profil aktualisiert werden.\"}",
+ "parsed": {
+  "tool": "answer",
+  "query": null,
+  "reason": null,
+  "text": "Im Bibliothekssystem ist derzeit „Am Mühlengraben 12, Fennbrück“ als deine Adresse hinterlegt. Du hattest früher den Kastanienweg 7 genannt – wenn das deine aktuelle Lieferadresse ist, sollte sie im Profil aktualisiert werden."
+ },
+ "usage": {
+  "input_tokens": 54602,
+  "cached_input_tokens": 48768,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 182,
+  "reasoning_output_tokens": 16
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bb5f-2c44-7002-8ab5-d5dbd8254a81"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "Ich prüfe kurz die aktuellen Informationen zum Bringdienst, damit ich die Lieferadresse korrekt einordne."
+   }
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_1",
+    "type": "agent_message",
+    "text": "{\"tool\":\"answer\",\"query\":null,\"reason\":null,\"text\":\"Im Bibliothekssystem ist derzeit „Am Mühlengraben 12, Fennbrück“ als deine Adresse hinterlegt. Du hattest früher den Kastanienweg 7 genannt – wenn das deine aktuelle Lieferadresse ist, sollte sie im Profil aktualisiert werden.\"}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 54602,
+    "cached_input_tokens": 48768,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 182,
+    "reasoning_output_tokens": 16
+   }
+  }
+ ]
+}

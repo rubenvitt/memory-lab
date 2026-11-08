@@ -1,0 +1,74 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 1,
+ "input_hash": "cfbe9d7a64ed56e7f8cf6b27",
+ "meta": {
+  "scenario": "stale",
+  "arch": "A",
+  "rep": 1,
+  "variant": "A-mem0",
+  "role": "mem0-update",
+  "session": 1,
+  "turn": 1
+ },
+ "duration_ms": 6511,
+ "text": "{\"memory\":[{\"id\":\"1\",\"text\":\"Seit Kurzem beim Bringdienst angemeldet\",\"event\":\"ADD\",\"old_memory\":null},{\"id\":\"2\",\"text\":\"Adresse ist Kastanienweg 7\",\"event\":\"ADD\",\"old_memory\":null},{\"id\":\"3\",\"text\":\"Vormittags immer zu Hause\",\"event\":\"ADD\",\"old_memory\":null}]}",
+ "parsed": {
+  "memory": [
+   {
+    "id": "1",
+    "text": "Seit Kurzem beim Bringdienst angemeldet",
+    "event": "ADD",
+    "old_memory": null
+   },
+   {
+    "id": "2",
+    "text": "Adresse ist Kastanienweg 7",
+    "event": "ADD",
+    "old_memory": null
+   },
+   {
+    "id": "3",
+    "text": "Vormittags immer zu Hause",
+    "event": "ADD",
+    "old_memory": null
+   }
+  ]
+ },
+ "usage": {
+  "input_tokens": 18395,
+  "cached_input_tokens": 0,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 86,
+  "reasoning_output_tokens": 0
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bb5e-7daf-7670-81e6-ff67ba35920a"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "{\"memory\":[{\"id\":\"1\",\"text\":\"Seit Kurzem beim Bringdienst angemeldet\",\"event\":\"ADD\",\"old_memory\":null},{\"id\":\"2\",\"text\":\"Adresse ist Kastanienweg 7\",\"event\":\"ADD\",\"old_memory\":null},{\"id\":\"3\",\"text\":\"Vormittags immer zu Hause\",\"event\":\"ADD\",\"old_memory\":null}]}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 18395,
+    "cached_input_tokens": 0,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 86,
+    "reasoning_output_tokens": 0
+   }
+  }
+ ]
+}

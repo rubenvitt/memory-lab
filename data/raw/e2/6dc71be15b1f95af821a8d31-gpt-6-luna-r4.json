@@ -1,0 +1,68 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 4,
+ "input_hash": "6dc71be15b1f95af821a8d31",
+ "meta": {
+  "scenario": "erasure-late",
+  "arch": "A",
+  "rep": 4,
+  "variant": "A-mem0",
+  "role": "mem0-update",
+  "session": 1,
+  "turn": 1
+ },
+ "duration_ms": 5363,
+ "text": "{\"memory\":[{\"id\":\"1\",\"text\":\"Ich habe Makuladegeneration und kann normale Schrift kaum noch lesen.\",\"event\":\"ADD\",\"old_memory\":null},{\"id\":\"2\",\"text\":\"Ich brauche Bücher in Großdruck.\",\"event\":\"ADD\",\"old_memory\":null}]}",
+ "parsed": {
+  "memory": [
+   {
+    "id": "1",
+    "text": "Ich habe Makuladegeneration und kann normale Schrift kaum noch lesen.",
+    "event": "ADD",
+    "old_memory": null
+   },
+   {
+    "id": "2",
+    "text": "Ich brauche Bücher in Großdruck.",
+    "event": "ADD",
+    "old_memory": null
+   }
+  ]
+ },
+ "usage": {
+  "input_tokens": 18388,
+  "cached_input_tokens": 15744,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 66,
+  "reasoning_output_tokens": 0
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bb63-65f0-7d70-903c-762dca277c20"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "{\"memory\":[{\"id\":\"1\",\"text\":\"Ich habe Makuladegeneration und kann normale Schrift kaum noch lesen.\",\"event\":\"ADD\",\"old_memory\":null},{\"id\":\"2\",\"text\":\"Ich brauche Bücher in Großdruck.\",\"event\":\"ADD\",\"old_memory\":null}]}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 18388,
+    "cached_input_tokens": 15744,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 66,
+    "reasoning_output_tokens": 0
+   }
+  }
+ ]
+}

@@ -1,0 +1,67 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 2,
+ "input_hash": "65c6e7294ee98c59987408f7",
+ "meta": {
+  "scenario": "stale",
+  "arch": "A",
+  "rep": 2,
+  "variant": "A-v1",
+  "role": "agent",
+  "session": 2,
+  "turn": 1,
+  "step": 2
+ },
+ "duration_ms": 17076,
+ "text": "{\"tool\":\"answer\",\"query\":null,\"reason\":null,\"text\":\"Wir liefern an die in deinem Bibliotheksprofil hinterlegte Adresse: Am Mühlengraben 12, Fennbrück.\"}",
+ "parsed": {
+  "tool": "answer",
+  "query": null,
+  "reason": null,
+  "text": "Wir liefern an die in deinem Bibliotheksprofil hinterlegte Adresse: Am Mühlengraben 12, Fennbrück."
+ },
+ "usage": {
+  "input_tokens": 54232,
+  "cached_input_tokens": 48640,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 156,
+  "reasoning_output_tokens": 24
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bb60-4fc1-71b2-92f5-c11993118511"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "Ich prüfe die Bringdienst-Informationen der Bücherei, damit ich die Lieferadresse korrekt beantworte."
+   }
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_1",
+    "type": "agent_message",
+    "text": "{\"tool\":\"answer\",\"query\":null,\"reason\":null,\"text\":\"Wir liefern an die in deinem Bibliotheksprofil hinterlegte Adresse: Am Mühlengraben 12, Fennbrück.\"}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 54232,
+    "cached_input_tokens": 48640,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 156,
+    "reasoning_output_tokens": 24
+   }
+  }
+ ]
+}

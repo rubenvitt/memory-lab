@@ -51,11 +51,11 @@ function plan() {
   }, null, 1));
 }
 
-function report(name, s, payload, expected) {
+function report(name, s, payload, expected, version = prompts.version) {
   const summary = s.summary();
   const complete = !summary.stopped && summary.failed === 0 && payload.runs.length === expected;
   mkdirSync(RESULTS, { recursive: true });
-  writeFileSync(join(RESULTS, `${name}.json`), JSON.stringify({ complete, prompt_version: prompts.version, expected, ...payload }, null, 1));
+  writeFileSync(join(RESULTS, `${name}.json`), JSON.stringify({ complete, prompt_version: version, expected, ...payload }, null, 1));
   if (!values.offline) appendFileSync(join(RESULTS, 'run-log.jsonl'), JSON.stringify({ at: new Date().toISOString(), name, ...summary, complete, runs: payload.runs.length }) + '\n');
   console.log(JSON.stringify({ name, complete, runs: payload.runs.length, ...summary }));
   if (summary.stopped === 'rate-limit') { console.error('RATE LIMIT: Stand ist gesichert, Lauf gestoppt.'); process.exit(3); }
@@ -78,7 +78,7 @@ async function runAll(name, scenarios, reps, s, { variants = null, p = prompts, 
     });
     if (s.summary().stopped) break;
   }
-  report(name, s, { runs, failures }, scenarios.length * cells.length * reps);
+  report(name, s, { runs, failures }, scenarios.length * cells.length * reps, p.version);
 }
 
 function planE2() {

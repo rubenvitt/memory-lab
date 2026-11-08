@@ -1,0 +1,66 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 4,
+ "input_hash": "0ba6acd866acf2ad4794ce48",
+ "meta": {
+  "scenario": "erasure-late",
+  "arch": "A",
+  "rep": 4,
+  "variant": "A-v1",
+  "role": "extractor",
+  "session": 1,
+  "turn": 1
+ },
+ "duration_ms": 5515,
+ "text": "{\"operations\":[{\"op\":\"ADD\",\"id\":null,\"text\":\"Die Person hat Makuladegeneration und kann normale Schrift kaum noch lesen.\"},{\"op\":\"ADD\",\"id\":null,\"text\":\"Die Person benötigt Bücher in Großdruck.\"}]}",
+ "parsed": {
+  "operations": [
+   {
+    "op": "ADD",
+    "id": null,
+    "text": "Die Person hat Makuladegeneration und kann normale Schrift kaum noch lesen."
+   },
+   {
+    "op": "ADD",
+    "id": null,
+    "text": "Die Person benötigt Bücher in Großdruck."
+   }
+  ]
+ },
+ "usage": {
+  "input_tokens": 17692,
+  "cached_input_tokens": 8960,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 60,
+  "reasoning_output_tokens": 0
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bb63-3fad-75d3-9abf-5e7dc1deba52"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "{\"operations\":[{\"op\":\"ADD\",\"id\":null,\"text\":\"Die Person hat Makuladegeneration und kann normale Schrift kaum noch lesen.\"},{\"op\":\"ADD\",\"id\":null,\"text\":\"Die Person benötigt Bücher in Großdruck.\"}]}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 17692,
+    "cached_input_tokens": 8960,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 60,
+    "reasoning_output_tokens": 0
+   }
+  }
+ ]
+}

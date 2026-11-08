@@ -1,0 +1,67 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 3,
+ "input_hash": "7af3bc2879b3573159d4127b",
+ "meta": {
+  "scenario": "stale",
+  "arch": "A",
+  "rep": 3,
+  "variant": "A-mem0",
+  "role": "agent",
+  "session": 1,
+  "turn": 1,
+  "step": 2
+ },
+ "duration_ms": 9348,
+ "text": "{\"tool\":\"search_docs\",\"query\":\"Bringdienst Liefertag Zustellplan\",\"reason\":null,\"text\":null}",
+ "parsed": {
+  "tool": "search_docs",
+  "query": "Bringdienst Liefertag Zustellplan",
+  "reason": null,
+  "text": null
+ },
+ "usage": {
+  "input_tokens": 34786,
+  "cached_input_tokens": 32896,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 155,
+  "reasoning_output_tokens": 58
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bb61-5910-7ae1-bb3e-42ccc5ebb555"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "Ich suche den Bringdienst-Plan der Bücherei nach, damit ich den Liefertag nicht errate."
+   }
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_1",
+    "type": "agent_message",
+    "text": "{\"tool\":\"search_docs\",\"query\":\"Bringdienst Liefertag Zustellplan\",\"reason\":null,\"text\":null}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 34786,
+    "cached_input_tokens": 32896,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 155,
+    "reasoning_output_tokens": 58
+   }
+  }
+ ]
+}

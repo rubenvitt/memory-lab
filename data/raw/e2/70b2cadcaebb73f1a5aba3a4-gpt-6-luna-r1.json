@@ -1,0 +1,70 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 1,
+ "input_hash": "70b2cadcaebb73f1a5aba3a4",
+ "meta": {
+  "scenario": "stale",
+  "arch": "B",
+  "rep": 1,
+  "variant": "B",
+  "role": "agent",
+  "session": 2,
+  "turn": 1,
+  "step": 2
+ },
+ "duration_ms": 12416,
+ "text": "{\"tool\":\"remember\",\"query\":null,\"reason\":null,\"text\":null,\"key\":\"bringdienst_zeitwunsch\",\"value\":\"vormittags zu Hause\",\"quote\":\"da bin ich vormittags immer zu Hause\"}",
+ "parsed": {
+  "tool": "remember",
+  "query": null,
+  "reason": null,
+  "text": null,
+  "key": "bringdienst_zeitwunsch",
+  "value": "vormittags zu Hause",
+  "quote": "da bin ich vormittags immer zu Hause"
+ },
+ "usage": {
+  "input_tokens": 35049,
+  "cached_input_tokens": 31488,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 356,
+  "reasoning_output_tokens": 208
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bb5e-d84b-7b32-b6b9-1a11fd378b34"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "{\"tool\":\"remember\",\"query\":null,\"reason\":null,\"text\":null,\"key\":\"bringdienst_zeitwunsch\",\"value\":\"vormittags zu Hause\",\"quote\":\"da bin ich vormittags immer zu Hause\"}"
+   }
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_1",
+    "type": "agent_message",
+    "text": "{\"tool\":\"remember\",\"query\":null,\"reason\":null,\"text\":null,\"key\":\"bringdienst_zeitwunsch\",\"value\":\"vormittags zu Hause\",\"quote\":\"da bin ich vormittags immer zu Hause\"}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 35049,
+    "cached_input_tokens": 31488,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 356,
+    "reasoning_output_tokens": 208
+   }
+  }
+ ]
+}

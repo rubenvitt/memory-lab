@@ -1,0 +1,57 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 4,
+ "input_hash": "f6ca0c566a11bec2db49570f",
+ "meta": {
+  "scenario": "proxy",
+  "arch": "A",
+  "rep": 4,
+  "variant": "A-mem0",
+  "role": "mem0-facts",
+  "session": 2,
+  "turn": 1
+ },
+ "duration_ms": 4494,
+ "text": "{\"facts\":[\"Der Nutzer möchte wissen, ob er für den Bringdienst angemeldet ist.\"]}",
+ "parsed": {
+  "facts": [
+   "Der Nutzer möchte wissen, ob er für den Bringdienst angemeldet ist."
+  ]
+ },
+ "usage": {
+  "input_tokens": 17770,
+  "cached_input_tokens": 15744,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 30,
+  "reasoning_output_tokens": 0
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bb63-c7b3-7a40-8613-1e74bc093af2"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "{\"facts\":[\"Der Nutzer möchte wissen, ob er für den Bringdienst angemeldet ist.\"]}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 17770,
+    "cached_input_tokens": 15744,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 30,
+    "reasoning_output_tokens": 0
+   }
+  }
+ ]
+}

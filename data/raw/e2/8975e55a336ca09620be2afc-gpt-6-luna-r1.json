@@ -1,0 +1,67 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 1,
+ "input_hash": "8975e55a336ca09620be2afc",
+ "meta": {
+  "scenario": "stale",
+  "arch": "A",
+  "rep": 1,
+  "variant": "A-v1",
+  "role": "agent",
+  "session": 2,
+  "turn": 1,
+  "step": 3
+ },
+ "duration_ms": 8665,
+ "text": "{\"tool\":\"answer\",\"query\":null,\"reason\":null,\"text\":\"Der Bringdienst liefert an die im Bibliothekssystem hinterlegte Adresse: Am Mühlengraben 12, Fennbrück. Geliefert wird alle zwei Wochen dienstags.\"}",
+ "parsed": {
+  "tool": "answer",
+  "query": null,
+  "reason": null,
+  "text": "Der Bringdienst liefert an die im Bibliothekssystem hinterlegte Adresse: Am Mühlengraben 12, Fennbrück. Geliefert wird alle zwei Wochen dienstags."
+ },
+ "usage": {
+  "input_tokens": 35010,
+  "cached_input_tokens": 33024,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 149,
+  "reasoning_output_tokens": 18
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bb5e-f9f7-7760-857b-07d4fe06f8ca"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "Ich prüfe die verbindliche Lieferregel und die bereits hinterlegte Adresse, damit ich die Frage konkret beantworten kann."
+   }
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_1",
+    "type": "agent_message",
+    "text": "{\"tool\":\"answer\",\"query\":null,\"reason\":null,\"text\":\"Der Bringdienst liefert an die im Bibliothekssystem hinterlegte Adresse: Am Mühlengraben 12, Fennbrück. Geliefert wird alle zwei Wochen dienstags.\"}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 35010,
+    "cached_input_tokens": 33024,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 149,
+    "reasoning_output_tokens": 18
+   }
+  }
+ ]
+}

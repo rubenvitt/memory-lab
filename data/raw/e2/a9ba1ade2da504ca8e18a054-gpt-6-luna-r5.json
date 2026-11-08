@@ -1,0 +1,59 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 5,
+ "input_hash": "a9ba1ade2da504ca8e18a054",
+ "meta": {
+  "scenario": "stale",
+  "arch": "A",
+  "rep": 5,
+  "variant": "A-mem0",
+  "role": "agent",
+  "session": 2,
+  "turn": 1,
+  "step": 2
+ },
+ "duration_ms": 7795,
+ "text": "{\"tool\":\"search_docs\",\"query\":\"Bringdienst Lieferadresse an welche Adresse wird geliefert\",\"reason\":null,\"text\":null}",
+ "parsed": {
+  "tool": "search_docs",
+  "query": "Bringdienst Lieferadresse an welche Adresse wird geliefert",
+  "reason": null,
+  "text": null
+ },
+ "usage": {
+  "input_tokens": 34766,
+  "cached_input_tokens": 32896,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 120,
+  "reasoning_output_tokens": 52
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bb65-2a90-7593-96d8-17343c5b50a7"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "{\"tool\":\"search_docs\",\"query\":\"Bringdienst Lieferadresse an welche Adresse wird geliefert\",\"reason\":null,\"text\":null}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 34766,
+    "cached_input_tokens": 32896,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 120,
+    "reasoning_output_tokens": 52
+   }
+  }
+ ]
+}

@@ -1,0 +1,59 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 5,
+ "input_hash": "15b9ade164b3c67241cc14f8",
+ "meta": {
+  "scenario": "stale",
+  "arch": "A",
+  "rep": 5,
+  "variant": "A-mem0",
+  "role": "mem0-facts",
+  "session": 1,
+  "turn": 1
+ },
+ "duration_ms": 4545,
+ "text": "{\"facts\":[\"Der Nutzer ist seit Kurzem beim Bringdienst angemeldet.\",\"Die Adresse lautet Kastanienweg 7.\",\"Der Nutzer ist vormittags immer zu Hause.\"]}",
+ "parsed": {
+  "facts": [
+   "Der Nutzer ist seit Kurzem beim Bringdienst angemeldet.",
+   "Die Adresse lautet Kastanienweg 7.",
+   "Der Nutzer ist vormittags immer zu Hause."
+  ]
+ },
+ "usage": {
+  "input_tokens": 17785,
+  "cached_input_tokens": 15744,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 47,
+  "reasoning_output_tokens": 0
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bb64-9be1-7112-962a-ec64e91e8f2b"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "{\"facts\":[\"Der Nutzer ist seit Kurzem beim Bringdienst angemeldet.\",\"Die Adresse lautet Kastanienweg 7.\",\"Der Nutzer ist vormittags immer zu Hause.\"]}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 17785,
+    "cached_input_tokens": 15744,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 47,
+    "reasoning_output_tokens": 0
+   }
+  }
+ ]
+}
