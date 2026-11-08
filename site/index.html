@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Memory Lab</title>
+  <meta name="description" content="Zwei Gedächtnis-Architekturen für einen Bücherei-Assistenten, sechs Szenarien, aufgezeichnete Läufe mit Store-Inspektor.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:wght@400..700&family=Atkinson+Hyperlegible+Next:ital,wght@0,400..700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,400..800&display=swap">
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="js/main.js"></script>
+</head>
+<body>
+  <a class="skip" href="#inspector">Zum Store-Inspektor</a>
+  <header class="top">
+    <h1 class="brand"><span class="brand-mark" aria-hidden="true"></span>Memory Lab</h1>
+    <p class="pitch" data-prose>Ein Bücherei-Assistent, zwei Gedächtnisse: <strong>A</strong> wirft alles in einen Topf, <strong>B</strong> trennt Stores nach Herkunft und Löschpfad.</p>
+  </header>
+
+  <main>
+    <section class="stage" aria-label="Szenario">
+      <div class="pick">
+        <div class="seg" id="scenarios" role="group" aria-label="Szenario"></div>
+        <label class="field">Lauf <select id="rep"></select></label>
+      </div>
+      <p class="check" id="check"></p>
+      <ol class="timeline" id="timeline" aria-label="Zeitleiste"></ol>
+      <div class="erase">
+        <button type="button" class="quiet" id="erase"></button>
+        <p class="status" id="status" role="status"></p>
+      </div>
+    </section>
+
+    <section class="chats" aria-label="Gespräch">
+      <article class="arch" id="chat-A" aria-labelledby="title-A">
+        <div class="arch-head"><h2 id="title-A">A · ein Topf</h2><p class="verdict" id="verdict-A"></p></div>
+        <div class="note" id="note-A"></div>
+        <ol class="chat" id="log-A"></ol>
+      </article>
+      <article class="arch" id="chat-B" aria-labelledby="title-B">
+        <div class="arch-head"><h2 id="title-B">B · getrennte Stores</h2><p class="verdict" id="verdict-B"></p></div>
+        <div class="note" id="note-B"></div>
+        <ol class="chat" id="log-B"></ol>
+      </article>
+    </section>
+
+    <section class="inspector" id="inspector" aria-labelledby="inspector-title" tabindex="-1">
+      <div class="group-head">
+        <h2 id="inspector-title">Store-Inspektor</h2>
+        <p class="source" id="inspector-source"></p>
+      </div>
+      <div class="stores" id="stores"></div>
+    </section>
+  </main>
+
+  <section class="matrix" aria-labelledby="matrix-title">
+    <div class="group-head">
+      <h2 id="matrix-title">Szenario × Architektur</h2>
+      <p class="source" id="matrix-source"></p>
+    </div>
+    <div class="matrix-scroll" tabindex="0" role="region" aria-labelledby="matrix-title">
+      <table id="matrix"></table>
+    </div>
+  </section>
+
+  <footer class="limits">
+    <p data-prose>Grenzen: synthetische Daten, ein Modell, fünf Läufe pro Zelle, Prüfungen per Textregel, beide Architekturen aus einer Hand.</p>
+    <nav aria-label="Weiterlesen">
+      <a href="https://rubeen.dev/blog/memory-datenarchitektur/">Blogpost</a>
+      <a href="https://github.com/rubenvitt/memory-lab">Repo</a>
+      <a href="https://github.com/rubenvitt/memory-lab/blob/main/docs/findings.md">docs/findings.md</a>
+    </nav>
+  </footer>
+</body>
+</html>
