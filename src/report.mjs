@@ -2,11 +2,10 @@
 // writes summary.json and demo.json, fills the generated block of docs/findings.md and copies data and store logic into site/.
 import { copyFileSync, existsSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { SCENARIOS } from '../fixtures/scenarios.mjs';
 import { loadPrompts } from './agent.mjs';
 import { finalAnswer } from './checks.mjs';
-import { AUDIT, PERSISTENT, STORES, hits } from './memory.mjs';
-import { CANARY } from '../fixtures/scenarios.mjs';
+import { PERSISTENT } from './memory.mjs';
+import { CANARY, SCENARIOS } from '../fixtures/scenarios.mjs';
 
 const root = new URL('..', import.meta.url).pathname;
 const RESULTS = join(root, 'data/results');
@@ -76,7 +75,7 @@ function sealedAudit(run, hash) {
   });
 }
 
-export function build(series, { hash, smoke }) {
+export function build(series, { hash }) {
   const prompts = loadPrompts(series.prompt_version);
   const byCell = (s, arch) => series.runs.filter((r) => r.scenario === s && r.arch === arch).sort((a, b) => a.rep - b.rep);
   const matrix = SCENARIOS.map((s) => ({
@@ -105,7 +104,7 @@ export function build(series, { hash, smoke }) {
     calls: {
       series: calls.length, agent: calls.filter((c) => c.role === 'agent').length, extractor: calls.filter((c) => c.role === 'extractor').length,
       by_arch: Object.fromEntries(ARCHS.map((a) => [a, calls.filter((c) => c.arch === a).length])),
-      raw_series: rawFiles(join(RAW, 'series')), raw_smoke: rawFiles(join(RAW, 'smoke')), smoke_calls: smoke,
+      raw_series: rawFiles(join(RAW, 'series')), raw_smoke: rawFiles(join(RAW, 'smoke')),
       budget: prompts.params.budget,
     },
     matrix, runs, erasure_audit: erasureAudit, implicit_b_searches: implicitB,
@@ -163,7 +162,7 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   const hash = (t) => createHash('sha256').update(t).digest('hex').slice(0, 16);
   const series = JSON.parse(readFileSync(join(RESULTS, 'series.json'), 'utf8'));
   if (!series.complete) throw new Error('series is incomplete, figures would have gaps');
-  const { summary, demo } = build(series, { hash, smoke: rawFiles(join(RAW, 'smoke')).answers });
+  const { summary, demo } = build(series, { hash });
   const json = (o) => `${JSON.stringify(o, null, 1)}\n`;
   writeFileSync(join(RESULTS, 'summary.json'), json(summary));
   writeFileSync(join(RESULTS, 'demo.json'), JSON.stringify(demo));

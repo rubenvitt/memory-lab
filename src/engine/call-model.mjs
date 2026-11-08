@@ -48,7 +48,10 @@ export async function callModel({ model, prompt, schema, effort = 'low', timeout
     const schemaFile = join(dir, 'schema.json');
     await writeFile(schemaFile, JSON.stringify(schema));
     const args = ['exec', '--skip-git-repo-check', '--ephemeral', '--ignore-user-config', '--ignore-rules',
-      '-s', 'read-only', '-m', model, '-c', `model_reasoning_effort="${effort}"`, '--json', '--output-schema', schemaFile, '-'];
+      '-s', 'read-only', '-m', model, '-c', `model_reasoning_effort="${effort}"`,
+      // No tool may reach outside the prompt: web search, the apps MCP server (it also searches the web), browser, shell.
+      '-c', 'web_search="disabled"', '--disable', 'apps', '--disable', 'browser_use', '--disable', 'in_app_browser', '--disable', 'shell_tool',
+      '--json', '--output-schema', schemaFile, '-'];
     const child = spawn('codex', args, { cwd: dir, stdio: ['pipe', 'pipe', 'pipe'] });
     let stdout = '';
     let stderr = '';
