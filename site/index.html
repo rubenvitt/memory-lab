@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light dark">
   <title>Memory Lab</title>
-  <meta name="description" content="Gleiches Gespräch, zwei Gedächtnisse: was ein Bücherei-Assistent über die Person behält und was nach dem Löschen bleibt.">
+  <meta name="description" content="Gleiches Gespräch, zwei Gedächtnisse: was ein Assistent behält, wenn ein Modell entscheidet, und was, wenn getrennte Speicher es tun.">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,30 +14,19 @@
   <script type="module" src="js/main.js"></script>
 </head>
 <body>
-  <a class="skip" href="#story">Zum Gespräch</a>
+  <a class="skip" href="#story">Zum Szenario</a>
   <header class="head">
     <h1>Memory Lab</h1>
-    <p class="lede">Gleiches Gespräch, zwei Gedächtnisse. Ein Bücherei-Assistent führt jedes Gespräch zweimal, einmal mit A und einmal mit B.</p>
-    <dl class="who">
-      <div><dt>A</dt><dd>Ein Sprachmodell liest jedes Gespräch und entscheidet selbst, was es über die Person behält.</dd></div>
-      <div><dt>B</dt><dd>Dauerhaft bleibt nur, was die Person ausdrücklich wünscht, mit ihren eigenen Worten als Beleg. Alles andere endet mit dem Gespräch.</dd></div>
-    </dl>
+    <p class="lede">Gleiches Gespräch, zwei Gedächtnisse.</p>
   </header>
 
   <main>
-    <nav class="questions" aria-label="Fragen">
+    <nav class="questions" aria-label="Szenarien">
       <ol id="questions"></ol>
     </nav>
 
-    <section class="runs" id="runs-box" aria-labelledby="runs-title">
+    <section class="story" id="story" aria-labelledby="question" tabindex="-1">
       <h2 class="question" id="question"></h2>
-      <p class="summary" id="summary"></p>
-      <h3 id="runs-title" class="sr">Die fünf Läufe</h3>
-      <ol class="run-list" id="runs"></ol>
-    </section>
-
-    <section class="story" id="story" aria-labelledby="story-title" tabindex="-1">
-      <h3 class="story-title" id="story-title"></h3>
       <div class="stepper">
         <p class="step" id="step" aria-live="polite"></p>
         <div class="nav">
@@ -45,27 +34,49 @@
           <button type="button" id="next">Weiter</button>
         </div>
       </div>
+
       <p class="legend" id="legend"></p>
       <ol class="chat" id="chat" aria-label="Gespräch"></ol>
+
       <div class="minds">
         <section class="mind" aria-labelledby="mind-a">
-          <h4 id="mind-a">A hat behalten</h4>
+          <h3 id="mind-a">A merkt sich</h3>
+          <p class="how" id="how-a"></p>
           <div id="store-a"></div>
         </section>
         <section class="mind" aria-labelledby="mind-b">
-          <h4 id="mind-b">B hat behalten</h4>
+          <h3 id="mind-b">B speichert</h3>
+          <p class="how" id="how-b"></p>
           <div id="store-b"></div>
         </section>
       </div>
+
+      <p class="result" id="result" hidden></p>
+
+      <details class="details" id="details">
+        <summary>Details</summary>
+        <div class="details-body">
+          <label>Experiment <select id="exp"></select></label>
+          <label>Lauf <select id="rep"></select></label>
+          <label id="variant-field">Variante von A <select id="variant"></select></label>
+          <p class="note" id="exp-note"></p>
+          <p class="note"><button type="button" class="link" id="control"></button></p>
+        </div>
+      </details>
     </section>
   </main>
 
   <footer class="foot">
-    <p>Vier weitere Szenarien gingen für A und B gleich aus. Details stehen in den <a href="https://github.com/rubenvitt/memory-lab/blob/main/docs/findings.md">Befunden im Repo</a>.</p>
-    <p class="limits">Ausgedachte Bücherei, ein Sprachmodell, fünf Durchläufe pro Frage. Alles hier sind aufgezeichnete Läufe.</p>
+    <section class="matrix" aria-labelledby="matrix-title">
+      <h2 id="matrix-title">Alle Läufe</h2>
+      <p class="note">Bestanden von je fünf Läufen. A: Ein Modell entscheidet, was es sich merkt (A-mem0 mit dem Original-Prompt von Mem0, A-v1 mit eigenem Prompt). B: getrennte Speicher, dauerhaft nur ausdrückliche Wünsche mit wörtlichem Zitat.</p>
+      <div id="matrices"></div>
+    </section>
+    <p class="limits">Synthetische Daten, ein Modell, fünf Läufe pro Zelle, Prüfungen per Textregel, alles aus einer Hand.</p>
     <nav class="links" aria-label="Weiterlesen">
       <a href="https://rubeen.dev/blog/memory-datenarchitektur/">Blogpost</a>
       <a href="https://github.com/rubenvitt/memory-lab">Repo</a>
+      <a href="https://github.com/rubenvitt/memory-lab/blob/main/docs/findings.md">Befunde</a>
     </nav>
   </footer>
 </body>
