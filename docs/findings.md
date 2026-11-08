@@ -2,6 +2,25 @@
 
 Die Tabellen im Abschnitt „Ergebnis“ ganz unten erzeugt `npm run report` aus `data/raw/series/`. Alles darüber ist von Hand geschrieben und gegen die Rohdaten geprüft. Grundlage: Prompts `v1` (Tag `prompts-v1`), Agent und Extraktor `gpt-6-luna`, Effort `low`, 6 Szenarien × 2 Architekturen × 5 Läufe, 393 Modellaufrufe.
 
+## E3: Was ein Löschen erreicht
+
+Nach zwei unabhängigen Gutachten zu E1 und E2 ergänzt. Aufbau und Regeln: [prompts/e3/README.md](../prompts/e3/README.md).
+
+### Erwartung vor dem Lauf (E3b, E3c)
+
+Festgehalten vor dem ersten Aufruf von E3b und E3c, nach einem Smoke-Lauf mit zwei Nachrichten und vor dem Tag `prompts-e3`. E3a braucht keine Erwartung, die Tabelle folgt aus den Regeln.
+
+| Messung | Erwartung |
+|---|---|
+| Mem0 schreibt eine nebenbei erwähnte Angabe | 15 bis 20 von 20 |
+| Mem0 schreibt eine Angabe nach „Merk dir bitte“ | 18 bis 20 von 20 |
+| v1 schreibt eine nebenbei erwähnte Angabe | 4 bis 10 von 20 |
+| v1 schreibt eine Angabe nach „Merk dir bitte“ | 12 bis 18 von 20 |
+| Agent B schreibt die Angabe in ein Klartext-Argument (Suche, Grund, Schlüssel) | 5 bis 12 von 40 |
+| Agent B schreibt sie in ein gehashtes Argument (`remember`), nach „Merk dir bitte“ | 8 bis 16 von 20 |
+
+Begründung: Der Mem0-Prompt zählt Gesundheit und persönliche Details ausdrücklich zu dem, was gespeichert werden soll. v1 verbietet sensible Angaben ohne ausdrücklichen Wunsch, hat das in E2 aber nur in 2 von 5 Läufen eingehalten, und im Smoke-Lauf ließ er auch einen ausdrücklichen Wunsch fallen. In E2 schrieb der Agent die Diagnose in 2 von 5 Läufen in eine Suchanfrage.
+
 ## Das Wichtigste
 
 Dieser Abschnitt gilt für E1. Das nachträglich ergänzte E2 hebt die für A günstigen Bedingungen auf und hat eigene Befunde, siehe [E2](#e2-nach-sicht-der-ergebnisse-von-e1-ergänzt): Dort fällt A bei der Löschung durch (A-mem0 0/5, A-v1 2/5, B 5/5).

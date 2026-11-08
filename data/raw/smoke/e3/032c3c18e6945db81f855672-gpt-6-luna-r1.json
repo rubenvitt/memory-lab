@@ -1,0 +1,65 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 1,
+ "input_hash": "032c3c18e6945db81f855672",
+ "meta": {
+  "e3": "c",
+  "id": "m16a",
+  "step": 1
+ },
+ "duration_ms": 7822,
+ "text": "{\"tool\":\"search_docs\",\"query\":\"Kosten Leseausweis\",\"reason\":null,\"text\":null,\"key\":null,\"value\":null,\"quote\":null}",
+ "parsed": {
+  "tool": "search_docs",
+  "query": "Kosten Leseausweis",
+  "reason": null,
+  "text": null,
+  "key": null,
+  "value": null,
+  "quote": null
+ },
+ "usage": {
+  "input_tokens": 34923,
+  "cached_input_tokens": 17280,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 132,
+  "reasoning_output_tokens": 25
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bbb4-69c5-7d00-928b-92fb9951afa5"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "Ich prüfe die Auskunft zu den Kosten des Leseausweises in den Service-Informationen."
+   }
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_1",
+    "type": "agent_message",
+    "text": "{\"tool\":\"search_docs\",\"query\":\"Kosten Leseausweis\",\"reason\":null,\"text\":null,\"key\":null,\"value\":null,\"quote\":null}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 34923,
+    "cached_input_tokens": 17280,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 132,
+    "reasoning_output_tokens": 25
+   }
+  }
+ ]
+}

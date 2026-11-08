@@ -1,4 +1,4 @@
-// CLI: node src/run.mjs <plan|smoke|series|plan-e2|smoke-e2|e2> [--max-seconds N] [--concurrency N] [--offline]
+// CLI: node src/run.mjs <plan|smoke|series|plan-e2|smoke-e2|e2|plan-e3|smoke-e3|e3> [--max-seconds N] [--concurrency N] [--offline]
 import { createHash } from 'node:crypto';
 import { appendFileSync, mkdirSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
@@ -10,11 +10,14 @@ import { loadPrompts } from './agent.mjs';
 import { callModel } from './engine/call-model.mjs';
 import { countUsed, createSession } from './engine/session.mjs';
 import { runScenario } from './scenario.mjs';
+import { agentRuns, extractorRuns, score } from './e3bc.mjs';
+import { MESSAGES } from '../fixtures/e3-messages.mjs';
 
 const root = new URL('..', import.meta.url).pathname;
 // The series has its own raw folder, so smoke calls never eat its budget.
 const RAW = join(root, 'data/raw/series');
 const RAW_E2 = join(root, 'data/raw/e2');
+const RAW_E3 = join(root, 'data/raw/e3');
 const SMOKE = join(root, 'data/raw/smoke');
 const RESULTS = join(root, 'data/results');
 const ARCHS = ['A', 'B'];
@@ -28,6 +31,7 @@ const command = positionals[0];
 const prompts = loadPrompts();
 const { params } = prompts;
 const promptsE2 = loadPrompts('e2');
+const promptsE3 = loadPrompts('e3');
 const hash = (text) => createHash('sha256').update(text).digest('hex').slice(0, 16);
 
 const session = (rawDir, budget) => createSession({
@@ -101,9 +105,30 @@ const e2Options = { variants: promptsE2.params.variants, p: promptsE2, checkFn: 
 const smokeE2 = () => runAll('smoke-e2', [TOY], 1, session(join(SMOKE, 'e2'), 30), { variants: ['A-mem0'], p: promptsE2, checkFn: () => ({ pass: null, detail: {} }) });
 const e2 = () => runAll('e2', E2_SCENARIOS, promptsE2.params.repetitions, session(RAW_E2, promptsE2.params.budget), e2Options);
 
-const commands = { plan, smoke, series, 'plan-e2': planE2, 'smoke-e2': smokeE2, e2 };
+// E3b and E3c: one extractor call per message and extractor, one or two agent steps per message.
+async function runE3(name, s, messages) {
+  const failures = [];
+  const settle = (p) => p.catch((err) => { failures.push(String(err.message ?? err).slice(0, 300)); return null; });
+  const ex = await settle(extractorRuns(s, promptsE3, messages));
+  const ag = await settle(agentRuns(s, promptsE3, messages));
+  const scored = ex && ag ? score(ex, ag) : { extractors: [], agent: [] };
+  const summary = s.summary();
+  const complete = !summary.stopped && summary.failed === 0 && failures.length === 0 && scored.extractors.length === messages.length * 2;
+  mkdirSync(RESULTS, { recursive: true });
+  writeFileSync(join(RESULTS, `${name}.json`), JSON.stringify({ complete, prompt_version: promptsE3.version, failures, ...scored }, null, 1));
+  if (!values.offline) appendFileSync(join(RESULTS, 'run-log.jsonl'), JSON.stringify({ at: new Date().toISOString(), name, ...summary, complete }) + '\n');
+  console.log(JSON.stringify({ name, complete, ...summary }));
+  if (summary.stopped === 'rate-limit') process.exit(3);
+  if (summary.stopped && summary.stopped !== 'max-seconds') process.exit(4);
+  if (!complete) process.exit(2);
+}
+const planE3 = () => console.log(JSON.stringify({ extractor_calls: MESSAGES.length * 2, agent_calls_min: MESSAGES.length, agent_calls_max: promptsE3.params.agent_calls_max, budget: promptsE3.params.budget, used: countUsed(RAW_E3) }));
+const smokeE3 = () => runE3('smoke-e3', session(join(SMOKE, 'e3'), 20), MESSAGES.filter((m) => ['m01p', 'm16a'].includes(m.id)));
+const e3 = () => runE3('e3', session(RAW_E3, promptsE3.params.budget), MESSAGES);
+
+const commands = { plan, smoke, series, 'plan-e2': planE2, 'smoke-e2': smokeE2, e2, 'plan-e3': planE3, 'smoke-e3': smokeE3, e3 };
 if (!commands[command]) {
-  console.error('usage: node src/run.mjs <plan|smoke|series|plan-e2|smoke-e2|e2> [--max-seconds N] [--concurrency N] [--offline]');
+  console.error('usage: node src/run.mjs <plan|smoke|series|plan-e2|smoke-e2|e2|plan-e3|smoke-e3|e3> [--max-seconds N] [--concurrency N] [--offline]');
   process.exit(1);
 }
 await commands[command]();

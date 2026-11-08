@@ -1,0 +1,9 @@
+{
+  "version": "e3",
+  "models": { "agent": "gpt-6-luna", "extractor": "gpt-6-luna", "effort": "low" },
+  "repetitions": 1,
+  "max_steps": 6,
+  "budget": 200,
+  "agent_calls_max": 60,
+  "mem0": { "repo": "mem0ai/mem0", "commit": "f1791daa86d469249c9b002f62644d58a1eb96a0", "license": "Apache-2.0", "file": "mem0/configs/prompts.py" }
+}

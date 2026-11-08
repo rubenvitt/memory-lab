@@ -64,3 +64,9 @@ Auftrag nach E1: die beiden für A günstigen Bedingungen aufheben, B unverände
 **Korrektur nach dem Lauf:** Jede Session in E2 enthält genau eine Nutzer-Nachricht, die Extraktion „nach jedem Nachrichtenpaar“ fällt also mit der Extraktion nach der Session zusammen. Der Zeitpunkt war damit nicht getestet. A-v1 ist in `stale`, `injection` und `proxy` eine exakte Wiederholung von A aus E1 (gleicher Prompt-Hash in `proxy`, Session 2). Befunde und README sagen das jetzt, `prompts/e2/` bleibt unverändert, weil der Tag gepusht ist.
 
 **Lizenz:** Mem0 hat keine NOTICE-Datei (geprüft per GitHub-API), die Herkunft der Prompts steht in `prompts/e2/README.md`.
+
+## E3 (nach zwei Gutachten ergänzt)
+
+**Gestoppter Zwischenauftrag:** Die Kürzung der Demo auf zwei Fragen war schon gepusht (`03030dd`), als der Stopp kam. Sie ist mit `acf61d7` zurückgenommen, der Baum ist wieder der von `fd8a453`. Kein Force-Push.
+
+**Smoke E3** (6 Aufrufe, `data/raw/smoke/e3/`, zwei Nachrichten): Beide Extraktor-Schemata und das Agent-Schema werden angenommen. Mem0 schreibt die Angaben auf Deutsch („Ich habe Diabetes …“). Keine Änderung nötig.
