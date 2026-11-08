@@ -1,0 +1,69 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 1,
+ "input_hash": "916e8cae94d980ca6e85878f",
+ "meta": {
+  "scenario": "toy",
+  "arch": "B",
+  "rep": 1,
+  "role": "agent",
+  "session": 1,
+  "turn": 1,
+  "step": 1
+ },
+ "duration_ms": 13584,
+ "text": "{\"tool\":\"search_docs\",\"query\":\"Öffnungszeiten Samstag Stadtbücherei Fennbrück\",\"reason\":null,\"text\":null,\"key\":null,\"value\":null,\"quote\":null}",
+ "parsed": {
+  "tool": "search_docs",
+  "query": "Öffnungszeiten Samstag Stadtbücherei Fennbrück",
+  "reason": null,
+  "text": null,
+  "key": null,
+  "value": null,
+  "quote": null
+ },
+ "usage": {
+  "input_tokens": 96554,
+  "cached_input_tokens": 68736,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 268,
+  "reasoning_output_tokens": 93
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bacc-4ec7-7fb3-bcbe-5a46bb725cc9"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "Ich prüfe zuerst die Samstagsöffnungszeiten und speichere anschließend den ausdrücklich geäußerten SMS-Wunsch."
+   }
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_1",
+    "type": "agent_message",
+    "text": "{\"tool\":\"search_docs\",\"query\":\"Öffnungszeiten Samstag Stadtbücherei Fennbrück\",\"reason\":null,\"text\":null,\"key\":null,\"value\":null,\"quote\":null}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 96554,
+    "cached_input_tokens": 68736,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 268,
+    "reasoning_output_tokens": 93
+   }
+  }
+ ]
+}

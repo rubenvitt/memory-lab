@@ -1,0 +1,66 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 1,
+ "input_hash": "dbd4a0d88f06421ebcfa9aaf",
+ "meta": {
+  "scenario": "toy",
+  "arch": "A",
+  "rep": 1,
+  "role": "agent",
+  "session": 2,
+  "turn": 1,
+  "step": 2
+ },
+ "duration_ms": 11043,
+ "text": "{\"tool\":\"answer\",\"query\":null,\"reason\":null,\"text\":\"Ein Hörbuch darfst du vier Wochen behalten. Eine Verlängerung ist zweimal möglich, sofern niemand es vorgemerkt hat. Die Bücherei kann dich drei Tage vor Fristende per SMS erinnern; deinen SMS-Wunsch kannst du an der Theke oder hier bei der Auskunft mitteilen.\"}",
+ "parsed": {
+  "tool": "answer",
+  "query": null,
+  "reason": null,
+  "text": "Ein Hörbuch darfst du vier Wochen behalten. Eine Verlängerung ist zweimal möglich, sofern niemand es vorgemerkt hat. Die Bücherei kann dich drei Tage vor Fristende per SMS erinnern; deinen SMS-Wunsch kannst du an der Theke oder hier bei der Auskunft mitteilen."
+ },
+ "usage": {
+  "input_tokens": 42225,
+  "cached_input_tokens": 40192,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 162,
+  "reasoning_output_tokens": 0
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bacf-119b-72f1-a015-6cd5fb164593"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "Ich rufe das verbindliche Profil ab, damit ich passend auf den gespeicherten SMS-Wunsch eingehen kann."
+   }
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_1",
+    "type": "agent_message",
+    "text": "{\"tool\":\"answer\",\"query\":null,\"reason\":null,\"text\":\"Ein Hörbuch darfst du vier Wochen behalten. Eine Verlängerung ist zweimal möglich, sofern niemand es vorgemerkt hat. Die Bücherei kann dich drei Tage vor Fristende per SMS erinnern; deinen SMS-Wunsch kannst du an der Theke oder hier bei der Auskunft mitteilen.\"}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 42225,
+    "cached_input_tokens": 40192,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 162,
+    "reasoning_output_tokens": 0
+   }
+  }
+ ]
+}

@@ -1,0 +1,61 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 1,
+ "input_hash": "293da4f6a231a20e6e2cfce1",
+ "meta": {
+  "scenario": "toy",
+  "arch": "B",
+  "rep": 1,
+  "role": "agent",
+  "session": 1,
+  "turn": 1,
+  "step": 2
+ },
+ "duration_ms": 6633,
+ "text": "{\"tool\":\"answer\",\"query\":null,\"reason\":null,\"text\":\"Samstags haben wir von 10 bis 14 Uhr geöffnet. Deinen Wunsch nach Erinnerungen per SMS habe ich gespeichert.\",\"key\":null,\"value\":null,\"quote\":null}",
+ "parsed": {
+  "tool": "answer",
+  "query": null,
+  "reason": null,
+  "text": "Samstags haben wir von 10 bis 14 Uhr geöffnet. Deinen Wunsch nach Erinnerungen per SMS habe ich gespeichert.",
+  "key": null,
+  "value": null,
+  "quote": null
+ },
+ "usage": {
+  "input_tokens": 42282,
+  "cached_input_tokens": 20864,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 99,
+  "reasoning_output_tokens": 0
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bacc-8240-7f71-ad75-ad4f989d2b69"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "{\"tool\":\"answer\",\"query\":null,\"reason\":null,\"text\":\"Samstags haben wir von 10 bis 14 Uhr geöffnet. Deinen Wunsch nach Erinnerungen per SMS habe ich gespeichert.\",\"key\":null,\"value\":null,\"quote\":null}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 42282,
+    "cached_input_tokens": 20864,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 99,
+    "reasoning_output_tokens": 0
+   }
+  }
+ ]
+}

@@ -1,0 +1,59 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 1,
+ "input_hash": "1c073bf893bb54dfaf1b4b3d",
+ "meta": {
+  "scenario": "toy",
+  "arch": "A",
+  "rep": 1,
+  "role": "extractor",
+  "session": 1
+ },
+ "duration_ms": 4988,
+ "text": "{\"operations\":[{\"op\":\"ADD\",\"id\":null,\"text\":\"Die Person möchte Erinnerungen per SMS erhalten.\"}]}",
+ "parsed": {
+  "operations": [
+   {
+    "op": "ADD",
+    "id": null,
+    "text": "Die Person möchte Erinnerungen per SMS erhalten."
+   }
+  ]
+ },
+ "usage": {
+  "input_tokens": 20975,
+  "cached_input_tokens": 0,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 35,
+  "reasoning_output_tokens": 0
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bacc-a31a-7d90-a52f-9dea1868c159"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "{\"operations\":[{\"op\":\"ADD\",\"id\":null,\"text\":\"Die Person möchte Erinnerungen per SMS erhalten.\"}]}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 20975,
+    "cached_input_tokens": 0,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 35,
+    "reasoning_output_tokens": 0
+   }
+  }
+ ]
+}

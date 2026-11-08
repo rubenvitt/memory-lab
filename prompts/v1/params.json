@@ -1,0 +1,7 @@
+{
+  "version": "v1",
+  "models": { "agent": "gpt-6-luna", "extractor": "gpt-6-luna", "effort": "low" },
+  "repetitions": 5,
+  "max_steps": 6,
+  "budget": 800
+}

@@ -1,0 +1,13 @@
+{
+  "name": "memory-lab",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "license": "Apache-2.0",
+  "engines": { "node": ">=26" },
+  "scripts": {
+    "test": "node --test",
+    "plan": "node src/run.mjs plan",
+    "report": "node src/run.mjs series --offline && node src/report.mjs"
+  }
+}
