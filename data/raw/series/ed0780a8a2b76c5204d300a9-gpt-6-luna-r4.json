@@ -1,0 +1,69 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 4,
+ "input_hash": "ed0780a8a2b76c5204d300a9",
+ "meta": {
+  "scenario": "stale",
+  "arch": "B",
+  "rep": 4,
+  "role": "agent",
+  "session": 1,
+  "turn": 1,
+  "step": 2
+ },
+ "duration_ms": 11363,
+ "text": "{\"tool\":\"get_profile\",\"query\":null,\"reason\":null,\"text\":null,\"key\":null,\"value\":null,\"quote\":null}",
+ "parsed": {
+  "tool": "get_profile",
+  "query": null,
+  "reason": null,
+  "text": null,
+  "key": null,
+  "value": null,
+  "quote": null
+ },
+ "usage": {
+  "input_tokens": 52990,
+  "cached_input_tokens": 50688,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 228,
+  "reasoning_output_tokens": 83
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bada-26c2-7d51-bf73-cff040198f13"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "Die Abholfrage lässt sich mit der Bringdienst-Information beantworten; ich prüfe noch das hinterlegte Profil, um den Liefertermin einzuordnen."
+   }
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_1",
+    "type": "agent_message",
+    "text": "{\"tool\":\"get_profile\",\"query\":null,\"reason\":null,\"text\":null,\"key\":null,\"value\":null,\"quote\":null}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 52990,
+    "cached_input_tokens": 50688,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 228,
+    "reasoning_output_tokens": 83
+   }
+  }
+ ]
+}

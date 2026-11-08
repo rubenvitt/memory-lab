@@ -1,0 +1,66 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 1,
+ "input_hash": "9a67275bcca8f090deb3dc83",
+ "meta": {
+  "scenario": "stale",
+  "arch": "A",
+  "rep": 1,
+  "role": "agent",
+  "session": 2,
+  "turn": 1,
+  "step": 3
+ },
+ "duration_ms": 9765,
+ "text": "{\"tool\":\"answer\",\"query\":null,\"reason\":null,\"text\":\"Der Bringdienst liefert alle zwei Wochen dienstags an die im Bibliothekssystem hinterlegte Adresse. Bei dir ist das Am Mühlengraben 12, Fennbrück.\"}",
+ "parsed": {
+  "tool": "answer",
+  "query": null,
+  "reason": null,
+  "text": "Der Bringdienst liefert alle zwei Wochen dienstags an die im Bibliothekssystem hinterlegte Adresse. Bei dir ist das Am Mühlengraben 12, Fennbrück."
+ },
+ "usage": {
+  "input_tokens": 42150,
+  "cached_input_tokens": 40192,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 151,
+  "reasoning_output_tokens": 0
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bad2-8008-7651-a26f-599b1027f398"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "Die Lieferregel ist gefunden; ich gleiche sie noch mit der bei dir hinterlegten Adresse ab."
+   }
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_1",
+    "type": "agent_message",
+    "text": "{\"tool\":\"answer\",\"query\":null,\"reason\":null,\"text\":\"Der Bringdienst liefert alle zwei Wochen dienstags an die im Bibliothekssystem hinterlegte Adresse. Bei dir ist das Am Mühlengraben 12, Fennbrück.\"}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 42150,
+    "cached_input_tokens": 40192,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 151,
+    "reasoning_output_tokens": 0
+   }
+  }
+ ]
+}

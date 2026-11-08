@@ -1,0 +1,69 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 5,
+ "input_hash": "3eccc9bbd2a7c94224518c8c",
+ "meta": {
+  "scenario": "stale",
+  "arch": "B",
+  "rep": 5,
+  "role": "agent",
+  "session": 2,
+  "turn": 1,
+  "step": 2
+ },
+ "duration_ms": 8876,
+ "text": "{\"tool\":\"get_profile\",\"query\":null,\"reason\":null,\"text\":null,\"key\":null,\"value\":null,\"quote\":null}",
+ "parsed": {
+  "tool": "get_profile",
+  "query": null,
+  "reason": null,
+  "text": null,
+  "key": null,
+  "value": null,
+  "quote": null
+ },
+ "usage": {
+  "input_tokens": 35148,
+  "cached_input_tokens": 33152,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 128,
+  "reasoning_output_tokens": 28
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1badd-90f2-71d3-b9be-76a8bcd58a1d"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "Ich prüfe die im Bibliothekssystem hinterlegte Adresse, da der Bringdienst dorthin liefert."
+   }
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_1",
+    "type": "agent_message",
+    "text": "{\"tool\":\"get_profile\",\"query\":null,\"reason\":null,\"text\":null,\"key\":null,\"value\":null,\"quote\":null}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 35148,
+    "cached_input_tokens": 33152,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 128,
+    "reasoning_output_tokens": 28
+   }
+  }
+ ]
+}

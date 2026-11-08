@@ -1,0 +1,59 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 5,
+ "input_hash": "2a187110ca5e6ecdad6a4c4d",
+ "meta": {
+  "scenario": "explicit",
+  "arch": "A",
+  "rep": 5,
+  "role": "extractor",
+  "session": 1
+ },
+ "duration_ms": 5845,
+ "text": "{\"operations\":[{\"op\":\"ADD\",\"id\":null,\"text\":\"Erinnerungen sollen immer per SMS und nicht per E-Mail gesendet werden.\"}]}",
+ "parsed": {
+  "operations": [
+   {
+    "op": "ADD",
+    "id": null,
+    "text": "Erinnerungen sollen immer per SMS und nicht per E-Mail gesendet werden."
+   }
+  ]
+ },
+ "usage": {
+  "input_tokens": 17456,
+  "cached_input_tokens": 15744,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 42,
+  "reasoning_output_tokens": 0
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1badd-3007-72d3-937d-e0b469da1cb2"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "{\"operations\":[{\"op\":\"ADD\",\"id\":null,\"text\":\"Erinnerungen sollen immer per SMS und nicht per E-Mail gesendet werden.\"}]}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 17456,
+    "cached_input_tokens": 15744,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 42,
+    "reasoning_output_tokens": 0
+   }
+  }
+ ]
+}

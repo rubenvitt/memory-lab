@@ -1,0 +1,66 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 4,
+ "input_hash": "a39a31c2e02abab4accf4f61",
+ "meta": {
+  "scenario": "explicit",
+  "arch": "A",
+  "rep": 4,
+  "role": "agent",
+  "session": 1,
+  "turn": 1,
+  "step": 1
+ },
+ "duration_ms": 7556,
+ "text": "{\"tool\":\"get_profile\",\"query\":null,\"reason\":null,\"text\":null}",
+ "parsed": {
+  "tool": "get_profile",
+  "query": null,
+  "reason": null,
+  "text": null
+ },
+ "usage": {
+  "input_tokens": 34629,
+  "cached_input_tokens": 32896,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 118,
+  "reasoning_output_tokens": 13
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bad9-fd36-7c52-bf55-f3de3a8de478"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "Ich prüfe das Profil, damit ich sehe, welche Kontaktdaten und Benachrichtigungseinstellungen hinterlegt sind."
+   }
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_1",
+    "type": "agent_message",
+    "text": "{\"tool\":\"get_profile\",\"query\":null,\"reason\":null,\"text\":null}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 34629,
+    "cached_input_tokens": 32896,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 118,
+    "reasoning_output_tokens": 13
+   }
+  }
+ ]
+}

@@ -1,0 +1,61 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 1,
+ "input_hash": "8997534befacdbc51eb882d4",
+ "meta": {
+  "scenario": "implicit",
+  "arch": "B",
+  "rep": 1,
+  "role": "agent",
+  "session": 4,
+  "turn": 1,
+  "step": 1
+ },
+ "duration_ms": 11883,
+ "text": "{\"tool\":\"search_catalog\",\"query\":\"Urlaub\",\"reason\":null,\"text\":null,\"key\":null,\"value\":null,\"quote\":null}",
+ "parsed": {
+  "tool": "search_catalog",
+  "query": "Urlaub",
+  "reason": null,
+  "text": null,
+  "key": null,
+  "value": null,
+  "quote": null
+ },
+ "usage": {
+  "input_tokens": 41947,
+  "cached_input_tokens": 38656,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 130,
+  "reasoning_output_tokens": 56
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bad2-bc87-7f11-9e14-28eba37defd8"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "{\"tool\":\"search_catalog\",\"query\":\"Urlaub\",\"reason\":null,\"text\":null,\"key\":null,\"value\":null,\"quote\":null}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 41947,
+    "cached_input_tokens": 38656,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 130,
+    "reasoning_output_tokens": 56
+   }
+  }
+ ]
+}

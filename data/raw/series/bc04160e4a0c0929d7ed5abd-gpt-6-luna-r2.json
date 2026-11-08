@@ -1,0 +1,61 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 2,
+ "input_hash": "bc04160e4a0c0929d7ed5abd",
+ "meta": {
+  "scenario": "stale",
+  "arch": "B",
+  "rep": 2,
+  "role": "agent",
+  "session": 2,
+  "turn": 1,
+  "step": 2
+ },
+ "duration_ms": 10959,
+ "text": "{\"tool\":\"answer\",\"query\":null,\"reason\":null,\"text\":\"Der Bringdienst liefert alle zwei Wochen dienstags an die Adresse, die in deinem Bibliotheksprofil hinterlegt ist. Voraussetzung ist ein eigener Leseausweis; anmelden kannst du dich an der Theke oder telefonisch.\",\"key\":null,\"value\":null,\"quote\":null}",
+ "parsed": {
+  "tool": "answer",
+  "query": null,
+  "reason": null,
+  "text": "Der Bringdienst liefert alle zwei Wochen dienstags an die Adresse, die in deinem Bibliotheksprofil hinterlegt ist. Voraussetzung ist ein eigener Leseausweis; anmelden kannst du dich an der Theke oder telefonisch.",
+  "key": null,
+  "value": null,
+  "quote": null
+ },
+ "usage": {
+  "input_tokens": 42167,
+  "cached_input_tokens": 40192,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 180,
+  "reasoning_output_tokens": 54
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bad4-ba19-7b63-8444-ed34defce4a4"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "{\"tool\":\"answer\",\"query\":null,\"reason\":null,\"text\":\"Der Bringdienst liefert alle zwei Wochen dienstags an die Adresse, die in deinem Bibliotheksprofil hinterlegt ist. Voraussetzung ist ein eigener Leseausweis; anmelden kannst du dich an der Theke oder telefonisch.\",\"key\":null,\"value\":null,\"quote\":null}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 42167,
+    "cached_input_tokens": 40192,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 180,
+    "reasoning_output_tokens": 54
+   }
+  }
+ ]
+}

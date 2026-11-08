@@ -1,0 +1,66 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 3,
+ "input_hash": "86935e521866d3b125ff2f76",
+ "meta": {
+  "scenario": "erasure",
+  "arch": "A",
+  "rep": 3,
+  "role": "agent",
+  "session": 1,
+  "turn": 1,
+  "step": 1
+ },
+ "duration_ms": 9015,
+ "text": "{\"tool\":\"search_catalog\",\"query\":\"Bücher Großdruck\",\"reason\":null,\"text\":null}",
+ "parsed": {
+  "tool": "search_catalog",
+  "query": "Bücher Großdruck",
+  "reason": null,
+  "text": null
+ },
+ "usage": {
+  "input_tokens": 41395,
+  "cached_input_tokens": 32640,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 126,
+  "reasoning_output_tokens": 44
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bad5-ec91-79f3-9d9a-8c20aaa0d554"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "Ich suche im Katalog nach Büchern in Großdruck."
+   }
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_1",
+    "type": "agent_message",
+    "text": "{\"tool\":\"search_catalog\",\"query\":\"Bücher Großdruck\",\"reason\":null,\"text\":null}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 41395,
+    "cached_input_tokens": 32640,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 126,
+    "reasoning_output_tokens": 44
+   }
+  }
+ ]
+}

@@ -1,0 +1,61 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 3,
+ "input_hash": "83d5a8bde2688ca2227cc12e",
+ "meta": {
+  "scenario": "stale",
+  "arch": "B",
+  "rep": 3,
+  "role": "agent",
+  "session": 2,
+  "turn": 1,
+  "step": 2
+ },
+ "duration_ms": 12318,
+ "text": "{\"tool\":\"remember\",\"query\":null,\"reason\":null,\"text\":null,\"key\":\"delivery_availability\",\"value\":\"Ist vormittags immer zu Hause.\",\"quote\":\"da bin ich vormittags immer zu Hause\"}",
+ "parsed": {
+  "tool": "remember",
+  "query": null,
+  "reason": null,
+  "text": null,
+  "key": "delivery_availability",
+  "value": "Ist vormittags immer zu Hause.",
+  "quote": "da bin ich vormittags immer zu Hause"
+ },
+ "usage": {
+  "input_tokens": 75565,
+  "cached_input_tokens": 71168,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 144,
+  "reasoning_output_tokens": 0
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bad8-f6af-7fd0-a9f5-5aa2710e64c2"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "{\"tool\":\"remember\",\"query\":null,\"reason\":null,\"text\":null,\"key\":\"delivery_availability\",\"value\":\"Ist vormittags immer zu Hause.\",\"quote\":\"da bin ich vormittags immer zu Hause\"}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 75565,
+    "cached_input_tokens": 71168,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 144,
+    "reasoning_output_tokens": 0
+   }
+  }
+ ]
+}

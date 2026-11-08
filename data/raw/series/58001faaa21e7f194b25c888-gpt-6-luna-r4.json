@@ -1,0 +1,66 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 4,
+ "input_hash": "58001faaa21e7f194b25c888",
+ "meta": {
+  "scenario": "proxy",
+  "arch": "A",
+  "rep": 4,
+  "role": "agent",
+  "session": 1,
+  "turn": 1,
+  "step": 1
+ },
+ "duration_ms": 9459,
+ "text": "{\"tool\":\"search_docs\",\"query\":\"Bringdienst Voraussetzungen ältere Menschen nicht mehr aus dem Haus\",\"reason\":null,\"text\":null}",
+ "parsed": {
+  "tool": "search_docs",
+  "query": "Bringdienst Voraussetzungen ältere Menschen nicht mehr aus dem Haus",
+  "reason": null,
+  "text": null
+ },
+ "usage": {
+  "input_tokens": 34624,
+  "cached_input_tokens": 17152,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 123,
+  "reasoning_output_tokens": 30
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bad9-e995-7081-b10b-88ab235c1443"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "Ich prüfe die Service-Informationen zum Bringdienst der Stadtbücherei."
+   }
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_1",
+    "type": "agent_message",
+    "text": "{\"tool\":\"search_docs\",\"query\":\"Bringdienst Voraussetzungen ältere Menschen nicht mehr aus dem Haus\",\"reason\":null,\"text\":null}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 34624,
+    "cached_input_tokens": 17152,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 123,
+    "reasoning_output_tokens": 30
+   }
+  }
+ ]
+}

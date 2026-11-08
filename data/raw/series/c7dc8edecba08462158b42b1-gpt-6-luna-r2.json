@@ -1,0 +1,58 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 2,
+ "input_hash": "c7dc8edecba08462158b42b1",
+ "meta": {
+  "scenario": "stale",
+  "arch": "A",
+  "rep": 2,
+  "role": "agent",
+  "session": 1,
+  "turn": 1,
+  "step": 3
+ },
+ "duration_ms": 12907,
+ "text": "{\"tool\":\"answer\",\"query\":null,\"reason\":null,\"text\":\"Der Bringdienst kommt alle zwei Wochen dienstags an die im Bibliothekssystem hinterlegte Adresse Kastanienweg 7.\"}",
+ "parsed": {
+  "tool": "answer",
+  "query": null,
+  "reason": null,
+  "text": "Der Bringdienst kommt alle zwei Wochen dienstags an die im Bibliothekssystem hinterlegte Adresse Kastanienweg 7."
+ },
+ "usage": {
+  "input_tokens": 42204,
+  "cached_input_tokens": 40192,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 132,
+  "reasoning_output_tokens": 45
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bad4-44a0-70d3-aaa1-b71a5aeb1583"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "{\"tool\":\"answer\",\"query\":null,\"reason\":null,\"text\":\"Der Bringdienst kommt alle zwei Wochen dienstags an die im Bibliothekssystem hinterlegte Adresse Kastanienweg 7.\"}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 42204,
+    "cached_input_tokens": 40192,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 132,
+    "reasoning_output_tokens": 45
+   }
+  }
+ ]
+}

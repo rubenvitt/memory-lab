@@ -9,9 +9,16 @@ const el = (tag, className, text) => {
   return node;
 };
 const clip = (t, n) => (t.length > n ? `${t.slice(0, n - 1)}…` : t);
+// A long entry with a hit shows the passage around the hit, not its beginning.
+const excerpt = (t, re, n) => {
+  const at = t.search(re);
+  if (at < 0 || t.length <= n) return clip(t, n);
+  const start = Math.max(0, Math.min(at - Math.floor(n / 3), t.length - n));
+  return `${start ? '…' : ''}${t.slice(start, start + n)}${start + n < t.length ? '…' : ''}`;
+};
 
 const TOOL_ARG = { search_docs: 'query', search_catalog: 'query', waive_fee: 'reason', remember: 'key' };
-const KEEP = { history: 6, audit: 6, retrieval: 4 }; // newest entries shown per long store, hits always shown
+const KEEP = { history: 6, audit: 4, retrieval: 4 }; // newest entries shown per long store, hits always shown
 
 let demo;
 const view = { scenario: 'stale', rep: 1, point: 0, erased: false };
@@ -155,7 +162,7 @@ function renderStores() {
         const li = el('li', 'entry');
         const hit = re.test(e.text);
         if (hit) { li.classList.add('hit'); li.append(el('span', 'hit-label', `Treffer: ${label}`)); }
-        li.append(el('span', 'entry-text', info.id === 'audit' ? auditText(e.text) : clip(e.text, info.id === 'history' ? 150 : 220)));
+        li.append(el('span', 'entry-text', info.id === 'audit' ? auditText(e.text) : excerpt(e.text, re, info.id === 'history' ? 130 : 220)));
         li.append(el('span', 'by', arch === 'A' && info.id === 'memory' ? `ohne Quelle · Labor: ${e.by}` : e.by));
         ul.append(li);
       }

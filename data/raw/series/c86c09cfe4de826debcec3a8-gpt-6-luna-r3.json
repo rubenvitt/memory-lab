@@ -1,0 +1,58 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 3,
+ "input_hash": "c86c09cfe4de826debcec3a8",
+ "meta": {
+  "scenario": "implicit",
+  "arch": "A",
+  "rep": 3,
+  "role": "agent",
+  "session": 4,
+  "turn": 1,
+  "step": 1
+ },
+ "duration_ms": 5812,
+ "text": "{\"tool\":\"search_catalog\",\"query\":\"Urlaub Reise Abenteuer leichte Unterhaltung\",\"reason\":null,\"text\":null}",
+ "parsed": {
+  "tool": "search_catalog",
+  "query": "Urlaub Reise Abenteuer leichte Unterhaltung",
+  "reason": null,
+  "text": null
+ },
+ "usage": {
+  "input_tokens": 34576,
+  "cached_input_tokens": 26112,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 104,
+  "reasoning_output_tokens": 39
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bad9-8591-7c90-861c-b4306a26275e"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "{\"tool\":\"search_catalog\",\"query\":\"Urlaub Reise Abenteuer leichte Unterhaltung\",\"reason\":null,\"text\":null}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 34576,
+    "cached_input_tokens": 26112,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 104,
+    "reasoning_output_tokens": 39
+   }
+  }
+ ]
+}

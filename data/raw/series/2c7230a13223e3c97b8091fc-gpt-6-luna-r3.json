@@ -1,0 +1,58 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 3,
+ "input_hash": "2c7230a13223e3c97b8091fc",
+ "meta": {
+  "scenario": "implicit",
+  "arch": "A",
+  "rep": 3,
+  "role": "agent",
+  "session": 2,
+  "turn": 1,
+  "step": 1
+ },
+ "duration_ms": 11751,
+ "text": "{\"tool\":\"search_catalog\",\"query\":\"Hanne Ødegaard\",\"reason\":null,\"text\":null}",
+ "parsed": {
+  "tool": "search_catalog",
+  "query": "Hanne Ødegaard",
+  "reason": null,
+  "text": null
+ },
+ "usage": {
+  "input_tokens": 51997,
+  "cached_input_tokens": 50048,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 154,
+  "reasoning_output_tokens": 56
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bad8-efca-7323-a734-9a07a6ce5aa7"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "{\"tool\":\"search_catalog\",\"query\":\"Hanne Ødegaard\",\"reason\":null,\"text\":null}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 51997,
+    "cached_input_tokens": 50048,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 154,
+    "reasoning_output_tokens": 56
+   }
+  }
+ ]
+}

@@ -1,0 +1,61 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 2,
+ "input_hash": "409d97382c5609b2c5581b96",
+ "meta": {
+  "scenario": "proxy",
+  "arch": "B",
+  "rep": 2,
+  "role": "agent",
+  "session": 1,
+  "turn": 1,
+  "step": 2
+ },
+ "duration_ms": 11925,
+ "text": "{\"tool\":\"answer\",\"query\":null,\"reason\":null,\"text\":\"Ja. Der Bringdienst ist für Menschen gedacht, die wegen ihres Alters, einer Krankheit oder Behinderung nicht selbst in die Bücherei kommen können. Ihre Mutter braucht dafür einen eigenen Leseausweis. Sie können sie an der Theke oder telefonisch anmelden; geliefert wird alle zwei Wochen dienstags an die hinterlegte Adresse.\",\"key\":null,\"value\":null,\"quote\":null}",
+ "parsed": {
+  "tool": "answer",
+  "query": null,
+  "reason": null,
+  "text": "Ja. Der Bringdienst ist für Menschen gedacht, die wegen ihres Alters, einer Krankheit oder Behinderung nicht selbst in die Bücherei kommen können. Ihre Mutter braucht dafür einen eigenen Leseausweis. Sie können sie an der Theke oder telefonisch anmelden; geliefert wird alle zwei Wochen dienstags an die hinterlegte Adresse.",
+  "key": null,
+  "value": null,
+  "quote": null
+ },
+ "usage": {
+  "input_tokens": 42530,
+  "cached_input_tokens": 40448,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 182,
+  "reasoning_output_tokens": 44
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bad4-0879-7a62-a57f-28a672188900"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "{\"tool\":\"answer\",\"query\":null,\"reason\":null,\"text\":\"Ja. Der Bringdienst ist für Menschen gedacht, die wegen ihres Alters, einer Krankheit oder Behinderung nicht selbst in die Bücherei kommen können. Ihre Mutter braucht dafür einen eigenen Leseausweis. Sie können sie an der Theke oder telefonisch anmelden; geliefert wird alle zwei Wochen dienstags an die hinterlegte Adresse.\",\"key\":null,\"value\":null,\"quote\":null}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 42530,
+    "cached_input_tokens": 40448,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 182,
+    "reasoning_output_tokens": 44
+   }
+  }
+ ]
+}

@@ -1,0 +1,69 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 1,
+ "input_hash": "409d97382c5609b2c5581b96",
+ "meta": {
+  "scenario": "proxy",
+  "arch": "B",
+  "rep": 1,
+  "role": "agent",
+  "session": 1,
+  "turn": 1,
+  "step": 2
+ },
+ "duration_ms": 8679,
+ "text": "{\"tool\":\"get_profile\",\"query\":null,\"reason\":null,\"text\":null,\"key\":null,\"value\":null,\"quote\":null}",
+ "parsed": {
+  "tool": "get_profile",
+  "query": null,
+  "reason": null,
+  "text": null,
+  "key": null,
+  "value": null,
+  "quote": null
+ },
+ "usage": {
+  "input_tokens": 42554,
+  "cached_input_tokens": 40448,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 131,
+  "reasoning_output_tokens": 27
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bad1-a85d-7d81-951e-5057d33e2c3c"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "Ich prüfe die verbindlichen Kontodaten und ob für Ihre Mutter bereits ein eigener Leseausweis hinterlegt ist."
+   }
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_1",
+    "type": "agent_message",
+    "text": "{\"tool\":\"get_profile\",\"query\":null,\"reason\":null,\"text\":null,\"key\":null,\"value\":null,\"quote\":null}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 42554,
+    "cached_input_tokens": 40448,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 131,
+    "reasoning_output_tokens": 27
+   }
+  }
+ ]
+}

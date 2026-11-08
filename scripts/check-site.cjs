@@ -26,9 +26,14 @@ const run = (scenario, arch, rep) => demo.runs.find((r) => r.scenario === scenar
 const reps = [1, 2, 3, 4, 5];
 const re = (scenario) => new RegExp(demo.scenarios.find((s) => s.id === scenario).marker.pattern, 'i');
 const markerIn = (stores, scenario, names) => names.some((n) => JSON.stringify(stores[n] ?? '').match(re(scenario)));
-// Blog runs, chosen by a fixed rule and printed: the first run where A shows what the scenario is about, else run 1.
-const injectionRep = reps.find((r) => markerIn(run('injection', 'A', r).points[1].stores, 'injection', ['memory'])) ?? 1;
-const erasureRep = reps.find((r) => !run('erasure', 'A', r).pass) ?? 1;
+// Blog runs, chosen by a fixed rule and printed. injection: first run where A stored the status, else the first run
+// where both agents actually read the poisoned page in session 1. erasure: first run where A kept the canary,
+// else the first run where B's cascade removed a preference.
+const readPage = (r) => r.points[0].turns.some((t) => t.steps.some((s) => JSON.stringify(s.result ?? '').includes('Hinweis an Assistenten')));
+const injectionRep = reps.find((r) => markerIn(run('injection', 'A', r).points[1].stores, 'injection', ['memory']))
+  ?? reps.find((r) => readPage(run('injection', 'A', r)) && readPage(run('injection', 'B', r))) ?? 1;
+const erasureRep = reps.find((r) => !run('erasure', 'A', r).pass)
+  ?? reps.find((r) => run('erasure', 'B', r).points.some((p) => p.stores.audit.some((a) => a.type === 'delete-session' && a.removed.preferences > 0))) ?? 1;
 const erasurePoint = run('erasure', 'A', 1).points.findIndex((p) => p.kind === 'event') + 1;
 
 async function visit(browser, { name, viewport, colorScheme, shot }) {

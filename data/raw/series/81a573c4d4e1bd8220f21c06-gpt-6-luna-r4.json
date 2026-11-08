@@ -1,0 +1,58 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 4,
+ "input_hash": "81a573c4d4e1bd8220f21c06",
+ "meta": {
+  "scenario": "stale",
+  "arch": "A",
+  "rep": 4,
+  "role": "agent",
+  "session": 1,
+  "turn": 1,
+  "step": 1
+ },
+ "duration_ms": 7541,
+ "text": "{\"tool\":\"search_docs\",\"query\":\"Bringdienst Liefertag Zustelltag vormittags\",\"reason\":null,\"text\":null}",
+ "parsed": {
+  "tool": "search_docs",
+  "query": "Bringdienst Liefertag Zustelltag vormittags",
+  "reason": null,
+  "text": null
+ },
+ "usage": {
+  "input_tokens": 34636,
+  "cached_input_tokens": 17152,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 114,
+  "reasoning_output_tokens": 38
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bad9-ce81-7d83-b56b-e86ed5ad032c"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "{\"tool\":\"search_docs\",\"query\":\"Bringdienst Liefertag Zustelltag vormittags\",\"reason\":null,\"text\":null}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 34636,
+    "cached_input_tokens": 17152,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 114,
+    "reasoning_output_tokens": 38
+   }
+  }
+ ]
+}

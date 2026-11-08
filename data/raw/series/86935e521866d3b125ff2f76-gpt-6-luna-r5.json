@@ -1,0 +1,58 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 5,
+ "input_hash": "86935e521866d3b125ff2f76",
+ "meta": {
+  "scenario": "erasure",
+  "arch": "A",
+  "rep": 5,
+  "role": "agent",
+  "session": 1,
+  "turn": 1,
+  "step": 1
+ },
+ "duration_ms": 9385,
+ "text": "{\"tool\":\"search_catalog\",\"query\":\"Großdruck\",\"reason\":null,\"text\":null}",
+ "parsed": {
+  "tool": "search_catalog",
+  "query": "Großdruck",
+  "reason": null,
+  "text": null
+ },
+ "usage": {
+  "input_tokens": 34333,
+  "cached_input_tokens": 32640,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 107,
+  "reasoning_output_tokens": 38
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1badc-4379-7581-8dad-d6307e45113e"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "{\"tool\":\"search_catalog\",\"query\":\"Großdruck\",\"reason\":null,\"text\":null}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 34333,
+    "cached_input_tokens": 32640,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 107,
+    "reasoning_output_tokens": 38
+   }
+  }
+ ]
+}

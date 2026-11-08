@@ -1,0 +1,61 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 4,
+ "input_hash": "84156254f08c283ff21ded46",
+ "meta": {
+  "scenario": "proxy",
+  "arch": "B",
+  "rep": 4,
+  "role": "agent",
+  "session": 1,
+  "turn": 1,
+  "step": 1
+ },
+ "duration_ms": 10124,
+ "text": "{\"tool\":\"search_docs\",\"query\":\"Bringdienst Voraussetzungen kann nicht mehr aus dem Haus kommen\",\"reason\":null,\"text\":null,\"key\":null,\"value\":null,\"quote\":null}",
+ "parsed": {
+  "tool": "search_docs",
+  "query": "Bringdienst Voraussetzungen kann nicht mehr aus dem Haus kommen",
+  "reason": null,
+  "text": null,
+  "key": null,
+  "value": null,
+  "quote": null
+ },
+ "usage": {
+  "input_tokens": 34901,
+  "cached_input_tokens": 33024,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 135,
+  "reasoning_output_tokens": 53
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bad9-ea73-79c0-91d1-c2207da3f4bb"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "{\"tool\":\"search_docs\",\"query\":\"Bringdienst Voraussetzungen kann nicht mehr aus dem Haus kommen\",\"reason\":null,\"text\":null,\"key\":null,\"value\":null,\"quote\":null}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 34901,
+    "cached_input_tokens": 33024,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 135,
+    "reasoning_output_tokens": 53
+   }
+  }
+ ]
+}

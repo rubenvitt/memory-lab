@@ -1,0 +1,61 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 4,
+ "input_hash": "670beaf9189e35fe0ebe16c2",
+ "meta": {
+  "scenario": "erasure",
+  "arch": "B",
+  "rep": 4,
+  "role": "agent",
+  "session": 2,
+  "turn": 1,
+  "step": 1
+ },
+ "duration_ms": 10113,
+ "text": "{\"tool\":\"get_profile\",\"query\":null,\"reason\":null,\"text\":null,\"key\":null,\"value\":null,\"quote\":null}",
+ "parsed": {
+  "tool": "get_profile",
+  "query": null,
+  "reason": null,
+  "text": null,
+  "key": null,
+  "value": null,
+  "quote": null
+ },
+ "usage": {
+  "input_tokens": 34873,
+  "cached_input_tokens": 26240,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 79,
+  "reasoning_output_tokens": 0
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1badb-4957-7041-9be7-4cab10d11020"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "{\"tool\":\"get_profile\",\"query\":null,\"reason\":null,\"text\":null,\"key\":null,\"value\":null,\"quote\":null}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 34873,
+    "cached_input_tokens": 26240,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 79,
+    "reasoning_output_tokens": 0
+   }
+  }
+ ]
+}

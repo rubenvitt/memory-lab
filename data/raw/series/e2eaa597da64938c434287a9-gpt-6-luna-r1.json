@@ -1,0 +1,59 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 1,
+ "input_hash": "e2eaa597da64938c434287a9",
+ "meta": {
+  "scenario": "erasure",
+  "arch": "A",
+  "rep": 1,
+  "role": "extractor",
+  "session": 1
+ },
+ "duration_ms": 5915,
+ "text": "{\"operations\":[{\"op\":\"NOOP\",\"id\":null,\"text\":null}]}",
+ "parsed": {
+  "operations": [
+   {
+    "op": "NOOP",
+    "id": null,
+    "text": null
+   }
+  ]
+ },
+ "usage": {
+  "input_tokens": 21117,
+  "cached_input_tokens": 12160,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 28,
+  "reasoning_output_tokens": 0
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bad2-7806-78a3-9703-4d33c55d8e00"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "{\"operations\":[{\"op\":\"NOOP\",\"id\":null,\"text\":null}]}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 21117,
+    "cached_input_tokens": 12160,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 28,
+    "reasoning_output_tokens": 0
+   }
+  }
+ ]
+}

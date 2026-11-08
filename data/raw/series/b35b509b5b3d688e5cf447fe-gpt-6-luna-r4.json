@@ -1,0 +1,58 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 4,
+ "input_hash": "b35b509b5b3d688e5cf447fe",
+ "meta": {
+  "scenario": "stale",
+  "arch": "A",
+  "rep": 4,
+  "role": "agent",
+  "session": 2,
+  "turn": 1,
+  "step": 1
+ },
+ "duration_ms": 11436,
+ "text": "{\"tool\":\"get_profile\",\"query\":null,\"reason\":null,\"text\":null}",
+ "parsed": {
+  "tool": "get_profile",
+  "query": null,
+  "reason": null,
+  "text": null
+ },
+ "usage": {
+  "input_tokens": 34741,
+  "cached_input_tokens": 32896,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 176,
+  "reasoning_output_tokens": 102
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bada-9106-77c2-990f-0855ae29a8fa"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "{\"tool\":\"get_profile\",\"query\":null,\"reason\":null,\"text\":null}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 34741,
+    "cached_input_tokens": 32896,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 176,
+    "reasoning_output_tokens": 102
+   }
+  }
+ ]
+}

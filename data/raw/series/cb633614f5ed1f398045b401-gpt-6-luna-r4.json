@@ -1,0 +1,64 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 4,
+ "input_hash": "cb633614f5ed1f398045b401",
+ "meta": {
+  "scenario": "stale",
+  "arch": "A",
+  "rep": 4,
+  "role": "extractor",
+  "session": 1
+ },
+ "duration_ms": 6926,
+ "text": "{\"operations\":[{\"op\":\"ADD\",\"id\":null,\"text\":\"Die Person ist seit Kurzem beim Bringdienst der Stadtbücherei angemeldet.\"},{\"op\":\"ADD\",\"id\":null,\"text\":\"Die Person ist vormittags unter der Adresse Kastanienweg 7 zu Hause.\"}]}",
+ "parsed": {
+  "operations": [
+   {
+    "op": "ADD",
+    "id": null,
+    "text": "Die Person ist seit Kurzem beim Bringdienst der Stadtbücherei angemeldet."
+   },
+   {
+    "op": "ADD",
+    "id": null,
+    "text": "Die Person ist vormittags unter der Adresse Kastanienweg 7 zu Hause."
+   }
+  ]
+ },
+ "usage": {
+  "input_tokens": 17379,
+  "cached_input_tokens": 0,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 72,
+  "reasoning_output_tokens": 0
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bada-590e-7370-92cf-1f60694f581c"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "{\"operations\":[{\"op\":\"ADD\",\"id\":null,\"text\":\"Die Person ist seit Kurzem beim Bringdienst der Stadtbücherei angemeldet.\"},{\"op\":\"ADD\",\"id\":null,\"text\":\"Die Person ist vormittags unter der Adresse Kastanienweg 7 zu Hause.\"}]}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 17379,
+    "cached_input_tokens": 0,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 72,
+    "reasoning_output_tokens": 0
+   }
+  }
+ ]
+}

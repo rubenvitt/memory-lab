@@ -1,0 +1,66 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 2,
+ "input_hash": "100d5c185ad69ab96e160330",
+ "meta": {
+  "scenario": "proxy",
+  "arch": "A",
+  "rep": 2,
+  "role": "agent",
+  "session": 2,
+  "turn": 1,
+  "step": 1
+ },
+ "duration_ms": 8980,
+ "text": "{\"tool\":\"get_profile\",\"query\":null,\"reason\":null,\"text\":null}",
+ "parsed": {
+  "tool": "get_profile",
+  "query": null,
+  "reason": null,
+  "text": null
+ },
+ "usage": {
+  "input_tokens": 41658,
+  "cached_input_tokens": 39936,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 124,
+  "reasoning_output_tokens": 28
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bad4-b09b-77f1-86d0-5951015a451a"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "Ich rufe das Bibliotheksprofil ab, denn dort ist der Bringdienst-Status verbindlich hinterlegt."
+   }
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_1",
+    "type": "agent_message",
+    "text": "{\"tool\":\"get_profile\",\"query\":null,\"reason\":null,\"text\":null}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 41658,
+    "cached_input_tokens": 39936,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 124,
+    "reasoning_output_tokens": 28
+   }
+  }
+ ]
+}

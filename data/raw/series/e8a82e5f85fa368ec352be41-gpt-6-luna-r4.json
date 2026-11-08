@@ -1,0 +1,59 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 4,
+ "input_hash": "e8a82e5f85fa368ec352be41",
+ "meta": {
+  "scenario": "explicit",
+  "arch": "A",
+  "rep": 4,
+  "role": "extractor",
+  "session": 1
+ },
+ "duration_ms": 6081,
+ "text": "{\"operations\":[{\"op\":\"ADD\",\"id\":null,\"text\":\"Die Person möchte Erinnerungen immer per SMS statt per E-Mail erhalten.\"}]}",
+ "parsed": {
+  "operations": [
+   {
+    "op": "ADD",
+    "id": null,
+    "text": "Die Person möchte Erinnerungen immer per SMS statt per E-Mail erhalten."
+   }
+  ]
+ },
+ "usage": {
+  "input_tokens": 17512,
+  "cached_input_tokens": 0,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 40,
+  "reasoning_output_tokens": 0
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bada-de41-7641-8849-1b1cf9cd523f"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "{\"operations\":[{\"op\":\"ADD\",\"id\":null,\"text\":\"Die Person möchte Erinnerungen immer per SMS statt per E-Mail erhalten.\"}]}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 17512,
+    "cached_input_tokens": 0,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 40,
+    "reasoning_output_tokens": 0
+   }
+  }
+ ]
+}

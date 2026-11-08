@@ -1,0 +1,69 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 3,
+ "input_hash": "b4845cc3dc35747e88d7523a",
+ "meta": {
+  "scenario": "stale",
+  "arch": "B",
+  "rep": 3,
+  "role": "agent",
+  "session": 1,
+  "turn": 1,
+  "step": 3
+ },
+ "duration_ms": 14254,
+ "text": "{\"tool\":\"remember\",\"query\":null,\"reason\":null,\"text\":null,\"key\":\"delivery_availability\",\"value\":\"Ist vormittags immer zu Hause.\",\"quote\":\"da bin ich vormittags immer zu Hause\"}",
+ "parsed": {
+  "tool": "remember",
+  "query": null,
+  "reason": null,
+  "text": null,
+  "key": "delivery_availability",
+  "value": "Ist vormittags immer zu Hause.",
+  "quote": "da bin ich vormittags immer zu Hause"
+ },
+ "usage": {
+  "input_tokens": 71339,
+  "cached_input_tokens": 52736,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 405,
+  "reasoning_output_tokens": 199
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bad8-1a77-7bd3-be02-900a9c3503ea"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "Ich sichere zuerst den ausdrücklich genannten Zustellwunsch mit dem genauen Wortlaut und gebe danach den Liefertag an."
+   }
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_1",
+    "type": "agent_message",
+    "text": "{\"tool\":\"remember\",\"query\":null,\"reason\":null,\"text\":null,\"key\":\"delivery_availability\",\"value\":\"Ist vormittags immer zu Hause.\",\"quote\":\"da bin ich vormittags immer zu Hause\"}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 71339,
+    "cached_input_tokens": 52736,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 405,
+    "reasoning_output_tokens": 199
+   }
+  }
+ ]
+}

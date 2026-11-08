@@ -1,0 +1,61 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 3,
+ "input_hash": "b4ad6768c944f302fcc16a48",
+ "meta": {
+  "scenario": "explicit",
+  "arch": "B",
+  "rep": 3,
+  "role": "agent",
+  "session": 2,
+  "turn": 1,
+  "step": 2
+ },
+ "duration_ms": 10240,
+ "text": "{\"tool\":\"remember\",\"query\":null,\"reason\":null,\"text\":null,\"key\":\"Benachrichtigungen\",\"value\":\"Erinnerungen immer per SMS, nicht per Mail.\",\"quote\":\"Bitte schick mir Erinnerungen immer per SMS, nicht per Mail.\"}",
+ "parsed": {
+  "tool": "remember",
+  "query": null,
+  "reason": null,
+  "text": null,
+  "key": "Benachrichtigungen",
+  "value": "Erinnerungen immer per SMS, nicht per Mail.",
+  "quote": "Bitte schick mir Erinnerungen immer per SMS, nicht per Mail."
+ },
+ "usage": {
+  "input_tokens": 53017,
+  "cached_input_tokens": 26368,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 118,
+  "reasoning_output_tokens": 0
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bad8-b84f-75b1-838c-a4b5f63d0855"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "{\"tool\":\"remember\",\"query\":null,\"reason\":null,\"text\":null,\"key\":\"Benachrichtigungen\",\"value\":\"Erinnerungen immer per SMS, nicht per Mail.\",\"quote\":\"Bitte schick mir Erinnerungen immer per SMS, nicht per Mail.\"}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 53017,
+    "cached_input_tokens": 26368,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 118,
+    "reasoning_output_tokens": 0
+   }
+  }
+ ]
+}

@@ -1,0 +1,64 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 2,
+ "input_hash": "b294ce37f58cf364f228c8f1",
+ "meta": {
+  "scenario": "stale",
+  "arch": "A",
+  "rep": 2,
+  "role": "extractor",
+  "session": 1
+ },
+ "duration_ms": 5703,
+ "text": "{\"operations\":[{\"op\":\"ADD\",\"id\":null,\"text\":\"Mara Feldkamp nutzt den Bringdienst der Stadtbücherei.\"},{\"op\":\"ADD\",\"id\":null,\"text\":\"Mara Feldkamp ist vormittags zu Hause.\"}]}",
+ "parsed": {
+  "operations": [
+   {
+    "op": "ADD",
+    "id": null,
+    "text": "Mara Feldkamp nutzt den Bringdienst der Stadtbücherei."
+   },
+   {
+    "op": "ADD",
+    "id": null,
+    "text": "Mara Feldkamp ist vormittags zu Hause."
+   }
+  ]
+ },
+ "usage": {
+  "input_tokens": 21159,
+  "cached_input_tokens": 19328,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 62,
+  "reasoning_output_tokens": 0
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bad4-a3e2-7752-a84a-40d5a64d1903"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "{\"operations\":[{\"op\":\"ADD\",\"id\":null,\"text\":\"Mara Feldkamp nutzt den Bringdienst der Stadtbücherei.\"},{\"op\":\"ADD\",\"id\":null,\"text\":\"Mara Feldkamp ist vormittags zu Hause.\"}]}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 21159,
+    "cached_input_tokens": 19328,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 62,
+    "reasoning_output_tokens": 0
+   }
+  }
+ ]
+}

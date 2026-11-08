@@ -1,0 +1,59 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 2,
+ "input_hash": "aa0d60128f0e14417ba291fc",
+ "meta": {
+  "scenario": "implicit",
+  "arch": "A",
+  "rep": 2,
+  "role": "extractor",
+  "session": 3
+ },
+ "duration_ms": 4519,
+ "text": "{\"operations\":[{\"op\":\"ADD\",\"id\":null,\"text\":\"Die Person interessiert sich für skandinavische Krimis.\"}]}",
+ "parsed": {
+  "operations": [
+   {
+    "op": "ADD",
+    "id": null,
+    "text": "Die Person interessiert sich für skandinavische Krimis."
+   }
+  ]
+ },
+ "usage": {
+  "input_tokens": 21151,
+  "cached_input_tokens": 19328,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 37,
+  "reasoning_output_tokens": 0
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bad5-5481-7570-a1c7-6181d206ac29"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "{\"operations\":[{\"op\":\"ADD\",\"id\":null,\"text\":\"Die Person interessiert sich für skandinavische Krimis.\"}]}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 21151,
+    "cached_input_tokens": 19328,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 37,
+    "reasoning_output_tokens": 0
+   }
+  }
+ ]
+}
