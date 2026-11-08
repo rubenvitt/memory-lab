@@ -1,0 +1,57 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 1,
+ "input_hash": "ea74fc492537f3c1de8fb060",
+ "meta": {
+  "e3": "b",
+  "extractor": "v1",
+  "id": "m06a"
+ },
+ "duration_ms": 6478,
+ "text": "{\"operations\":[{\"op\":\"ADD\",\"id\":null,\"text\":\"Der Sohn der Person ist in einer Entzugsklinik.\"}]}",
+ "parsed": {
+  "operations": [
+   {
+    "op": "ADD",
+    "id": null,
+    "text": "Der Sohn der Person ist in einer Entzugsklinik."
+   }
+  ]
+ },
+ "usage": {
+  "input_tokens": 17352,
+  "cached_input_tokens": 0,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 39,
+  "reasoning_output_tokens": 0
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bbb6-0661-72a1-82e6-acc5c53f5ab7"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "{\"operations\":[{\"op\":\"ADD\",\"id\":null,\"text\":\"Der Sohn der Person ist in einer Entzugsklinik.\"}]}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 17352,
+    "cached_input_tokens": 0,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 39,
+    "reasoning_output_tokens": 0
+   }
+  }
+ ]
+}

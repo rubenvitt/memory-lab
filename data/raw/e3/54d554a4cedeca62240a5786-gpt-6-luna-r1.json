@@ -1,0 +1,54 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 1,
+ "input_hash": "54d554a4cedeca62240a5786",
+ "meta": {
+  "e3": "b",
+  "extractor": "mem0",
+  "id": "m07p"
+ },
+ "duration_ms": 5849,
+ "text": "{\"facts\":[\"Die Schwester der nutzenden Person ist schwanger; bisher weiß es noch niemand.\",\"Die nutzende Person sucht Bücher über Vornamen.\"]}",
+ "parsed": {
+  "facts": [
+   "Die Schwester der nutzenden Person ist schwanger; bisher weiß es noch niemand.",
+   "Die nutzende Person sucht Bücher über Vornamen."
+  ]
+ },
+ "usage": {
+  "input_tokens": 17765,
+  "cached_input_tokens": 15744,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 43,
+  "reasoning_output_tokens": 0
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bbb6-1260-7ba0-b67d-e9ccd38aa98c"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "{\"facts\":[\"Die Schwester der nutzenden Person ist schwanger; bisher weiß es noch niemand.\",\"Die nutzende Person sucht Bücher über Vornamen.\"]}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 17765,
+    "cached_input_tokens": 15744,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 43,
+    "reasoning_output_tokens": 0
+   }
+  }
+ ]
+}

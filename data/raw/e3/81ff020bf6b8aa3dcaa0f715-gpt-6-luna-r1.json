@@ -1,0 +1,53 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 1,
+ "input_hash": "81ff020bf6b8aa3dcaa0f715",
+ "meta": {
+  "e3": "b",
+  "extractor": "mem0",
+  "id": "m13a"
+ },
+ "duration_ms": 4836,
+ "text": "{\"facts\":[\"Ich bin aus der Kirche ausgetreten.\"]}",
+ "parsed": {
+  "facts": [
+   "Ich bin aus der Kirche ausgetreten."
+  ]
+ },
+ "usage": {
+  "input_tokens": 17766,
+  "cached_input_tokens": 15744,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 24,
+  "reasoning_output_tokens": 0
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bbb6-72c5-72e1-bd14-8ca6523de8bb"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "{\"facts\":[\"Ich bin aus der Kirche ausgetreten.\"]}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 17766,
+    "cached_input_tokens": 15744,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 24,
+    "reasoning_output_tokens": 0
+   }
+  }
+ ]
+}

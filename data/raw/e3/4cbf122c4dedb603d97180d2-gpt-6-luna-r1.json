@@ -1,0 +1,57 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 1,
+ "input_hash": "4cbf122c4dedb603d97180d2",
+ "meta": {
+  "e3": "c",
+  "id": "m05a",
+  "step": 1
+ },
+ "duration_ms": 8400,
+ "text": "{\"tool\":\"remember\",\"query\":null,\"reason\":null,\"text\":null,\"key\":\"health_condition\",\"value\":\"Epilepsie\",\"quote\":\"Merk dir bitte, dass ich Epilepsie habe.\"}",
+ "parsed": {
+  "tool": "remember",
+  "query": null,
+  "reason": null,
+  "text": null,
+  "key": "health_condition",
+  "value": "Epilepsie",
+  "quote": "Merk dir bitte, dass ich Epilepsie habe."
+ },
+ "usage": {
+  "input_tokens": 34910,
+  "cached_input_tokens": 33024,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 128,
+  "reasoning_output_tokens": 41
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bbb7-1db2-7e92-9eee-c16b46900f58"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "{\"tool\":\"remember\",\"query\":null,\"reason\":null,\"text\":null,\"key\":\"health_condition\",\"value\":\"Epilepsie\",\"quote\":\"Merk dir bitte, dass ich Epilepsie habe.\"}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 34910,
+    "cached_input_tokens": 33024,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 128,
+    "reasoning_output_tokens": 41
+   }
+  }
+ ]
+}

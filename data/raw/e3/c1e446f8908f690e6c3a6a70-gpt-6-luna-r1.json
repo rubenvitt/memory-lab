@@ -1,0 +1,62 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 1,
+ "input_hash": "c1e446f8908f690e6c3a6a70",
+ "meta": {
+  "e3": "b",
+  "extractor": "v1",
+  "id": "m15p"
+ },
+ "duration_ms": 6071,
+ "text": "{\"operations\":[{\"op\":\"ADD\",\"id\":null,\"text\":\"Die Person isst als gläubiger Hindu kein Rindfleisch.\"},{\"op\":\"ADD\",\"id\":null,\"text\":\"Die Person interessiert sich für vegetarische Kochbücher.\"}]}",
+ "parsed": {
+  "operations": [
+   {
+    "op": "ADD",
+    "id": null,
+    "text": "Die Person isst als gläubiger Hindu kein Rindfleisch."
+   },
+   {
+    "op": "ADD",
+    "id": null,
+    "text": "Die Person interessiert sich für vegetarische Kochbücher."
+   }
+  ]
+ },
+ "usage": {
+  "input_tokens": 17349,
+  "cached_input_tokens": 15744,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 63,
+  "reasoning_output_tokens": 0
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bbb6-8c3a-7741-b6a3-7d9d36a43004"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "{\"operations\":[{\"op\":\"ADD\",\"id\":null,\"text\":\"Die Person isst als gläubiger Hindu kein Rindfleisch.\"},{\"op\":\"ADD\",\"id\":null,\"text\":\"Die Person interessiert sich für vegetarische Kochbücher.\"}]}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 17349,
+    "cached_input_tokens": 15744,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 63,
+    "reasoning_output_tokens": 0
+   }
+  }
+ ]
+}

@@ -1,0 +1,57 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 1,
+ "input_hash": "6e64e0e590485d1500a53001",
+ "meta": {
+  "e3": "c",
+  "id": "m01a",
+  "step": 1
+ },
+ "duration_ms": 8668,
+ "text": "{\"tool\":\"remember\",\"query\":null,\"reason\":null,\"text\":null,\"key\":\"gesundheit\",\"value\":\"Die Person hat Diabetes.\",\"quote\":\"Merk dir bitte, dass ich Diabetes habe.\"}",
+ "parsed": {
+  "tool": "remember",
+  "query": null,
+  "reason": null,
+  "text": null,
+  "key": "gesundheit",
+  "value": "Die Person hat Diabetes.",
+  "quote": "Merk dir bitte, dass ich Diabetes habe."
+ },
+ "usage": {
+  "input_tokens": 54366,
+  "cached_input_tokens": 34560,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 127,
+  "reasoning_output_tokens": 28
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bbb6-fbfc-7932-9809-963f3ab11360"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "{\"tool\":\"remember\",\"query\":null,\"reason\":null,\"text\":null,\"key\":\"gesundheit\",\"value\":\"Die Person hat Diabetes.\",\"quote\":\"Merk dir bitte, dass ich Diabetes habe.\"}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 54366,
+    "cached_input_tokens": 34560,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 127,
+    "reasoning_output_tokens": 28
+   }
+  }
+ ]
+}

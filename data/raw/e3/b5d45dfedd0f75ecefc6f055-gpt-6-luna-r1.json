@@ -1,0 +1,57 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 1,
+ "input_hash": "b5d45dfedd0f75ecefc6f055",
+ "meta": {
+  "e3": "b",
+  "extractor": "v1",
+  "id": "m04a"
+ },
+ "duration_ms": 5340,
+ "text": "{\"operations\":[{\"op\":\"ADD\",\"id\":null,\"text\":\"Die Person geht nach einer Hüft-OP auf Krücken.\"}]}",
+ "parsed": {
+  "operations": [
+   {
+    "op": "ADD",
+    "id": null,
+    "text": "Die Person geht nach einer Hüft-OP auf Krücken."
+   }
+  ]
+ },
+ "usage": {
+  "input_tokens": 17352,
+  "cached_input_tokens": 0,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 39,
+  "reasoning_output_tokens": 0
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bbb5-ef43-7903-a70a-a31ad494f3ae"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "{\"operations\":[{\"op\":\"ADD\",\"id\":null,\"text\":\"Die Person geht nach einer Hüft-OP auf Krücken.\"}]}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 17352,
+    "cached_input_tokens": 0,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 39,
+    "reasoning_output_tokens": 0
+   }
+  }
+ ]
+}

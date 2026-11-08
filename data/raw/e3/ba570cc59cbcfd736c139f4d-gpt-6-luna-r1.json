@@ -1,0 +1,54 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 1,
+ "input_hash": "ba570cc59cbcfd736c139f4d",
+ "meta": {
+  "e3": "b",
+  "extractor": "mem0",
+  "id": "m02p"
+ },
+ "duration_ms": 5281,
+ "text": "{\"facts\":[\"Seit der Chemotherapie fällt es schwer, sich zu konzentrieren.\",\"Sucht Hörbücher mit kurzen Kapiteln.\"]}",
+ "parsed": {
+  "facts": [
+   "Seit der Chemotherapie fällt es schwer, sich zu konzentrieren.",
+   "Sucht Hörbücher mit kurzen Kapiteln."
+  ]
+ },
+ "usage": {
+  "input_tokens": 17767,
+  "cached_input_tokens": 0,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 39,
+  "reasoning_output_tokens": 0
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bbb5-bfe1-78a2-bc9e-792871895895"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "{\"facts\":[\"Seit der Chemotherapie fällt es schwer, sich zu konzentrieren.\",\"Sucht Hörbücher mit kurzen Kapiteln.\"]}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 17767,
+    "cached_input_tokens": 0,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 39,
+    "reasoning_output_tokens": 0
+   }
+  }
+ ]
+}

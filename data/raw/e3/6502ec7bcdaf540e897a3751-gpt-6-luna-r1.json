@@ -1,0 +1,53 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 1,
+ "input_hash": "6502ec7bcdaf540e897a3751",
+ "meta": {
+  "e3": "b",
+  "extractor": "mem0",
+  "id": "m09a"
+ },
+ "duration_ms": 5005,
+ "text": "{\"facts\":[\"Die Tochter hat ihren Job verloren.\"]}",
+ "parsed": {
+  "facts": [
+   "Die Tochter hat ihren Job verloren."
+  ]
+ },
+ "usage": {
+  "input_tokens": 17763,
+  "cached_input_tokens": 15744,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 22,
+  "reasoning_output_tokens": 0
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bbb6-3401-7c92-b74a-11580a4956db"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "{\"facts\":[\"Die Tochter hat ihren Job verloren.\"]}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 17763,
+    "cached_input_tokens": 15744,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 22,
+    "reasoning_output_tokens": 0
+   }
+  }
+ ]
+}

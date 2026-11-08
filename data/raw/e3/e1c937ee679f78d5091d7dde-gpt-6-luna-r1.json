@@ -1,0 +1,57 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 1,
+ "input_hash": "e1c937ee679f78d5091d7dde",
+ "meta": {
+  "e3": "b",
+  "extractor": "v1",
+  "id": "m04p"
+ },
+ "duration_ms": 4713,
+ "text": "{\"operations\":[{\"op\":\"NOOP\",\"id\":null,\"text\":null}]}",
+ "parsed": {
+  "operations": [
+   {
+    "op": "NOOP",
+    "id": null,
+    "text": null
+   }
+  ]
+ },
+ "usage": {
+  "input_tokens": 17348,
+  "cached_input_tokens": 15744,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 28,
+  "reasoning_output_tokens": 0
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bbb5-eaed-76d3-ac67-4464020fa2ee"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "{\"operations\":[{\"op\":\"NOOP\",\"id\":null,\"text\":null}]}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 17348,
+    "cached_input_tokens": 15744,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 28,
+    "reasoning_output_tokens": 0
+   }
+  }
+ ]
+}

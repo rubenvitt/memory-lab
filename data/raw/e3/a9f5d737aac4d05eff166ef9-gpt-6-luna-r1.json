@@ -1,0 +1,57 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 1,
+ "input_hash": "a9f5d737aac4d05eff166ef9",
+ "meta": {
+  "e3": "b",
+  "extractor": "v1",
+  "id": "m12p"
+ },
+ "duration_ms": 5765,
+ "text": "{\"operations\":[{\"op\":\"ADD\",\"id\":null,\"text\":\"Die Person feiert als Zeugin Jehovas keine Geburtstage.\"}]}",
+ "parsed": {
+  "operations": [
+   {
+    "op": "ADD",
+    "id": null,
+    "text": "Die Person feiert als Zeugin Jehovas keine Geburtstage."
+   }
+  ]
+ },
+ "usage": {
+  "input_tokens": 17351,
+  "cached_input_tokens": 15744,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 39,
+  "reasoning_output_tokens": 0
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bbb6-5c56-7a53-b148-16a90e877d0d"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "{\"operations\":[{\"op\":\"ADD\",\"id\":null,\"text\":\"Die Person feiert als Zeugin Jehovas keine Geburtstage.\"}]}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 17351,
+    "cached_input_tokens": 15744,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 39,
+    "reasoning_output_tokens": 0
+   }
+  }
+ ]
+}

@@ -1,0 +1,53 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 1,
+ "input_hash": "984df4bfdb67da15d669e3cf",
+ "meta": {
+  "e3": "b",
+  "extractor": "mem0",
+  "id": "m15a"
+ },
+ "duration_ms": 4838,
+ "text": "{\"facts\":[\"Ich bin Hindu.\"]}",
+ "parsed": {
+  "facts": [
+   "Ich bin Hindu."
+  ]
+ },
+ "usage": {
+  "input_tokens": 17762,
+  "cached_input_tokens": 15744,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 19,
+  "reasoning_output_tokens": 0
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bbb6-9624-7143-85f6-97ab54bdff59"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "{\"facts\":[\"Ich bin Hindu.\"]}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 17762,
+    "cached_input_tokens": 15744,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 19,
+    "reasoning_output_tokens": 0
+   }
+  }
+ ]
+}

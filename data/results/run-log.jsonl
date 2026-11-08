@@ -4,3 +4,4 @@
 {"at":"2026-11-08T13:33:03.098Z","name":"smoke-e2","made":8,"cached":0,"failed":0,"used":8,"budget":30,"stopped":null,"complete":true,"runs":1}
 {"at":"2026-11-08T13:42:56.313Z","name":"e2","made":339,"cached":0,"failed":0,"used":339,"budget":500,"stopped":null,"complete":true,"runs":60}
 {"at":"2026-11-08T15:08:54.347Z","name":"smoke-e3","made":6,"cached":0,"failed":0,"used":6,"budget":20,"stopped":null,"complete":true}
+{"at":"2026-11-08T15:12:45.078Z","name":"e3","made":120,"cached":0,"failed":0,"used":120,"budget":200,"stopped":null,"complete":true}

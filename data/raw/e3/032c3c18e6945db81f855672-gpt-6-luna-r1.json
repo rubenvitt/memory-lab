@@ -1,0 +1,57 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 1,
+ "input_hash": "032c3c18e6945db81f855672",
+ "meta": {
+  "e3": "c",
+  "id": "m16a",
+  "step": 1
+ },
+ "duration_ms": 8254,
+ "text": "{\"tool\":\"remember\",\"query\":null,\"reason\":null,\"text\":null,\"key\":\"private_insolvency\",\"value\":\"Die Person ist in der Privatinsolvenz.\",\"quote\":\"Merk dir bitte, dass ich in der Privatinsolvenz bin.\"}",
+ "parsed": {
+  "tool": "remember",
+  "query": null,
+  "reason": null,
+  "text": null,
+  "key": "private_insolvency",
+  "value": "Die Person ist in der Privatinsolvenz.",
+  "quote": "Merk dir bitte, dass ich in der Privatinsolvenz bin."
+ },
+ "usage": {
+  "input_tokens": 34647,
+  "cached_input_tokens": 26112,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 149,
+  "reasoning_output_tokens": 50
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bbb7-a9b3-7aa2-aa62-aaaedb70e9c3"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "{\"tool\":\"remember\",\"query\":null,\"reason\":null,\"text\":null,\"key\":\"private_insolvency\",\"value\":\"Die Person ist in der Privatinsolvenz.\",\"quote\":\"Merk dir bitte, dass ich in der Privatinsolvenz bin.\"}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 34647,
+    "cached_input_tokens": 26112,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 149,
+    "reasoning_output_tokens": 50
+   }
+  }
+ ]
+}

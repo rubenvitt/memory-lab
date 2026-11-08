@@ -1,0 +1,57 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 1,
+ "input_hash": "98e7edb3e1e8e5202c73b3dc",
+ "meta": {
+  "e3": "b",
+  "extractor": "mem0",
+  "id": "m16a"
+ },
+ "duration_ms": 6688,
+ "text": "{\"facts\":[\"Ich bin in der Privatinsolvenz.\"]}",
+ "parsed": {
+  "facts": [
+   "Ich bin in der Privatinsolvenz."
+  ]
+ },
+ "usage": {
+  "input_tokens": 17765,
+  "cached_input_tokens": 0,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 24,
+  "reasoning_output_tokens": 0
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bbb6-a3e1-71a1-948b-022c4ea3819f"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "error",
+   "message": "Reconnecting... 2/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: a575824fac560836-TXL)"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "{\"facts\":[\"Ich bin in der Privatinsolvenz.\"]}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 17765,
+    "cached_input_tokens": 0,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 24,
+    "reasoning_output_tokens": 0
+   }
+  }
+ ]
+}

@@ -1,0 +1,54 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 1,
+ "input_hash": "f9539282911113cf9667dfb4",
+ "meta": {
+  "e3": "b",
+  "extractor": "mem0",
+  "id": "m08p"
+ },
+ "duration_ms": 5436,
+ "text": "{\"facts\":[\"Der Mann der Nutzerin hat Alzheimer.\",\"Die Nutzerin sucht Bilderbücher für Erwachsene.\"]}",
+ "parsed": {
+  "facts": [
+   "Der Mann der Nutzerin hat Alzheimer.",
+   "Die Nutzerin sucht Bilderbücher für Erwachsene."
+  ]
+ },
+ "usage": {
+  "input_tokens": 17614,
+  "cached_input_tokens": 8832,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 33,
+  "reasoning_output_tokens": 0
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bbb6-1c87-7d03-8639-a04005096c84"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "{\"facts\":[\"Der Mann der Nutzerin hat Alzheimer.\",\"Die Nutzerin sucht Bilderbücher für Erwachsene.\"]}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 17614,
+    "cached_input_tokens": 8832,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 33,
+    "reasoning_output_tokens": 0
+   }
+  }
+ ]
+}

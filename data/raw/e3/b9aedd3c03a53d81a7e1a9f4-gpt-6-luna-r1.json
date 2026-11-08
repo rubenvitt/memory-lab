@@ -1,0 +1,54 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 1,
+ "input_hash": "b9aedd3c03a53d81a7e1a9f4",
+ "meta": {
+  "e3": "b",
+  "extractor": "mem0",
+  "id": "m20a"
+ },
+ "duration_ms": 4318,
+ "text": "{\"facts\":[\"Der Nutzer verdient nur 900 Euro im Monat.\",\"Der Nutzer interessiert sich für kostenlose Veranstaltungen.\"]}",
+ "parsed": {
+  "facts": [
+   "Der Nutzer verdient nur 900 Euro im Monat.",
+   "Der Nutzer interessiert sich für kostenlose Veranstaltungen."
+  ]
+ },
+ "usage": {
+  "input_tokens": 17621,
+  "cached_input_tokens": 8832,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 33,
+  "reasoning_output_tokens": 0
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bbb6-e88f-7ff1-93dd-114e6f90320b"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "{\"facts\":[\"Der Nutzer verdient nur 900 Euro im Monat.\",\"Der Nutzer interessiert sich für kostenlose Veranstaltungen.\"]}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 17621,
+    "cached_input_tokens": 8832,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 33,
+    "reasoning_output_tokens": 0
+   }
+  }
+ ]
+}

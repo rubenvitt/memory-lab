@@ -1,0 +1,57 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 1,
+ "input_hash": "ec2d6a8b4300cd613e2847e9",
+ "meta": {
+  "e3": "c",
+  "id": "m03p",
+  "step": 1
+ },
+ "duration_ms": 8455,
+ "text": "{\"tool\":\"search_docs\",\"query\":\"Leihfrist verlängern Verlängerung Ausleihe\",\"reason\":null,\"text\":null,\"key\":null,\"value\":null,\"quote\":null}",
+ "parsed": {
+  "tool": "search_docs",
+  "query": "Leihfrist verlängern Verlängerung Ausleihe",
+  "reason": null,
+  "text": null,
+  "key": null,
+  "value": null,
+  "quote": null
+ },
+ "usage": {
+  "input_tokens": 34896,
+  "cached_input_tokens": 17280,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 100,
+  "reasoning_output_tokens": 17
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bbb6-fbfd-7db1-93f5-2cc1a7e8488e"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "{\"tool\":\"search_docs\",\"query\":\"Leihfrist verlängern Verlängerung Ausleihe\",\"reason\":null,\"text\":null,\"key\":null,\"value\":null,\"quote\":null}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 34896,
+    "cached_input_tokens": 17280,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 100,
+    "reasoning_output_tokens": 17
+   }
+  }
+ ]
+}

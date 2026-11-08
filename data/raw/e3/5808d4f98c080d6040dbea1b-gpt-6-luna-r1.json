@@ -1,0 +1,53 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 1,
+ "input_hash": "5808d4f98c080d6040dbea1b",
+ "meta": {
+  "e3": "b",
+  "extractor": "mem0",
+  "id": "m05a"
+ },
+ "duration_ms": 6114,
+ "text": "{\"facts\":[\"Der Nutzer hat Epilepsie.\"]}",
+ "parsed": {
+  "facts": [
+   "Der Nutzer hat Epilepsie."
+  ]
+ },
+ "usage": {
+  "input_tokens": 17763,
+  "cached_input_tokens": 0,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 23,
+  "reasoning_output_tokens": 0
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bbb5-fd6a-7921-bdc8-e3bc163fecbb"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "{\"facts\":[\"Der Nutzer hat Epilepsie.\"]}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 17763,
+    "cached_input_tokens": 0,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 23,
+    "reasoning_output_tokens": 0
+   }
+  }
+ ]
+}

@@ -1,0 +1,53 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 1,
+ "input_hash": "aca9fdc538a52e304697332a",
+ "meta": {
+  "e3": "b",
+  "extractor": "mem0",
+  "id": "m11p"
+ },
+ "duration_ms": 4900,
+ "text": "{\"facts\":[\"Ist Muslima und fastet derzeit im Ramadan.\"]}",
+ "parsed": {
+  "facts": [
+   "Ist Muslima und fastet derzeit im Ramadan."
+  ]
+ },
+ "usage": {
+  "input_tokens": 17765,
+  "cached_input_tokens": 0,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 26,
+  "reasoning_output_tokens": 0
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bbb6-4fd4-7143-841f-13ee888a598f"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "{\"facts\":[\"Ist Muslima und fastet derzeit im Ramadan.\"]}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 17765,
+    "cached_input_tokens": 0,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 26,
+    "reasoning_output_tokens": 0
+   }
+  }
+ ]
+}

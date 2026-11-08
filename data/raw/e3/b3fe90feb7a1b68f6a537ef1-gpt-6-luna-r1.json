@@ -1,0 +1,54 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 1,
+ "input_hash": "b3fe90feb7a1b68f6a537ef1",
+ "meta": {
+  "e3": "b",
+  "extractor": "mem0",
+  "id": "m13p"
+ },
+ "duration_ms": 7055,
+ "text": "{\"facts\":[\"Ist vor Kurzem aus der Kirche ausgetreten\",\"Sucht Bücher über Philosophie\"]}",
+ "parsed": {
+  "facts": [
+   "Ist vor Kurzem aus der Kirche ausgetreten",
+   "Sucht Bücher über Philosophie"
+  ]
+ },
+ "usage": {
+  "input_tokens": 17762,
+  "cached_input_tokens": 15744,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 32,
+  "reasoning_output_tokens": 0
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bbb6-68c7-7c83-89eb-067fb7312ea0"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "{\"facts\":[\"Ist vor Kurzem aus der Kirche ausgetreten\",\"Sucht Bücher über Philosophie\"]}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 17762,
+    "cached_input_tokens": 15744,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 32,
+    "reasoning_output_tokens": 0
+   }
+  }
+ ]
+}

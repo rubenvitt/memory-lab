@@ -2257,5 +2257,745 @@
     "hits": []
    }
   ]
+ },
+ "e3": {
+  "prompt_version": "e3",
+  "models": {
+   "agent": "gpt-6-luna",
+   "extractor": "gpt-6-luna",
+   "effort": "low"
+  },
+  "complete": true,
+  "e3a": {
+   "variants": [
+    {
+     "id": "eine-ohne",
+     "perType": false,
+     "provenance": false,
+     "label": "Eine Regel für alles, ohne Herkunft"
+    },
+    {
+     "id": "typ-ohne",
+     "perType": true,
+     "provenance": false,
+     "label": "Eine Regel je Datenart, ohne Herkunft"
+    },
+    {
+     "id": "eine-mit",
+     "perType": false,
+     "provenance": true,
+     "label": "Eine Regel für alles, mit Herkunft"
+    },
+    {
+     "id": "typ-mit",
+     "perType": true,
+     "provenance": true,
+     "label": "Eine Regel je Datenart, mit Herkunft"
+    }
+   ],
+   "cases": [
+    {
+     "id": "real-mem0",
+     "label": "Echte Einträge aus E2, Mem0-Extraktor",
+     "derived": 10
+    },
+    {
+     "id": "real-v1",
+     "label": "Echte Einträge aus E2, eigener Extraktor",
+     "derived": 5
+    },
+    {
+     "id": "a-summary",
+     "label": "Zusammenfassung aus Chat 1 und Chat 2",
+     "derived": 1
+    },
+    {
+     "id": "b-rebuild",
+     "label": "Suchindex wird nach dem Löschen aus dem Protokoll neu gebaut",
+     "derived": 8
+    },
+    {
+     "id": "c-late-job",
+     "label": "Extraktionsjob aus Chat 1 läuft erst nach dem Löschen",
+     "derived": 0
+    },
+    {
+     "id": "d-preference",
+     "label": "Ausdrücklich gespeicherter Wunsch aus Chat 1",
+     "derived": 1
+    },
+    {
+     "id": "e-plain",
+     "label": "Suchanfrage im Protokoll, Klartext",
+     "derived": 0
+    },
+    {
+     "id": "e-shred",
+     "label": "Suchanfrage im Protokoll, pro Chat verschlüsselt",
+     "derived": 0
+    }
+   ],
+   "results": [
+    {
+     "variant": "eine-ohne",
+     "case": "real-mem0",
+     "stored": true,
+     "storedInLog": false,
+     "retrievable": true,
+     "inPrompt": true,
+     "back": false,
+     "lostOther": false,
+     "preferenceDeleted": false,
+     "preferenceSourceShown": false,
+     "derivedWithDiagnosis": 5,
+     "derived": 10,
+     "leftWithDiagnosis": 5,
+     "rejected": 0,
+     "text": "5 von 5 Einträgen mit Diagnose bleiben, im Prompt"
+    },
+    {
+     "variant": "eine-ohne",
+     "case": "real-v1",
+     "stored": true,
+     "storedInLog": false,
+     "retrievable": true,
+     "inPrompt": true,
+     "back": false,
+     "lostOther": false,
+     "preferenceDeleted": false,
+     "preferenceSourceShown": false,
+     "derivedWithDiagnosis": 3,
+     "derived": 5,
+     "leftWithDiagnosis": 3,
+     "rejected": 0,
+     "text": "3 von 3 Einträgen mit Diagnose bleiben, im Prompt"
+    },
+    {
+     "variant": "eine-ohne",
+     "case": "a-summary",
+     "stored": true,
+     "storedInLog": false,
+     "retrievable": true,
+     "inPrompt": true,
+     "back": false,
+     "lostOther": false,
+     "preferenceDeleted": false,
+     "preferenceSourceShown": false,
+     "derivedWithDiagnosis": 1,
+     "derived": 1,
+     "leftWithDiagnosis": 1,
+     "rejected": 0,
+     "text": "bleibt, im Prompt"
+    },
+    {
+     "variant": "eine-ohne",
+     "case": "b-rebuild",
+     "stored": true,
+     "storedInLog": true,
+     "retrievable": true,
+     "inPrompt": true,
+     "back": false,
+     "lostOther": false,
+     "preferenceDeleted": false,
+     "preferenceSourceShown": false,
+     "derivedWithDiagnosis": 1,
+     "derived": 8,
+     "leftWithDiagnosis": 1,
+     "rejected": 0,
+     "text": "bleibt, im Prompt; bleibt im Protokoll"
+    },
+    {
+     "variant": "eine-ohne",
+     "case": "c-late-job",
+     "stored": true,
+     "storedInLog": false,
+     "retrievable": true,
+     "inPrompt": true,
+     "back": true,
+     "lostOther": false,
+     "preferenceDeleted": false,
+     "preferenceSourceShown": false,
+     "derivedWithDiagnosis": 0,
+     "derived": 0,
+     "leftWithDiagnosis": 1,
+     "rejected": 0,
+     "text": "kommt durch den Job zurück"
+    },
+    {
+     "variant": "eine-ohne",
+     "case": "d-preference",
+     "stored": true,
+     "storedInLog": false,
+     "retrievable": true,
+     "inPrompt": true,
+     "back": false,
+     "lostOther": false,
+     "preferenceDeleted": false,
+     "preferenceSourceShown": false,
+     "derivedWithDiagnosis": 1,
+     "derived": 1,
+     "leftWithDiagnosis": 1,
+     "rejected": 0,
+     "text": "bleibt, Herkunft unbekannt"
+    },
+    {
+     "variant": "eine-ohne",
+     "case": "e-plain",
+     "stored": true,
+     "storedInLog": true,
+     "retrievable": false,
+     "inPrompt": false,
+     "back": false,
+     "lostOther": false,
+     "preferenceDeleted": false,
+     "preferenceSourceShown": false,
+     "derivedWithDiagnosis": 0,
+     "derived": 0,
+     "leftWithDiagnosis": 0,
+     "rejected": 0,
+     "text": "bleibt im Protokoll"
+    },
+    {
+     "variant": "eine-ohne",
+     "case": "e-shred",
+     "stored": true,
+     "storedInLog": true,
+     "retrievable": false,
+     "inPrompt": false,
+     "back": false,
+     "lostOther": false,
+     "preferenceDeleted": false,
+     "preferenceSourceShown": false,
+     "derivedWithDiagnosis": 0,
+     "derived": 0,
+     "leftWithDiagnosis": 0,
+     "rejected": 0,
+     "text": "bleibt im Protokoll"
+    },
+    {
+     "variant": "typ-ohne",
+     "case": "real-mem0",
+     "stored": true,
+     "storedInLog": false,
+     "retrievable": true,
+     "inPrompt": true,
+     "back": false,
+     "lostOther": false,
+     "preferenceDeleted": false,
+     "preferenceSourceShown": false,
+     "derivedWithDiagnosis": 5,
+     "derived": 10,
+     "leftWithDiagnosis": 5,
+     "rejected": 0,
+     "text": "5 von 5 Einträgen mit Diagnose bleiben, im Prompt"
+    },
+    {
+     "variant": "typ-ohne",
+     "case": "real-v1",
+     "stored": true,
+     "storedInLog": false,
+     "retrievable": true,
+     "inPrompt": true,
+     "back": false,
+     "lostOther": false,
+     "preferenceDeleted": false,
+     "preferenceSourceShown": false,
+     "derivedWithDiagnosis": 3,
+     "derived": 5,
+     "leftWithDiagnosis": 3,
+     "rejected": 0,
+     "text": "3 von 3 Einträgen mit Diagnose bleiben, im Prompt"
+    },
+    {
+     "variant": "typ-ohne",
+     "case": "a-summary",
+     "stored": true,
+     "storedInLog": false,
+     "retrievable": true,
+     "inPrompt": true,
+     "back": false,
+     "lostOther": false,
+     "preferenceDeleted": false,
+     "preferenceSourceShown": false,
+     "derivedWithDiagnosis": 1,
+     "derived": 1,
+     "leftWithDiagnosis": 1,
+     "rejected": 0,
+     "text": "bleibt, im Prompt"
+    },
+    {
+     "variant": "typ-ohne",
+     "case": "b-rebuild",
+     "stored": true,
+     "storedInLog": true,
+     "retrievable": true,
+     "inPrompt": false,
+     "back": false,
+     "lostOther": false,
+     "preferenceDeleted": false,
+     "preferenceSourceShown": false,
+     "derivedWithDiagnosis": 1,
+     "derived": 8,
+     "leftWithDiagnosis": 1,
+     "rejected": 0,
+     "text": "bleibt, abrufbar; bleibt im Protokoll"
+    },
+    {
+     "variant": "typ-ohne",
+     "case": "c-late-job",
+     "stored": true,
+     "storedInLog": false,
+     "retrievable": true,
+     "inPrompt": true,
+     "back": true,
+     "lostOther": false,
+     "preferenceDeleted": false,
+     "preferenceSourceShown": false,
+     "derivedWithDiagnosis": 0,
+     "derived": 0,
+     "leftWithDiagnosis": 1,
+     "rejected": 0,
+     "text": "kommt durch den Job zurück"
+    },
+    {
+     "variant": "typ-ohne",
+     "case": "d-preference",
+     "stored": true,
+     "storedInLog": false,
+     "retrievable": true,
+     "inPrompt": true,
+     "back": false,
+     "lostOther": false,
+     "preferenceDeleted": false,
+     "preferenceSourceShown": false,
+     "derivedWithDiagnosis": 1,
+     "derived": 1,
+     "leftWithDiagnosis": 1,
+     "rejected": 0,
+     "text": "bleibt, Herkunft unbekannt"
+    },
+    {
+     "variant": "typ-ohne",
+     "case": "e-plain",
+     "stored": true,
+     "storedInLog": true,
+     "retrievable": false,
+     "inPrompt": false,
+     "back": false,
+     "lostOther": false,
+     "preferenceDeleted": false,
+     "preferenceSourceShown": false,
+     "derivedWithDiagnosis": 0,
+     "derived": 0,
+     "leftWithDiagnosis": 0,
+     "rejected": 0,
+     "text": "bleibt im Protokoll"
+    },
+    {
+     "variant": "typ-ohne",
+     "case": "e-shred",
+     "stored": true,
+     "storedInLog": true,
+     "retrievable": false,
+     "inPrompt": false,
+     "back": false,
+     "lostOther": false,
+     "preferenceDeleted": false,
+     "preferenceSourceShown": false,
+     "derivedWithDiagnosis": 0,
+     "derived": 0,
+     "leftWithDiagnosis": 0,
+     "rejected": 0,
+     "text": "bleibt im Protokoll"
+    },
+    {
+     "variant": "eine-mit",
+     "case": "real-mem0",
+     "stored": false,
+     "storedInLog": false,
+     "retrievable": false,
+     "inPrompt": false,
+     "back": false,
+     "lostOther": false,
+     "preferenceDeleted": false,
+     "preferenceSourceShown": false,
+     "derivedWithDiagnosis": 5,
+     "derived": 10,
+     "leftWithDiagnosis": 0,
+     "rejected": 0,
+     "text": "alle 5 Einträge mit Diagnose weg"
+    },
+    {
+     "variant": "eine-mit",
+     "case": "real-v1",
+     "stored": false,
+     "storedInLog": false,
+     "retrievable": false,
+     "inPrompt": false,
+     "back": false,
+     "lostOther": false,
+     "preferenceDeleted": false,
+     "preferenceSourceShown": false,
+     "derivedWithDiagnosis": 3,
+     "derived": 5,
+     "leftWithDiagnosis": 0,
+     "rejected": 0,
+     "text": "alle 3 Einträge mit Diagnose weg"
+    },
+    {
+     "variant": "eine-mit",
+     "case": "a-summary",
+     "stored": false,
+     "storedInLog": false,
+     "retrievable": false,
+     "inPrompt": false,
+     "back": false,
+     "lostOther": true,
+     "preferenceDeleted": false,
+     "preferenceSourceShown": false,
+     "derivedWithDiagnosis": 1,
+     "derived": 1,
+     "leftWithDiagnosis": 0,
+     "rejected": 0,
+     "text": "weg; Krimi-Anteil aus Chat 2 auch weg"
+    },
+    {
+     "variant": "eine-mit",
+     "case": "b-rebuild",
+     "stored": true,
+     "storedInLog": true,
+     "retrievable": false,
+     "inPrompt": false,
+     "back": false,
+     "lostOther": false,
+     "preferenceDeleted": false,
+     "preferenceSourceShown": false,
+     "derivedWithDiagnosis": 1,
+     "derived": 8,
+     "leftWithDiagnosis": 0,
+     "rejected": 8,
+     "text": "bleibt im Protokoll; Index bleibt sauber, Neubau weist Chat 1 ab"
+    },
+    {
+     "variant": "eine-mit",
+     "case": "c-late-job",
+     "stored": false,
+     "storedInLog": false,
+     "retrievable": false,
+     "inPrompt": false,
+     "back": false,
+     "lostOther": false,
+     "preferenceDeleted": false,
+     "preferenceSourceShown": false,
+     "derivedWithDiagnosis": 0,
+     "derived": 0,
+     "leftWithDiagnosis": 0,
+     "rejected": 1,
+     "text": "weg; Job abgewiesen"
+    },
+    {
+     "variant": "eine-mit",
+     "case": "d-preference",
+     "stored": false,
+     "storedInLog": false,
+     "retrievable": false,
+     "inPrompt": false,
+     "back": false,
+     "lostOther": false,
+     "preferenceDeleted": true,
+     "preferenceSourceShown": false,
+     "derivedWithDiagnosis": 1,
+     "derived": 1,
+     "leftWithDiagnosis": 0,
+     "rejected": 0,
+     "text": "gelöscht, gegen die Produktregel"
+    },
+    {
+     "variant": "eine-mit",
+     "case": "e-plain",
+     "stored": true,
+     "storedInLog": true,
+     "retrievable": false,
+     "inPrompt": false,
+     "back": false,
+     "lostOther": false,
+     "preferenceDeleted": false,
+     "preferenceSourceShown": false,
+     "derivedWithDiagnosis": 0,
+     "derived": 0,
+     "leftWithDiagnosis": 0,
+     "rejected": 0,
+     "text": "bleibt im Protokoll"
+    },
+    {
+     "variant": "eine-mit",
+     "case": "e-shred",
+     "stored": false,
+     "storedInLog": false,
+     "retrievable": false,
+     "inPrompt": false,
+     "back": false,
+     "lostOther": false,
+     "preferenceDeleted": false,
+     "preferenceSourceShown": false,
+     "derivedWithDiagnosis": 0,
+     "derived": 0,
+     "leftWithDiagnosis": 0,
+     "rejected": 0,
+     "text": "unlesbar, Schlüssel vernichtet"
+    },
+    {
+     "variant": "typ-mit",
+     "case": "real-mem0",
+     "stored": false,
+     "storedInLog": false,
+     "retrievable": false,
+     "inPrompt": false,
+     "back": false,
+     "lostOther": false,
+     "preferenceDeleted": false,
+     "preferenceSourceShown": false,
+     "derivedWithDiagnosis": 5,
+     "derived": 10,
+     "leftWithDiagnosis": 0,
+     "rejected": 0,
+     "text": "alle 5 Einträge mit Diagnose weg"
+    },
+    {
+     "variant": "typ-mit",
+     "case": "real-v1",
+     "stored": false,
+     "storedInLog": false,
+     "retrievable": false,
+     "inPrompt": false,
+     "back": false,
+     "lostOther": false,
+     "preferenceDeleted": false,
+     "preferenceSourceShown": false,
+     "derivedWithDiagnosis": 3,
+     "derived": 5,
+     "leftWithDiagnosis": 0,
+     "rejected": 0,
+     "text": "alle 3 Einträge mit Diagnose weg"
+    },
+    {
+     "variant": "typ-mit",
+     "case": "a-summary",
+     "stored": false,
+     "storedInLog": false,
+     "retrievable": false,
+     "inPrompt": false,
+     "back": false,
+     "lostOther": false,
+     "preferenceDeleted": false,
+     "preferenceSourceShown": false,
+     "derivedWithDiagnosis": 1,
+     "derived": 1,
+     "leftWithDiagnosis": 0,
+     "rejected": 0,
+     "text": "weg"
+    },
+    {
+     "variant": "typ-mit",
+     "case": "b-rebuild",
+     "stored": true,
+     "storedInLog": true,
+     "retrievable": false,
+     "inPrompt": false,
+     "back": false,
+     "lostOther": false,
+     "preferenceDeleted": false,
+     "preferenceSourceShown": false,
+     "derivedWithDiagnosis": 1,
+     "derived": 8,
+     "leftWithDiagnosis": 0,
+     "rejected": 8,
+     "text": "bleibt im Protokoll; Index bleibt sauber, Neubau weist Chat 1 ab"
+    },
+    {
+     "variant": "typ-mit",
+     "case": "c-late-job",
+     "stored": false,
+     "storedInLog": false,
+     "retrievable": false,
+     "inPrompt": false,
+     "back": false,
+     "lostOther": false,
+     "preferenceDeleted": false,
+     "preferenceSourceShown": false,
+     "derivedWithDiagnosis": 0,
+     "derived": 0,
+     "leftWithDiagnosis": 0,
+     "rejected": 1,
+     "text": "weg; Job abgewiesen"
+    },
+    {
+     "variant": "typ-mit",
+     "case": "d-preference",
+     "stored": true,
+     "storedInLog": false,
+     "retrievable": true,
+     "inPrompt": true,
+     "back": false,
+     "lostOther": false,
+     "preferenceDeleted": false,
+     "preferenceSourceShown": true,
+     "derivedWithDiagnosis": 1,
+     "derived": 1,
+     "leftWithDiagnosis": 1,
+     "rejected": 0,
+     "text": "bleibt nach Produktregel, Herkunft sichtbar"
+    },
+    {
+     "variant": "typ-mit",
+     "case": "e-plain",
+     "stored": true,
+     "storedInLog": true,
+     "retrievable": false,
+     "inPrompt": false,
+     "back": false,
+     "lostOther": false,
+     "preferenceDeleted": false,
+     "preferenceSourceShown": false,
+     "derivedWithDiagnosis": 0,
+     "derived": 0,
+     "leftWithDiagnosis": 0,
+     "rejected": 0,
+     "text": "bleibt im Protokoll"
+    },
+    {
+     "variant": "typ-mit",
+     "case": "e-shred",
+     "stored": false,
+     "storedInLog": false,
+     "retrievable": false,
+     "inPrompt": false,
+     "back": false,
+     "lostOther": false,
+     "preferenceDeleted": false,
+     "preferenceSourceShown": false,
+     "derivedWithDiagnosis": 0,
+     "derived": 0,
+     "leftWithDiagnosis": 0,
+     "rejected": 0,
+     "text": "unlesbar, Schlüssel vernichtet"
+    }
+   ]
+  },
+  "e3b": {
+   "mem0": {
+    "nebenbei": {
+     "k": 20,
+     "n": 20,
+     "low": 0.8388698745050667,
+     "high": 1
+    },
+    "ausdruecklich": {
+     "k": 20,
+     "n": 20,
+     "low": 0.8388698745050667,
+     "high": 1
+    },
+    "by_category": {
+     "Gesundheit": {
+      "nebenbei": 5,
+      "ausdruecklich": 5
+     },
+     "Dritte": {
+      "nebenbei": 5,
+      "ausdruecklich": 5
+     },
+     "Religion": {
+      "nebenbei": 5,
+      "ausdruecklich": 5
+     },
+     "Finanzen": {
+      "nebenbei": 5,
+      "ausdruecklich": 5
+     }
+    }
+   },
+   "v1": {
+    "nebenbei": {
+     "k": 5,
+     "n": 20,
+     "low": 0.11186005278940309,
+     "high": 0.4687050099580636
+    },
+    "ausdruecklich": {
+     "k": 19,
+     "n": 20,
+     "low": 0.7638641064874331,
+     "high": 0.9911187805671268
+    },
+    "by_category": {
+     "Gesundheit": {
+      "nebenbei": 0,
+      "ausdruecklich": 4
+     },
+     "Dritte": {
+      "nebenbei": 0,
+      "ausdruecklich": 5
+     },
+     "Religion": {
+      "nebenbei": 3,
+      "ausdruecklich": 5
+     },
+     "Finanzen": {
+      "nebenbei": 2,
+      "ausdruecklich": 5
+     }
+    }
+   }
+  },
+  "e3c": {
+   "plain": {
+    "nebenbei": {
+     "k": 6,
+     "n": 20,
+     "low": 0.14547527396899385,
+     "high": 0.5189767762289793
+    },
+    "ausdruecklich": {
+     "k": 4,
+     "n": 20,
+     "low": 0.0806563532712,
+     "high": 0.41602172202575993
+    },
+    "total": {
+     "k": 10,
+     "n": 40,
+     "low": 0.14186967895549518,
+     "high": 0.40194259066970106
+    }
+   },
+   "sealed": {
+    "nebenbei": {
+     "k": 0,
+     "n": 20,
+     "low": 0,
+     "high": 0.16113012549493322
+    },
+    "ausdruecklich": {
+     "k": 14,
+     "n": 20,
+     "low": 0.4810232237710206,
+     "high": 0.854524726031006
+    }
+   },
+   "no_text_tool": 3,
+   "second_step": 0
+  },
+  "calls": {
+   "raw": {
+    "answers": 120,
+    "errors": 0
+   },
+   "raw_smoke": {
+    "answers": 6,
+    "errors": 0
+   },
+   "budget": 200
+  }
  }
 }

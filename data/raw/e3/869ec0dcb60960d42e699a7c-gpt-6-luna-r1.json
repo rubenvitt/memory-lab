@@ -1,0 +1,54 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 1,
+ "input_hash": "869ec0dcb60960d42e699a7c",
+ "meta": {
+  "e3": "b",
+  "extractor": "mem0",
+  "id": "m01p"
+ },
+ "duration_ms": 6110,
+ "text": "{\"facts\":[\"Der Nutzer hat Diabetes und muss pünktlich essen.\",\"Der Nutzer fragt nach den Öffnungszeiten am Samstag.\"]}",
+ "parsed": {
+  "facts": [
+   "Der Nutzer hat Diabetes und muss pünktlich essen.",
+   "Der Nutzer fragt nach den Öffnungszeiten am Samstag."
+  ]
+ },
+ "usage": {
+  "input_tokens": 17765,
+  "cached_input_tokens": 0,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 37,
+  "reasoning_output_tokens": 0
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bbb5-bfe1-78e2-894d-f361c1471226"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "{\"facts\":[\"Der Nutzer hat Diabetes und muss pünktlich essen.\",\"Der Nutzer fragt nach den Öffnungszeiten am Samstag.\"]}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 17765,
+    "cached_input_tokens": 0,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 37,
+    "reasoning_output_tokens": 0
+   }
+  }
+ ]
+}

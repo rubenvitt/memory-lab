@@ -1,0 +1,54 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 1,
+ "input_hash": "5539b7e163ec6da47b51a7e6",
+ "meta": {
+  "e3": "b",
+  "extractor": "mem0",
+  "id": "m04p"
+ },
+ "duration_ms": 5009,
+ "text": "{\"facts\":[\"Der Nutzer erholt sich von einer Hüftoperation und ist noch auf Krücken.\",\"Der Nutzer fragt, ob Bücher nach Hause geliefert werden.\"]}",
+ "parsed": {
+  "facts": [
+   "Der Nutzer erholt sich von einer Hüftoperation und ist noch auf Krücken.",
+   "Der Nutzer fragt, ob Bücher nach Hause geliefert werden."
+  ]
+ },
+ "usage": {
+  "input_tokens": 17763,
+  "cached_input_tokens": 0,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 43,
+  "reasoning_output_tokens": 0
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bbb5-ea83-79d1-9ea7-bc034588b1f2"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "{\"facts\":[\"Der Nutzer erholt sich von einer Hüftoperation und ist noch auf Krücken.\",\"Der Nutzer fragt, ob Bücher nach Hause geliefert werden.\"]}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 17763,
+    "cached_input_tokens": 0,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 43,
+    "reasoning_output_tokens": 0
+   }
+  }
+ ]
+}

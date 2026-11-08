@@ -1,0 +1,54 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 1,
+ "input_hash": "62e860c3b3bde08ccc658d9b",
+ "meta": {
+  "e3": "b",
+  "extractor": "mem0",
+  "id": "m15p"
+ },
+ "duration_ms": 6732,
+ "text": "{\"facts\":[\"Als gläubiger Hindu isst die Person kein Rindfleisch.\",\"Die Person fragt nach vegetarischen Kochbüchern.\"]}",
+ "parsed": {
+  "facts": [
+   "Als gläubiger Hindu isst die Person kein Rindfleisch.",
+   "Die Person fragt nach vegetarischen Kochbüchern."
+  ]
+ },
+ "usage": {
+  "input_tokens": 17766,
+  "cached_input_tokens": 15744,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 40,
+  "reasoning_output_tokens": 0
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bbb6-89d3-7bc3-9056-9332d2018132"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "{\"facts\":[\"Als gläubiger Hindu isst die Person kein Rindfleisch.\",\"Die Person fragt nach vegetarischen Kochbüchern.\"]}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 17766,
+    "cached_input_tokens": 15744,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 40,
+    "reasoning_output_tokens": 0
+   }
+  }
+ ]
+}

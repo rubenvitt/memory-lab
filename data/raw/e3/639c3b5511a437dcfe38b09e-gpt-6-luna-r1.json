@@ -1,0 +1,65 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 1,
+ "input_hash": "639c3b5511a437dcfe38b09e",
+ "meta": {
+  "e3": "c",
+  "id": "m20a",
+  "step": 1
+ },
+ "duration_ms": 10710,
+ "text": "{\"tool\":\"remember\",\"query\":null,\"reason\":null,\"text\":null,\"key\":\"monatliches_einkommen\",\"value\":\"Ich verdiene nur 900 Euro im Monat.\",\"quote\":\"Merk dir bitte, dass ich nur 900 Euro im Monat verdiene.\"}",
+ "parsed": {
+  "tool": "remember",
+  "query": null,
+  "reason": null,
+  "text": null,
+  "key": "monatliches_einkommen",
+  "value": "Ich verdiene nur 900 Euro im Monat.",
+  "quote": "Merk dir bitte, dass ich nur 900 Euro im Monat verdiene."
+ },
+ "usage": {
+  "input_tokens": 52136,
+  "cached_input_tokens": 26112,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 216,
+  "reasoning_output_tokens": 73
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bbb7-e866-7a41-97df-9619a6a52577"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "Ich prüfe die Veranstaltungen und speichere deinen ausdrücklich genannten Wunsch zuerst."
+   }
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_1",
+    "type": "agent_message",
+    "text": "{\"tool\":\"remember\",\"query\":null,\"reason\":null,\"text\":null,\"key\":\"monatliches_einkommen\",\"value\":\"Ich verdiene nur 900 Euro im Monat.\",\"quote\":\"Merk dir bitte, dass ich nur 900 Euro im Monat verdiene.\"}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 52136,
+    "cached_input_tokens": 26112,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 216,
+    "reasoning_output_tokens": 73
+   }
+  }
+ ]
+}

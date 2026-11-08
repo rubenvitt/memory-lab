@@ -1,0 +1,57 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 1,
+ "input_hash": "0bcc82d0d6c51783740d84d3",
+ "meta": {
+  "e3": "c",
+  "id": "m18a",
+  "step": 1
+ },
+ "duration_ms": 9744,
+ "text": "{\"tool\":\"remember\",\"query\":null,\"reason\":null,\"text\":null,\"key\":\"Einkommenssituation\",\"value\":\"Lebt von Bürgergeld\",\"quote\":\"Merk dir bitte, dass ich von Bürgergeld lebe.\"}",
+ "parsed": {
+  "tool": "remember",
+  "query": null,
+  "reason": null,
+  "text": null,
+  "key": "Einkommenssituation",
+  "value": "Lebt von Bürgergeld",
+  "quote": "Merk dir bitte, dass ich von Bürgergeld lebe."
+ },
+ "usage": {
+  "input_tokens": 34884,
+  "cached_input_tokens": 33024,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 120,
+  "reasoning_output_tokens": 29
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bbb7-cb0b-7062-95b0-00b235b25a73"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "{\"tool\":\"remember\",\"query\":null,\"reason\":null,\"text\":null,\"key\":\"Einkommenssituation\",\"value\":\"Lebt von Bürgergeld\",\"quote\":\"Merk dir bitte, dass ich von Bürgergeld lebe.\"}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 34884,
+    "cached_input_tokens": 33024,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 120,
+    "reasoning_output_tokens": 29
+   }
+  }
+ ]
+}

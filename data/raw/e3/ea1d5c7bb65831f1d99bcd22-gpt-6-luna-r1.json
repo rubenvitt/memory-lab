@@ -1,0 +1,57 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 1,
+ "input_hash": "ea1d5c7bb65831f1d99bcd22",
+ "meta": {
+  "e3": "b",
+  "extractor": "v1",
+  "id": "m17a"
+ },
+ "duration_ms": 6080,
+ "text": "{\"operations\":[{\"op\":\"ADD\",\"id\":null,\"text\":\"Die Person hat 30.000 Euro Schulden.\"}]}",
+ "parsed": {
+  "operations": [
+   {
+    "op": "ADD",
+    "id": null,
+    "text": "Die Person hat 30.000 Euro Schulden."
+   }
+  ]
+ },
+ "usage": {
+  "input_tokens": 17352,
+  "cached_input_tokens": 15744,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 37,
+  "reasoning_output_tokens": 0
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bbb6-be11-77f3-8d98-a76ec8f42dc6"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "{\"operations\":[{\"op\":\"ADD\",\"id\":null,\"text\":\"Die Person hat 30.000 Euro Schulden.\"}]}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 17352,
+    "cached_input_tokens": 15744,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 37,
+    "reasoning_output_tokens": 0
+   }
+  }
+ ]
+}

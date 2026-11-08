@@ -1,0 +1,65 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 1,
+ "input_hash": "0a41f450ebb2814a7c957c65",
+ "meta": {
+  "e3": "c",
+  "id": "m16p",
+  "step": 1
+ },
+ "duration_ms": 10283,
+ "text": "{\"tool\":\"search_docs\",\"query\":\"Leseausweis Gebühren Privatinsolvenz\",\"reason\":null,\"text\":null,\"key\":null,\"value\":null,\"quote\":null}",
+ "parsed": {
+  "tool": "search_docs",
+  "query": "Leseausweis Gebühren Privatinsolvenz",
+  "reason": null,
+  "text": null,
+  "key": null,
+  "value": null,
+  "quote": null
+ },
+ "usage": {
+  "input_tokens": 52506,
+  "cached_input_tokens": 34560,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 143,
+  "reasoning_output_tokens": 20
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bbb7-a7e8-7233-acba-f0659f41d1f0"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "Ich prüfe die Benutzungsordnung zu den Ausweisgebühren."
+   }
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_1",
+    "type": "agent_message",
+    "text": "{\"tool\":\"search_docs\",\"query\":\"Leseausweis Gebühren Privatinsolvenz\",\"reason\":null,\"text\":null,\"key\":null,\"value\":null,\"quote\":null}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 52506,
+    "cached_input_tokens": 34560,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 143,
+    "reasoning_output_tokens": 20
+   }
+  }
+ ]
+}

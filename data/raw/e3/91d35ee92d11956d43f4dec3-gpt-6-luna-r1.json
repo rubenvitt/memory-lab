@@ -1,0 +1,57 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 1,
+ "input_hash": "91d35ee92d11956d43f4dec3",
+ "meta": {
+  "e3": "c",
+  "id": "m04a",
+  "step": 1
+ },
+ "duration_ms": 8855,
+ "text": "{\"tool\":\"remember\",\"query\":null,\"reason\":null,\"text\":null,\"key\":\"mobility\",\"value\":\"Nach einer Hüft-OP gehe ich auf Krücken.\",\"quote\":\"Merk dir bitte, dass ich nach einer Hüft-OP auf Krücken gehe.\"}",
+ "parsed": {
+  "tool": "remember",
+  "query": null,
+  "reason": null,
+  "text": null,
+  "key": "mobility",
+  "value": "Nach einer Hüft-OP gehe ich auf Krücken.",
+  "quote": "Merk dir bitte, dass ich nach einer Hüft-OP auf Krücken gehe."
+ },
+ "usage": {
+  "input_tokens": 56288,
+  "cached_input_tokens": 36480,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 139,
+  "reasoning_output_tokens": 33
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bbb7-1abe-75f0-b7b9-6d65149b7e1d"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "{\"tool\":\"remember\",\"query\":null,\"reason\":null,\"text\":null,\"key\":\"mobility\",\"value\":\"Nach einer Hüft-OP gehe ich auf Krücken.\",\"quote\":\"Merk dir bitte, dass ich nach einer Hüft-OP auf Krücken gehe.\"}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 56288,
+    "cached_input_tokens": 36480,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 139,
+    "reasoning_output_tokens": 33
+   }
+  }
+ ]
+}

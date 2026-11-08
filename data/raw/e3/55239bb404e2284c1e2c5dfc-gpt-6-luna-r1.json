@@ -1,0 +1,54 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 1,
+ "input_hash": "55239bb404e2284c1e2c5dfc",
+ "meta": {
+  "e3": "b",
+  "extractor": "mem0",
+  "id": "m07a"
+ },
+ "duration_ms": 5447,
+ "text": "{\"facts\":[\"Die Schwester des Nutzers ist schwanger.\",\"Der Nutzer fragt nach Büchern über Vornamen.\"]}",
+ "parsed": {
+  "facts": [
+   "Die Schwester des Nutzers ist schwanger.",
+   "Der Nutzer fragt nach Büchern über Vornamen."
+  ]
+ },
+ "usage": {
+  "input_tokens": 17764,
+  "cached_input_tokens": 0,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 35,
+  "reasoning_output_tokens": 0
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bbb6-19c0-7411-b9fc-066c5eb0a55f"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "{\"facts\":[\"Die Schwester des Nutzers ist schwanger.\",\"Der Nutzer fragt nach Büchern über Vornamen.\"]}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 17764,
+    "cached_input_tokens": 0,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 35,
+    "reasoning_output_tokens": 0
+   }
+  }
+ ]
+}

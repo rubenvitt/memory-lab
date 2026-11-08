@@ -1,0 +1,54 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 1,
+ "input_hash": "4747424ea7bb50f9792942ca",
+ "meta": {
+  "e3": "b",
+  "extractor": "mem0",
+  "id": "m10a"
+ },
+ "duration_ms": 5790,
+ "text": "{\"facts\":[\"Der Vater des Nutzers sitzt im Gefängnis.\",\"Der Nutzer möchte wissen, ob man jemandem Bücher per Post schicken kann.\"]}",
+ "parsed": {
+  "facts": [
+   "Der Vater des Nutzers sitzt im Gefängnis.",
+   "Der Nutzer möchte wissen, ob man jemandem Bücher per Post schicken kann."
+  ]
+ },
+ "usage": {
+  "input_tokens": 17623,
+  "cached_input_tokens": 8832,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 41,
+  "reasoning_output_tokens": 0
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bbb6-42b9-7ff0-a0e4-ff8931b87b32"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "{\"facts\":[\"Der Vater des Nutzers sitzt im Gefängnis.\",\"Der Nutzer möchte wissen, ob man jemandem Bücher per Post schicken kann.\"]}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 17623,
+    "cached_input_tokens": 8832,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 41,
+    "reasoning_output_tokens": 0
+   }
+  }
+ ]
+}

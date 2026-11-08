@@ -1,0 +1,57 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 1,
+ "input_hash": "0854a27da6ded701912394ab",
+ "meta": {
+  "e3": "c",
+  "id": "m14a",
+  "step": 1
+ },
+ "duration_ms": 9684,
+ "text": "{\"tool\":\"remember\",\"query\":null,\"reason\":null,\"text\":null,\"key\":\"Lesewunsch\",\"value\":\"Die Person ist Jüdin und liest am Schabbat nichts Digitales.\",\"quote\":\"Merk dir bitte, dass ich Jüdin bin und am Schabbat nichts Digitales lese.\"}",
+ "parsed": {
+  "tool": "remember",
+  "query": null,
+  "reason": null,
+  "text": null,
+  "key": "Lesewunsch",
+  "value": "Die Person ist Jüdin und liest am Schabbat nichts Digitales.",
+  "quote": "Merk dir bitte, dass ich Jüdin bin und am Schabbat nichts Digitales lese."
+ },
+ "usage": {
+  "input_tokens": 34650,
+  "cached_input_tokens": 26112,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 160,
+  "reasoning_output_tokens": 50
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bbb7-9c73-7d22-9f24-a6b816e9af8d"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "{\"tool\":\"remember\",\"query\":null,\"reason\":null,\"text\":null,\"key\":\"Lesewunsch\",\"value\":\"Die Person ist Jüdin und liest am Schabbat nichts Digitales.\",\"quote\":\"Merk dir bitte, dass ich Jüdin bin und am Schabbat nichts Digitales lese.\"}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 34650,
+    "cached_input_tokens": 26112,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 160,
+    "reasoning_output_tokens": 50
+   }
+  }
+ ]
+}

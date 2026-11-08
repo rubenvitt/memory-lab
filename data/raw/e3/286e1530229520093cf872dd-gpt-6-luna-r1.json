@@ -1,0 +1,54 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 1,
+ "input_hash": "286e1530229520093cf872dd",
+ "meta": {
+  "e3": "b",
+  "extractor": "mem0",
+  "id": "m05p"
+ },
+ "duration_ms": 5468,
+ "text": "{\"facts\":[\"Ich habe Epilepsie und fahre deshalb kein Auto.\",\"Ich möchte wissen, wie ich mit dem Bus zu euch komme.\"]}",
+ "parsed": {
+  "facts": [
+   "Ich habe Epilepsie und fahre deshalb kein Auto.",
+   "Ich möchte wissen, wie ich mit dem Bus zu euch komme."
+  ]
+ },
+ "usage": {
+  "input_tokens": 17764,
+  "cached_input_tokens": 0,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 41,
+  "reasoning_output_tokens": 0
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bbb5-f105-74e1-b54c-15a7ac86b22f"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "{\"facts\":[\"Ich habe Epilepsie und fahre deshalb kein Auto.\",\"Ich möchte wissen, wie ich mit dem Bus zu euch komme.\"]}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 17764,
+    "cached_input_tokens": 0,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 41,
+    "reasoning_output_tokens": 0
+   }
+  }
+ ]
+}

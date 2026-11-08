@@ -1,0 +1,375 @@
+{
+ "message": "Ich brauche Bücher in Großdruck, wegen meiner Makuladegeneration kann ich normale Schrift kaum noch lesen. Was habt ihr da?",
+ "memory": "Der Nutzer hat Makuladegeneration und kann normale Schrift kaum noch lesen.",
+ "memory_runs": 5,
+ "query": "Großdruck Bücher Sehhilfe Makuladegeneration",
+ "query_runs": 2,
+ "runs": 5,
+ "variants": [
+  {
+   "id": "eine-ohne",
+   "perType": false,
+   "provenance": false,
+   "label": "Eine Regel für alles, ohne Herkunft"
+  },
+  {
+   "id": "typ-ohne",
+   "perType": true,
+   "provenance": false,
+   "label": "Eine Regel je Datenart, ohne Herkunft"
+  },
+  {
+   "id": "eine-mit",
+   "perType": false,
+   "provenance": true,
+   "label": "Eine Regel für alles, mit Herkunft"
+  },
+  {
+   "id": "typ-mit",
+   "perType": true,
+   "provenance": true,
+   "label": "Eine Regel je Datenart, mit Herkunft"
+  }
+ ],
+ "cases": [
+  {
+   "id": "real-mem0",
+   "label": "Echte Einträge aus E2, Mem0-Extraktor",
+   "derived": 10
+  },
+  {
+   "id": "real-v1",
+   "label": "Echte Einträge aus E2, eigener Extraktor",
+   "derived": 5
+  },
+  {
+   "id": "a-summary",
+   "label": "Zusammenfassung aus Chat 1 und Chat 2",
+   "derived": 1
+  },
+  {
+   "id": "b-rebuild",
+   "label": "Suchindex wird nach dem Löschen aus dem Protokoll neu gebaut",
+   "derived": 8
+  },
+  {
+   "id": "c-late-job",
+   "label": "Extraktionsjob aus Chat 1 läuft erst nach dem Löschen",
+   "derived": 0
+  },
+  {
+   "id": "d-preference",
+   "label": "Ausdrücklich gespeicherter Wunsch aus Chat 1",
+   "derived": 1
+  },
+  {
+   "id": "e-plain",
+   "label": "Suchanfrage im Protokoll, Klartext",
+   "derived": 0
+  },
+  {
+   "id": "e-shred",
+   "label": "Suchanfrage im Protokoll, pro Chat verschlüsselt",
+   "derived": 0
+  }
+ ],
+ "cells": [
+  {
+   "variant": "eine-ohne",
+   "case": "real-mem0",
+   "text": "5 von 5 Einträgen mit Diagnose bleiben, im Prompt",
+   "tone": "bad"
+  },
+  {
+   "variant": "eine-ohne",
+   "case": "real-v1",
+   "text": "3 von 3 Einträgen mit Diagnose bleiben, im Prompt",
+   "tone": "bad"
+  },
+  {
+   "variant": "eine-ohne",
+   "case": "a-summary",
+   "text": "bleibt, im Prompt",
+   "tone": "bad"
+  },
+  {
+   "variant": "eine-ohne",
+   "case": "b-rebuild",
+   "text": "bleibt, im Prompt; bleibt im Protokoll",
+   "tone": "bad"
+  },
+  {
+   "variant": "eine-ohne",
+   "case": "c-late-job",
+   "text": "kommt durch den Job zurück",
+   "tone": "bad"
+  },
+  {
+   "variant": "eine-ohne",
+   "case": "d-preference",
+   "text": "bleibt, Herkunft unbekannt",
+   "tone": "mixed"
+  },
+  {
+   "variant": "eine-ohne",
+   "case": "e-plain",
+   "text": "bleibt im Protokoll",
+   "tone": "mixed"
+  },
+  {
+   "variant": "eine-ohne",
+   "case": "e-shred",
+   "text": "bleibt im Protokoll",
+   "tone": "mixed"
+  },
+  {
+   "variant": "typ-ohne",
+   "case": "real-mem0",
+   "text": "5 von 5 Einträgen mit Diagnose bleiben, im Prompt",
+   "tone": "bad"
+  },
+  {
+   "variant": "typ-ohne",
+   "case": "real-v1",
+   "text": "3 von 3 Einträgen mit Diagnose bleiben, im Prompt",
+   "tone": "bad"
+  },
+  {
+   "variant": "typ-ohne",
+   "case": "a-summary",
+   "text": "bleibt, im Prompt",
+   "tone": "bad"
+  },
+  {
+   "variant": "typ-ohne",
+   "case": "b-rebuild",
+   "text": "bleibt, abrufbar; bleibt im Protokoll",
+   "tone": "bad"
+  },
+  {
+   "variant": "typ-ohne",
+   "case": "c-late-job",
+   "text": "kommt durch den Job zurück",
+   "tone": "bad"
+  },
+  {
+   "variant": "typ-ohne",
+   "case": "d-preference",
+   "text": "bleibt, Herkunft unbekannt",
+   "tone": "mixed"
+  },
+  {
+   "variant": "typ-ohne",
+   "case": "e-plain",
+   "text": "bleibt im Protokoll",
+   "tone": "mixed"
+  },
+  {
+   "variant": "typ-ohne",
+   "case": "e-shred",
+   "text": "bleibt im Protokoll",
+   "tone": "mixed"
+  },
+  {
+   "variant": "eine-mit",
+   "case": "real-mem0",
+   "text": "alle 5 Einträge mit Diagnose weg",
+   "tone": "good"
+  },
+  {
+   "variant": "eine-mit",
+   "case": "real-v1",
+   "text": "alle 3 Einträge mit Diagnose weg",
+   "tone": "good"
+  },
+  {
+   "variant": "eine-mit",
+   "case": "a-summary",
+   "text": "weg; Krimi-Anteil aus Chat 2 auch weg",
+   "tone": "bad"
+  },
+  {
+   "variant": "eine-mit",
+   "case": "b-rebuild",
+   "text": "bleibt im Protokoll; Index bleibt sauber, Neubau weist Chat 1 ab",
+   "tone": "mixed"
+  },
+  {
+   "variant": "eine-mit",
+   "case": "c-late-job",
+   "text": "weg; Job abgewiesen",
+   "tone": "good"
+  },
+  {
+   "variant": "eine-mit",
+   "case": "d-preference",
+   "text": "gelöscht, gegen die Produktregel",
+   "tone": "bad"
+  },
+  {
+   "variant": "eine-mit",
+   "case": "e-plain",
+   "text": "bleibt im Protokoll",
+   "tone": "mixed"
+  },
+  {
+   "variant": "eine-mit",
+   "case": "e-shred",
+   "text": "unlesbar, Schlüssel vernichtet",
+   "tone": "good"
+  },
+  {
+   "variant": "typ-mit",
+   "case": "real-mem0",
+   "text": "alle 5 Einträge mit Diagnose weg",
+   "tone": "good"
+  },
+  {
+   "variant": "typ-mit",
+   "case": "real-v1",
+   "text": "alle 3 Einträge mit Diagnose weg",
+   "tone": "good"
+  },
+  {
+   "variant": "typ-mit",
+   "case": "a-summary",
+   "text": "weg",
+   "tone": "good"
+  },
+  {
+   "variant": "typ-mit",
+   "case": "b-rebuild",
+   "text": "bleibt im Protokoll; Index bleibt sauber, Neubau weist Chat 1 ab",
+   "tone": "mixed"
+  },
+  {
+   "variant": "typ-mit",
+   "case": "c-late-job",
+   "text": "weg; Job abgewiesen",
+   "tone": "good"
+  },
+  {
+   "variant": "typ-mit",
+   "case": "d-preference",
+   "text": "bleibt nach Produktregel, Herkunft sichtbar",
+   "tone": "good"
+  },
+  {
+   "variant": "typ-mit",
+   "case": "e-plain",
+   "text": "bleibt im Protokoll",
+   "tone": "mixed"
+  },
+  {
+   "variant": "typ-mit",
+   "case": "e-shred",
+   "text": "unlesbar, Schlüssel vernichtet",
+   "tone": "good"
+  }
+ ],
+ "e3b": {
+  "mem0": {
+   "nebenbei": {
+    "k": 20,
+    "n": 20,
+    "low": 0.8388698745050667,
+    "high": 1
+   },
+   "ausdruecklich": {
+    "k": 20,
+    "n": 20,
+    "low": 0.8388698745050667,
+    "high": 1
+   },
+   "by_category": {
+    "Gesundheit": {
+     "nebenbei": 5,
+     "ausdruecklich": 5
+    },
+    "Dritte": {
+     "nebenbei": 5,
+     "ausdruecklich": 5
+    },
+    "Religion": {
+     "nebenbei": 5,
+     "ausdruecklich": 5
+    },
+    "Finanzen": {
+     "nebenbei": 5,
+     "ausdruecklich": 5
+    }
+   }
+  },
+  "v1": {
+   "nebenbei": {
+    "k": 5,
+    "n": 20,
+    "low": 0.11186005278940309,
+    "high": 0.4687050099580636
+   },
+   "ausdruecklich": {
+    "k": 19,
+    "n": 20,
+    "low": 0.7638641064874331,
+    "high": 0.9911187805671268
+   },
+   "by_category": {
+    "Gesundheit": {
+     "nebenbei": 0,
+     "ausdruecklich": 4
+    },
+    "Dritte": {
+     "nebenbei": 0,
+     "ausdruecklich": 5
+    },
+    "Religion": {
+     "nebenbei": 3,
+     "ausdruecklich": 5
+    },
+    "Finanzen": {
+     "nebenbei": 2,
+     "ausdruecklich": 5
+    }
+   }
+  }
+ },
+ "e3c": {
+  "plain": {
+   "nebenbei": {
+    "k": 6,
+    "n": 20,
+    "low": 0.14547527396899385,
+    "high": 0.5189767762289793
+   },
+   "ausdruecklich": {
+    "k": 4,
+    "n": 20,
+    "low": 0.0806563532712,
+    "high": 0.41602172202575993
+   },
+   "total": {
+    "k": 10,
+    "n": 40,
+    "low": 0.14186967895549518,
+    "high": 0.40194259066970106
+   }
+  },
+  "sealed": {
+   "nebenbei": {
+    "k": 0,
+    "n": 20,
+    "low": 0,
+    "high": 0.16113012549493322
+   },
+   "ausdruecklich": {
+    "k": 14,
+    "n": 20,
+    "low": 0.4810232237710206,
+    "high": 0.854524726031006
+   }
+  },
+  "no_text_tool": 3,
+  "second_step": 0
+ },
+ "n": 40
+}

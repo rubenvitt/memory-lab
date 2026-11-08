@@ -1,0 +1,54 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 1,
+ "input_hash": "70b6e4cebd5337dbf1c7da59",
+ "meta": {
+  "e3": "b",
+  "extractor": "mem0",
+  "id": "m12p"
+ },
+ "duration_ms": 6382,
+ "text": "{\"facts\":[\"Feiert als Zeugin Jehovas keinen Geburtstag.\",\"Sucht Kinderbücher ohne Geburtstagsfeiern.\"]}",
+ "parsed": {
+  "facts": [
+   "Feiert als Zeugin Jehovas keinen Geburtstag.",
+   "Sucht Kinderbücher ohne Geburtstagsfeiern."
+  ]
+ },
+ "usage": {
+  "input_tokens": 17766,
+  "cached_input_tokens": 15744,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 36,
+  "reasoning_output_tokens": 0
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bbb6-5965-7140-a007-bab403f45743"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "{\"facts\":[\"Feiert als Zeugin Jehovas keinen Geburtstag.\",\"Sucht Kinderbücher ohne Geburtstagsfeiern.\"]}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 17766,
+    "cached_input_tokens": 15744,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 36,
+    "reasoning_output_tokens": 0
+   }
+  }
+ ]
+}

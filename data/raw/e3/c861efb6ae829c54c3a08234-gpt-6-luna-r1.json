@@ -1,0 +1,57 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 1,
+ "input_hash": "c861efb6ae829c54c3a08234",
+ "meta": {
+  "e3": "b",
+  "extractor": "v1",
+  "id": "m17p"
+ },
+ "duration_ms": 6616,
+ "text": "{\"operations\":[{\"op\":\"ADD\",\"id\":null,\"text\":\"Die Person interessiert sich für Ratgeber zum Haushaltsbuch.\"}]}",
+ "parsed": {
+  "operations": [
+   {
+    "op": "ADD",
+    "id": null,
+    "text": "Die Person interessiert sich für Ratgeber zum Haushaltsbuch."
+   }
+  ]
+ },
+ "usage": {
+  "input_tokens": 17206,
+  "cached_input_tokens": 8960,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 38,
+  "reasoning_output_tokens": 0
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bbb6-b0ba-7073-9f09-d4a66bb50940"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "{\"operations\":[{\"op\":\"ADD\",\"id\":null,\"text\":\"Die Person interessiert sich für Ratgeber zum Haushaltsbuch.\"}]}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 17206,
+    "cached_input_tokens": 8960,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 38,
+    "reasoning_output_tokens": 0
+   }
+  }
+ ]
+}

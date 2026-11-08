@@ -1,0 +1,57 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 1,
+ "input_hash": "be14b9a4f20e9177df4ed04b",
+ "meta": {
+  "e3": "c",
+  "id": "m19a",
+  "step": 1
+ },
+ "duration_ms": 8092,
+ "text": "{\"tool\":\"remember\",\"query\":null,\"reason\":null,\"text\":null,\"key\":\"Konto gepfändet\",\"value\":\"Das Konto der Person ist gepfändet.\",\"quote\":\"Merk dir bitte, dass mein Konto gepfändet ist.\"}",
+ "parsed": {
+  "tool": "remember",
+  "query": null,
+  "reason": null,
+  "text": null,
+  "key": "Konto gepfändet",
+  "value": "Das Konto der Person ist gepfändet.",
+  "quote": "Merk dir bitte, dass mein Konto gepfändet ist."
+ },
+ "usage": {
+  "input_tokens": 35343,
+  "cached_input_tokens": 33024,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 162,
+  "reasoning_output_tokens": 65
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bbb7-d6cf-7643-a9fa-a4fa9e9c201f"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "{\"tool\":\"remember\",\"query\":null,\"reason\":null,\"text\":null,\"key\":\"Konto gepfändet\",\"value\":\"Das Konto der Person ist gepfändet.\",\"quote\":\"Merk dir bitte, dass mein Konto gepfändet ist.\"}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 35343,
+    "cached_input_tokens": 33024,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 162,
+    "reasoning_output_tokens": 65
+   }
+  }
+ ]
+}

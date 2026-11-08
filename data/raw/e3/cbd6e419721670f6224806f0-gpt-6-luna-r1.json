@@ -1,0 +1,54 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 1,
+ "input_hash": "cbd6e419721670f6224806f0",
+ "meta": {
+  "e3": "b",
+  "extractor": "mem0",
+  "id": "m18a"
+ },
+ "duration_ms": 5304,
+ "text": "{\"facts\":[\"Der Nutzer lebt von Bürgergeld.\",\"Der Nutzer fragt nach einem ermäßigten Ausweis.\"]}",
+ "parsed": {
+  "facts": [
+   "Der Nutzer lebt von Bürgergeld.",
+   "Der Nutzer fragt nach einem ermäßigten Ausweis."
+  ]
+ },
+ "usage": {
+  "input_tokens": 17765,
+  "cached_input_tokens": 15744,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 33,
+  "reasoning_output_tokens": 0
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bbb6-c0ef-78d1-99de-7a505d881bc8"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "{\"facts\":[\"Der Nutzer lebt von Bürgergeld.\",\"Der Nutzer fragt nach einem ermäßigten Ausweis.\"]}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 17765,
+    "cached_input_tokens": 15744,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 33,
+    "reasoning_output_tokens": 0
+   }
+  }
+ ]
+}

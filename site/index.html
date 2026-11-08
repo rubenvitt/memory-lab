@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light dark">
-  <title>Memory Lab</title>
-  <meta name="description" content="Gleiches Gespräch, zwei Gedächtnisse: was ein Assistent behält, wenn ein Modell entscheidet, und was, wenn getrennte Speicher es tun.">
+  <title>Was bleibt nach dem Löschen?</title>
+  <meta name="description" content="Aus einer Chat-Nachricht entstehen Kopien. Löschen erreicht nur die Kopien, die einen Löschpfad haben. Regeln und Messungen aus memory-lab.">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,70 +14,45 @@
   <script type="module" src="js/main.js"></script>
 </head>
 <body>
-  <a class="skip" href="#story">Zum Szenario</a>
-  <header class="head">
-    <h1>Memory Lab</h1>
-    <p class="lede">Gleiches Gespräch, zwei Gedächtnisse.</p>
-  </header>
-
   <main>
-    <nav class="questions" aria-label="Szenarien">
-      <ol id="questions"></ol>
-    </nav>
+    <header class="head">
+      <p class="kicker">Memory Lab</p>
+      <h1>Was bleibt nach dem Löschen?</h1>
+    </header>
 
-    <section class="story" id="story" aria-labelledby="question" tabindex="-1">
-      <h2 class="question" id="question"></h2>
-      <div class="stepper">
-        <p class="step" id="step" aria-live="polite"></p>
-        <div class="nav">
-          <button type="button" id="prev">Zurück</button>
-          <button type="button" id="next">Weiter</button>
-        </div>
-      </div>
-
-      <p class="legend" id="legend"></p>
-      <ol class="chat" id="chat" aria-label="Gespräch"></ol>
-
-      <div class="minds">
-        <section class="mind" aria-labelledby="mind-a">
-          <h3 id="mind-a">A merkt sich</h3>
-          <p class="how" id="how-a"></p>
-          <div id="store-a"></div>
-        </section>
-        <section class="mind" aria-labelledby="mind-b">
-          <h3 id="mind-b">B speichert</h3>
-          <p class="how" id="how-b"></p>
-          <div id="store-b"></div>
-        </section>
-      </div>
-
-      <p class="result" id="result" hidden></p>
-
-      <details class="details" id="details">
-        <summary>Details</summary>
-        <div class="details-body">
-          <label>Experiment <select id="exp"></select></label>
-          <label>Lauf <select id="rep"></select></label>
-          <label id="variant-field">Variante von A <select id="variant"></select></label>
-          <p class="note" id="exp-note"></p>
-          <p class="note"><button type="button" class="link" id="control"></button></p>
-        </div>
-      </details>
+    <section class="copies" id="kopien" aria-labelledby="copies-title">
+      <h2 id="copies-title" class="sr">Eine Nachricht und ihre Kopien</h2>
+      <p class="message" id="message"></p>
+      <p class="fan" id="fan"></p>
+      <ul class="copy-list" id="copy-list"></ul>
+      <p class="takeaway" id="takeaway"></p>
     </section>
+
+    <section class="grid-box" aria-labelledby="grid-title">
+      <h2 id="grid-title">Was der Klick auf „Chat löschen“ erreicht</h2>
+      <p class="intro" id="grid-intro"></p>
+      <div class="grid" id="grid" role="table" aria-labelledby="grid-title"></div>
+      <h3 class="cases-title">Alle Fälle</h3>
+      <div class="table-scroll" tabindex="0" role="region" aria-label="Alle Fälle">
+        <table id="cases"></table>
+      </div>
+    </section>
+
+    <section class="rates" aria-labelledby="rates-title">
+      <h2 id="rates-title">Wie oft entstehen solche Kopien?</h2>
+      <div class="rate" id="rate-memory"></div>
+      <div class="rate" id="rate-log"></div>
+    </section>
+
+    <footer class="foot">
+      <p id="limits"></p>
+      <nav class="links" aria-label="Weiterlesen">
+        <a href="https://github.com/rubenvitt/memory-lab/blob/main/docs/findings.md">Befunde</a>
+        <a href="https://github.com/rubenvitt/memory-lab/tree/main/data">Rohdaten</a>
+        <a href="https://github.com/rubenvitt/memory-lab/blob/main/prompts/e3/README.md">Regeln des Versuchs</a>
+        <a href="https://rubeen.dev/blog/memory-datenarchitektur/">Blogpost</a>
+      </nav>
+    </footer>
   </main>
-
-  <footer class="foot">
-    <section class="matrix" aria-labelledby="matrix-title">
-      <h2 id="matrix-title">Alle Läufe</h2>
-      <p class="note">Bestanden von je fünf Läufen. A: Ein Modell entscheidet, was es sich merkt (A-mem0 mit dem Original-Prompt von Mem0, A-v1 mit eigenem Prompt). B: getrennte Speicher, dauerhaft nur ausdrückliche Wünsche mit wörtlichem Zitat.</p>
-      <div id="matrices"></div>
-    </section>
-    <p class="limits">Synthetische Daten, ein Modell, fünf Läufe pro Zelle, Prüfungen per Textregel, alles aus einer Hand.</p>
-    <nav class="links" aria-label="Weiterlesen">
-      <a href="https://rubeen.dev/blog/memory-datenarchitektur/">Blogpost</a>
-      <a href="https://github.com/rubenvitt/memory-lab">Repo</a>
-      <a href="https://github.com/rubenvitt/memory-lab/blob/main/docs/findings.md">Befunde</a>
-    </nav>
-  </footer>
 </body>
 </html>

@@ -8,6 +8,6 @@
   "scripts": {
     "test": "node --test",
     "plan": "node src/run.mjs plan",
-    "report": "node src/run.mjs series --offline && node src/run.mjs e2 --offline && node src/report.mjs"
+    "report": "node src/run.mjs series --offline && node src/run.mjs e2 --offline && node src/run.mjs e3 --offline && node src/report.mjs"
   }
 }

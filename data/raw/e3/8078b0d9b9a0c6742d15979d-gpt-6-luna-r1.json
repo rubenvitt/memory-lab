@@ -1,0 +1,54 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 1,
+ "input_hash": "8078b0d9b9a0c6742d15979d",
+ "meta": {
+  "e3": "b",
+  "extractor": "mem0",
+  "id": "m09p"
+ },
+ "duration_ms": 4595,
+ "text": "{\"facts\":[\"Die Tochter des Nutzers hat gerade ihren Job verloren.\",\"Der Nutzer sucht Ratgeber zur Bewerbung.\"]}",
+ "parsed": {
+  "facts": [
+   "Die Tochter des Nutzers hat gerade ihren Job verloren.",
+   "Der Nutzer sucht Ratgeber zur Bewerbung."
+  ]
+ },
+ "usage": {
+  "input_tokens": 17761,
+  "cached_input_tokens": 15744,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 34,
+  "reasoning_output_tokens": 0
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bbb6-2f06-7b82-8569-7bd6e52f4996"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "{\"facts\":[\"Die Tochter des Nutzers hat gerade ihren Job verloren.\",\"Der Nutzer sucht Ratgeber zur Bewerbung.\"]}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 17761,
+    "cached_input_tokens": 15744,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 34,
+    "reasoning_output_tokens": 0
+   }
+  }
+ ]
+}

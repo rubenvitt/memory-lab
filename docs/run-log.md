@@ -70,3 +70,7 @@ Auftrag nach E1: die beiden für A günstigen Bedingungen aufheben, B unverände
 **Gestoppter Zwischenauftrag:** Die Kürzung der Demo auf zwei Fragen war schon gepusht (`03030dd`), als der Stopp kam. Sie ist mit `acf61d7` zurückgenommen, der Baum ist wieder der von `fd8a453`. Kein Force-Push.
 
 **Smoke E3** (6 Aufrufe, `data/raw/smoke/e3/`, zwei Nachrichten): Beide Extraktor-Schemata und das Agent-Schema werden angenommen. Mem0 schreibt die Angaben auf Deutsch („Ich habe Diabetes …“). Keine Änderung nötig.
+
+**Lauf E3:** Tag `prompts-e3` (Commit `24de357`) gepusht vor dem ersten Aufruf. Ein Durchgang, 120 Aufrufe (80 Extraktor, 40 Agent, kein zweiter Schritt nötig), 0 Fehlversuche, Budget 200. Ein Agent-Aufruf (`m12p`) hat die leere MCP-Ressourcenliste der Codex-CLI abgefragt, er bleibt in der Auswertung.
+
+**Seite:** Die interaktive Demo ist durch eine statische Seite ersetzt („Was bleibt nach dem Löschen?“). `npm run report` schreibt dafür `data/results/page.json`, `demo.json` entfällt. Abbildungen für den Post: `kopien.png` und `raten.png`, die drei alten sind gelöscht.

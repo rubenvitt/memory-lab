@@ -1,0 +1,65 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 1,
+ "input_hash": "c73350b514387d326abbdd82",
+ "meta": {
+  "e3": "c",
+  "id": "m06a",
+  "step": 1
+ },
+ "duration_ms": 11190,
+ "text": "{\"tool\":\"search_docs\",\"query\":\"Ratgeber für Angehörige von Menschen mit Suchterkrankung\",\"reason\":null,\"text\":null,\"key\":null,\"value\":null,\"quote\":null}",
+ "parsed": {
+  "tool": "search_docs",
+  "query": "Ratgeber für Angehörige von Menschen mit Suchterkrankung",
+  "reason": null,
+  "text": null,
+  "key": null,
+  "value": null,
+  "quote": null
+ },
+ "usage": {
+  "input_tokens": 34898,
+  "cached_input_tokens": 33024,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 242,
+  "reasoning_output_tokens": 109
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bbb7-22df-7503-acea-99ee5612513b"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "{\"tool\":\"search_docs\",\"query\":\"Ratgeber Angehörige Sucht Entzugsklinik\",\"reason\":null,\"text\":null,\"key\":null,\"value\":null,\"quote\":null} \n"
+   }
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_1",
+    "type": "agent_message",
+    "text": "{\"tool\":\"search_docs\",\"query\":\"Ratgeber für Angehörige von Menschen mit Suchterkrankung\",\"reason\":null,\"text\":null,\"key\":null,\"value\":null,\"quote\":null}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 34898,
+    "cached_input_tokens": 33024,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 242,
+    "reasoning_output_tokens": 109
+   }
+  }
+ ]
+}

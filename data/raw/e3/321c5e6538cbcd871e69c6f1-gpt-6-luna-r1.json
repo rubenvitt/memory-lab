@@ -1,0 +1,57 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 1,
+ "input_hash": "321c5e6538cbcd871e69c6f1",
+ "meta": {
+  "e3": "b",
+  "extractor": "v1",
+  "id": "m20p"
+ },
+ "duration_ms": 5111,
+ "text": "{\"operations\":[{\"op\":\"ADD\",\"id\":null,\"text\":\"Die Person verdient 900 Euro im Monat.\"}]}",
+ "parsed": {
+  "operations": [
+   {
+    "op": "ADD",
+    "id": null,
+    "text": "Die Person verdient 900 Euro im Monat."
+   }
+  ]
+ },
+ "usage": {
+  "input_tokens": 17201,
+  "cached_input_tokens": 8960,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 35,
+  "reasoning_output_tokens": 0
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bbb6-e1c4-70b0-85eb-5d027d013e51"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "{\"operations\":[{\"op\":\"ADD\",\"id\":null,\"text\":\"Die Person verdient 900 Euro im Monat.\"}]}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 17201,
+    "cached_input_tokens": 8960,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 35,
+    "reasoning_output_tokens": 0
+   }
+  }
+ ]
+}
