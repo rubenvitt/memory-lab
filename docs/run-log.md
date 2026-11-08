@@ -35,6 +35,10 @@ Prompts eingefroren mit Tag `prompts-v1` (Commit `8190ed2`), erster Aufruf der M
 
 Nach dem Fix haben zwei Agent-Aufrufe das eingebaute MCP-Werkzeug der Codex-CLI benutzt (`codex` / `list_mcp_resources`, einmal auch `list_mcp_resource_templates`): `stale`, B, Lauf 5, Session 2 (`0e46b1e5f352fbeba17d5a9e-gpt-6-luna-r5.json`) und `implicit`, B, Lauf 3, Session 3 (`df03a548cbf7aea261c08dc6-gpt-6-luna-r3.json`). Beide Listen waren leer, es kam keine Information von außen in den Aufruf. Die Antworten bleiben nach der eingefrorenen Regel in der Auswertung. Insgesamt sind damit 3 von 393 Antworten `tainted`. Für künftige Läufe müsste auch dieser Server abgeschaltet werden, in dieser Messreihe ist das nicht mehr geschehen.
 
+### Nachtrag: Folge der Änderung nach Smoke 1
+
+Der Satz „Rufe `remember` auf, bevor du antwortest.“, der nach Smoke 1 in `memory-b.md` kam, ist unbedingt formuliert. In `explicit`, Session 2, rief B in 3 von 5 Läufen erneut `remember` mit dem Zitat aus Session 1 auf, obwohl die Präferenz schon im Prompt stand, in Lauf 4 bis zur Schrittgrenze. Das ist sehr wahrscheinlich eine Folge dieses Satzes. Er bleibt eingefroren, die Befunde weisen ihn als Störfaktor aus.
+
 ### Abschluss
 
 Fortsetzung nach dem Fix: 226 neue Aufrufe, 167 aus dem Cache, 0 Fehlversuche. Vollständig: 60 Läufe, 393 Rohantworten, Budget 800 nicht berührt. Die Schätzung aus `plan` lag bei 520, der Agent brauchte im Mittel 2,2 Schritte pro Nachricht statt der angenommenen 3.

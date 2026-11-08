@@ -90,6 +90,7 @@ async function visit(browser, { name, viewport, colorScheme, shot }) {
   check((aHits > 0) === recordedA, label(`erasure A: canary marks match the check (${aHits} marks, failed: ${recordedA})`));
   const bHitsOutsideAudit = await page.locator('.g-B .store:not(:last-child) .entry.hit').count();
   check(bHitsOutsideAudit === 0 || !run('erasure', 'B', erasureRep).pass, label('erasure B: marks outside the audit match the check'));
+  check((await page.locator('#log-A.deleted').count()) === 1 && (await page.locator('.chat .msg.hit').count()) === 0, label('deleted chat is marked as recording, without hit marks'));
   if (shot) await page.screenshot({ path: `${SHOTS}/${name}-erasure.png`, fullPage: true });
 
   // "Chat löschen" on the last point of explicit: A keeps the SMS wish, B drops it if it came from session 2.

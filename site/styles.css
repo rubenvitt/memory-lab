@@ -118,6 +118,8 @@ fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
 .msg.step.rejected { border-left-color: var(--danger); }
 .msg.step.rejected .result { color: var(--danger); }
 .msg.hit { box-shadow: inset 0 0 0 2px var(--signal); }
+.chat.deleted { padding: var(--space-2); border: 1px dashed var(--line-strong); border-radius: var(--radius-sm); }
+.chat.deleted .msg { color: var(--ink-muted); }
 
 /* Inspector */
 .inspector { padding-top: var(--space-4); }

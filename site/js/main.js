@@ -98,10 +98,13 @@ function renderChat(arch) {
   const sessionPoint = run.points.find((p) => p.kind === 'session' && p.session === point.session);
   const re = marker();
   const log = $(`log-${arch}`);
+  // Once its chat is deleted, the panel only shows the lab's recording: dimmed and without hit marks.
+  const deleted = view.erased || run.points.slice(0, view.point + 1).some((p) => p.event?.kind === 'delete-session' && p.event.session === point.session);
+  log.classList.toggle('deleted', deleted);
   log.replaceChildren(...sessionPoint.turns.flatMap((t) => {
     const user = el('li', 'msg user');
     user.append(el('span', 'who', 'Person'), el('span', 'text', t.user));
-    if (re.test(t.user)) user.classList.add('hit');
+    if (!deleted && re.test(t.user)) user.classList.add('hit');
     const steps = t.steps.filter((s) => s.action.tool !== 'answer').map(stepLine);
     const answer = el('li', 'msg answer');
     answer.append(el('span', 'who', 'Assistent'), el('span', 'text', t.answer ?? `keine Antwort nach ${t.steps.length} Schritten`));
@@ -109,7 +112,7 @@ function renderChat(arch) {
   }));
   $(`verdict-${arch}`).replaceChildren(el('span', `badge ${run.pass ? 'pass' : 'fail'}`, run.pass ? 'bestanden' : 'durchgefallen'), document.createTextNode(` ${run.verdict}`));
   const note = $(`note-${arch}`);
-  note.replaceChildren(el('span', 'rec', `Aufzeichnung Session ${point.session}${point.kind === 'session' ? '' : ' · '}`));
+  note.replaceChildren(el('span', 'rec', `${deleted ? `Chat aus Session ${point.session} gelöscht, nur Aufzeichnung des Labors` : `Aufzeichnung Session ${point.session}`}${point.kind === 'session' ? '' : ' · '}`));
   if (point.kind === 'after' && arch === 'A') {
     note.append(el('strong', null, 'Extraktor nach Session ' + point.session + ': '));
     const ops = point.applied.filter((o) => o.op !== 'NOOP');
@@ -243,7 +246,7 @@ function render() {
 async function start() {
   demo = await fetch('data/demo.json').then((r) => r.json());
   readHash();
-  $('erase').addEventListener('click', () => { view.erased = !view.erased; renderStores(); renderErase(); });
+  $('erase').addEventListener('click', () => { view.erased = !view.erased; renderChat('A'); renderChat('B'); renderStores(); renderErase(); });
   window.addEventListener('hashchange', () => { readHash(); render(); });
   render();
 }

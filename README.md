@@ -4,7 +4,7 @@ Begleitprojekt zum Blogpost „Memory ist kein Feature, sondern Datenarchitektur
 
 ## Ergebnis
 
-In dieser Messreihe liegen beide Architekturen in den vier Szenarien zu Ownership und Löschung gleichauf. Der Unterschied ist strukturell, nicht gemessen: A hat `erasure` und `injection` bestanden, weil der gehärtete Extraktor in jedem Lauf richtig entschieden hat. B hat sie bestanden, weil es für diese Daten keinen Schreibweg gibt oder die Löschkaskade aufräumt. Die Gegenprobe `implicit` geht an A, aber nur 2 von 5, weil derselbe vorsichtige Extraktor das Interesse selten speichert. Die Kontrolle `explicit` kostet B zwei Läufe: Der Agent versucht, den schon gespeicherten Wunsch mit einem Zitat aus der vorigen Session erneut zu speichern, die Anwendung lehnt das zu Recht ab, einmal bis zur Schrittgrenze.
+In dieser Messreihe liegen beide Architekturen in den vier Szenarien zu Ownership und Löschung gleichauf. Der Unterschied ist strukturell, nicht gemessen: A hat `erasure` und `injection` bestanden, weil der gehärtete Extraktor in jedem Lauf richtig entschieden hat. B hat sie bestanden, weil es für diese Daten keinen Schreibweg gibt oder die Löschkaskade aufräumt. Die Gegenprobe `implicit` geht an A, aber nur 2 von 5, weil derselbe vorsichtige Extraktor das Interesse selten speichert. Die Kontrolle `explicit` kostet B zwei Läufe: Der Agent versucht, den schon gespeicherten Wunsch mit einem Zitat aus der vorigen Session erneut zu speichern, die Anwendung lehnt das zu Recht ab, einmal bis zur Schrittgrenze. Ausgelöst hat das sehr wahrscheinlich ein unbedingt formulierter Satz im Prompt von B („Rufe `remember` auf, bevor du antwortest.“), also ein Störfaktor dieses Aufbaus, kein gemessener Preis der Zitat-Regel.
 
 | Szenario | A: ein Topf | B: getrennte Stores |
 |---|---|---|
@@ -15,7 +15,7 @@ In dieser Messreihe liegen beide Architekturen in den vier Szenarien zu Ownershi
 | `implicit` implizite Vorliebe | 2/5 | 0/5 |
 | `explicit` ausdrücklicher Wunsch | 5/5 | 3/5 (von Hand 4/5) |
 
-Bestanden von Läufen, `gpt-6-luna` mit Effort `low` für Agent und Extraktor, Prompts `v1`, 393 Modellaufrufe. Die Erwartung stand vor dem Lauf fest und lag bei `stale`, `erasure` und `implicit` daneben.
+Bestanden von Läufen, `gpt-6-luna` mit Effort `low` für Agent und Extraktor, Prompts `v1`, 393 Modellaufrufe. Die Erwartung stand vor dem Lauf fest und lag fünfmal daneben: `stale` B, `erasure` A, `proxy` B, `implicit` A und `explicit` B.
 
 Details in [docs/findings.md](docs/findings.md), Ablauf und Pannen in [docs/run-log.md](docs/run-log.md).
 
