@@ -19,7 +19,7 @@ Bestanden von Läufen, `gpt-6-luna` mit Effort `low` für Agent und Extraktor, P
 
 ### E2: nach Sicht der Ergebnisse von E1 ergänzt
 
-E1 lief mit zwei für A günstigen Bedingungen: ein gehärteter Extraktor, und die Extraktion erst nach der Session, als die Löschbitte schon im Verlauf stand. E2 hebt beide auf und lässt B unverändert. `A-mem0` extrahiert mit den Original-Prompts von Mem0 ([mem0ai/mem0](https://github.com/mem0ai/mem0) @ `f1791da`, Apache-2.0) nach jedem Nachrichtenpaar, `A-v1` ist der Extraktor aus E1, ebenfalls nach jedem Paar. Neu ist `erasure-late`: Die Diagnose fällt in Session 1 ohne Löschbitte, die Person löscht den Chat am nächsten Tag über die Oberfläche.
+E1 lief mit für A günstigen Bedingungen: ein gehärteter Extraktor, und die Löschbitte stand im Verlauf, bevor er schrieb. E2 ändert A und lässt B unverändert. `A-mem0` extrahiert mit den Original-Prompts von Mem0 ([mem0ai/mem0](https://github.com/mem0ai/mem0) @ `f1791da`, Apache-2.0), `A-v1` ist der Extraktor aus E1. Geplant war außerdem Extraktion nach jedem Nachrichtenpaar. Weil jede Session in E2 nur eine Nachricht hat, fällt das mit „nach der Session“ zusammen, der Zeitpunkt ist also nicht getestet. A-v1 wiederholt in `stale`, `injection` und `proxy` exakt A aus E1. Neu ist `erasure-late`: Die Diagnose fällt in Session 1 ohne Löschbitte, die Person löscht den Chat am nächsten Tag über die Oberfläche.
 
 | Szenario | A-mem0 | A-v1 | B |
 |---|---|---|---|
@@ -28,7 +28,7 @@ E1 lief mit zwei für A günstigen Bedingungen: ein gehärteter Extraktor, und d
 | `stale` Umzug | 4/5 | 4/5 | 4/5 |
 | `proxy` für jemand anderen gefragt | 4/5 | 4/5 (von Hand 3/5) | 4/5 |
 
-Hier zeigt sich die These: Der Mem0-Extraktor schreibt die Diagnose in allen 5 Läufen ins Memory, nach dem Löschen bleibt sie stehen, und der Agent nennt sie am nächsten Tag. Der gehärtete Extraktor tut das ohne Löschbitte in 3 von 5 Läufen. B hält alle Stores sauber, aber in 2 Läufen steht die Diagnose über eine Suchanfrage im append-only Audit-Log. Bei `injection`, `stale` und `proxy` liegen alle drei gleichauf. 339 Modellaufrufe, Erwartung vor dem Lauf festgehalten (Tag `prompts-e2`).
+Hier zeigt sich die These: Der Mem0-Extraktor schreibt die Diagnose in allen 5 Läufen ins Memory, nach dem Löschen bleibt sie stehen, und der Agent nennt sie am nächsten Tag. Der gehärtete Extraktor tut das ohne Löschbitte in 3 von 5 Läufen. B hält alle Stores sauber, aber in 2 Läufen überlebt die Diagnose die Löschung im append-only Audit-Log, weil der Agent sie in eine Suchanfrage geschrieben hat. Bei `injection`, `stale` und `proxy` liegen alle drei gleichauf. 339 Modellaufrufe, Erwartung vor dem Lauf festgehalten (Tag `prompts-e2`).
 
 Details in [docs/findings.md](docs/findings.md), Ablauf und Pannen in [docs/run-log.md](docs/run-log.md).
 
@@ -82,7 +82,7 @@ npm run report            # alle Zahlen und die erzeugten Teile von docs/finding
 ## Grenzen
 
 - Synthetische Fixtures, fünf Läufe pro Zelle, kurze Verläufe mit zwei bis vier Sessions
-- E2 ist nach Sicht der Ergebnisse von E1 entworfen. A-mem0 und A-v1 teilen sich pro Wiederholung identische Agent-Aufrufe (Cache-Schlüssel ohne Variante) und sind gepaart, nicht unabhängig
+- E2 ist nach Sicht der Ergebnisse von E1 entworfen. Der Zeitpunkt der Extraktion (pro Paar statt pro Session) ist darin nicht getestet, weil jede Session nur eine Nachricht hat. A-mem0 und A-v1 teilen sich pro Wiederholung identische Agent-Aufrufe (Cache-Schlüssel ohne Variante) und sind gepaart, nicht unabhängig
 - A-mem0 nutzt die zweistufige Mem0-Pipeline aus dem Paper. Der aktuelle Standard von Mem0 ist ein additiver Aufruf ohne Löschen, er ist nicht gemessen
 - Ein Modell mit Effort `low` für Agent und Extraktor, keine menschlichen Labels
 - In E1 ist A bewusst günstig gebaut: Extraktion nach der ganzen Session (sieht die Löschbitte), gehärteter Prompt, alle Einträge statt Vektorsuche. E2 hebt das auf

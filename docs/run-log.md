@@ -60,3 +60,7 @@ Auftrag nach E1: die beiden für A günstigen Bedingungen aufheben, B unverände
 **Werkzeug:** Ein Agent-Aufruf (`proxy`, A-mem0, Lauf 3, Session 1, `8bc0448b593c85e3b6b4ee07-gpt-6-luna-r3.json`) hat die leere MCP-Ressourcenliste der Codex-CLI abgefragt. Bleibt in der Auswertung.
 
 **Abbildungen:** `chat-loeschen.png` zeigt jetzt `erasure-late` aus E2 nach der festen Regel in `scripts/check-site.cjs` (erster A-mem0-Lauf mit Diagnose im Memory nach dem Löschen: Lauf 1). `store-inspektor.png` bleibt bei E1 `injection`, Lauf 2. `matrix.png` zeigt beide Experimente.
+
+**Korrektur nach dem Lauf:** Jede Session in E2 enthält genau eine Nutzer-Nachricht, die Extraktion „nach jedem Nachrichtenpaar“ fällt also mit der Extraktion nach der Session zusammen. Der Zeitpunkt war damit nicht getestet. A-v1 ist in `stale`, `injection` und `proxy` eine exakte Wiederholung von A aus E1 (gleicher Prompt-Hash in `proxy`, Session 2). Befunde und README sagen das jetzt, `prompts/e2/` bleibt unverändert, weil der Tag gepusht ist.
+
+**Lizenz:** Mem0 hat keine NOTICE-Datei (geprüft per GitHub-API), die Herkunft der Prompts steht in `prompts/e2/README.md`.
