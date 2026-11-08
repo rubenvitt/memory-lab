@@ -25,7 +25,7 @@ const HEADLINE = {
   'eine-ohne': ['Nur der Chat ist weg', 'Gedächtnis, Zusammenfassung und Suchindex behalten die Diagnose und geben sie in den Prompt. Ein verspäteter Extraktionsjob schreibt sie neu.'],
   'typ-ohne': ['Auch nur der Chat', 'Eigene Regeln je Datenart ändern daran nichts. Sie halten nur den neu gebauten Index aus dem Prompt, abrufbar bleibt er.'],
   'eine-mit': ['Weg, aber zu viel', 'Die Diagnose ist aus allem Abgeleiteten verschwunden, auch Job und Neubau scheitern. Mit ihr verschwinden der ausdrücklich gespeicherte Wunsch und der Krimi-Teil der Zusammenfassung.'],
-  'typ-mit': ['Weg, und nur das', 'Aus Gedächtnis, Index und Job ist die Diagnose verschwunden. Der ausdrückliche Wunsch bleibt mit sichtbarer Herkunft, die Zusammenfassung entsteht aus dem zweiten Chat neu.'],
+  'typ-mit': ['Weg, bis auf den ausdrücklichen Wunsch', 'Aus Gedächtnis, Index und Job ist die Diagnose verschwunden, die Zusammenfassung entsteht aus dem zweiten Chat neu. Der gespeicherte Wunsch enthält hier die Diagnose und bleibt nach der Produktregel stehen, mit sichtbarer Herkunft und einzeln widerrufbar.'],
 };
 
 function copies(d) {

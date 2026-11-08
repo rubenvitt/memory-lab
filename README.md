@@ -15,7 +15,7 @@ Nach zwei unabhängigen Gutachten zu E1 und E2 ergänzt, Aufbau in [prompts/e3/R
 | | Eine Regel für alles | Eine Regel je Datenart |
 |---|---|---|
 | **Ohne Herkunft** | Nur der Chat ist weg. Gedächtnis, Zusammenfassung und Index behalten die Diagnose, ein verspäteter Extraktionsjob schreibt sie neu. | Ebenso. Nur der neu gebaute Index bleibt aus dem Prompt. |
-| **Mit Herkunft und Kaskade** | Die Diagnose ist weg, aber auch der ausdrücklich gespeicherte Wunsch und der unbeteiligte Teil der Zusammenfassung. | Die Diagnose ist weg. Der Wunsch bleibt mit sichtbarer Herkunft, die Zusammenfassung entsteht aus dem anderen Chat neu. |
+| **Mit Herkunft und Kaskade** | Die Diagnose ist weg, aber auch der ausdrücklich gespeicherte Wunsch und der unbeteiligte Teil der Zusammenfassung. | Weg, bis auf den ausdrücklichen Wunsch: Aus Gedächtnis, Index und Job ist die Diagnose verschwunden, die Zusammenfassung entsteht aus dem anderen Chat neu. Der gespeicherte Wunsch enthält hier die Diagnose und bleibt nach der Produktregel stehen, mit sichtbarer Herkunft und einzeln widerrufbar. |
 
 Die Herkunft entscheidet, ob die Diagnose verschwindet. Die Regel je Datenart entscheidet, ob sonst etwas verloren geht. Im Klartext-Protokoll bleibt die Suchanfrage in allen vier Varianten, pro Chat verschlüsselt wird sie mit Herkunft unlesbar.
 
