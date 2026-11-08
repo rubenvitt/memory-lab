@@ -1,0 +1,62 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 1,
+ "input_hash": "4bda5ca949eac58dc2cac51c",
+ "meta": {
+  "scenario": "toy",
+  "arch": "A",
+  "rep": 1,
+  "variant": "A-mem0",
+  "role": "mem0-update",
+  "session": 1,
+  "turn": 1
+ },
+ "duration_ms": 5537,
+ "text": "{\"memory\":[{\"id\":\"0\",\"text\":\"Der Nutzer möchte Erinnerungen per SMS erhalten.\",\"event\":\"ADD\",\"old_memory\":null}]}",
+ "parsed": {
+  "memory": [
+   {
+    "id": "0",
+    "text": "Der Nutzer möchte Erinnerungen per SMS erhalten.",
+    "event": "ADD",
+    "old_memory": null
+   }
+  ]
+ },
+ "usage": {
+  "input_tokens": 18373,
+  "cached_input_tokens": 0,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 39,
+  "reasoning_output_tokens": 0
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bb5c-54d8-7ed2-992c-5e06bf254a50"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "{\"memory\":[{\"id\":\"0\",\"text\":\"Der Nutzer möchte Erinnerungen per SMS erhalten.\",\"event\":\"ADD\",\"old_memory\":null}]}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 18373,
+    "cached_input_tokens": 0,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 39,
+    "reasoning_output_tokens": 0
+   }
+  }
+ ]
+}

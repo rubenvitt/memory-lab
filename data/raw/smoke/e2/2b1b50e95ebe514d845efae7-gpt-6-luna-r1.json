@@ -1,0 +1,67 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 1,
+ "input_hash": "2b1b50e95ebe514d845efae7",
+ "meta": {
+  "scenario": "toy",
+  "arch": "A",
+  "rep": 1,
+  "variant": "A-mem0",
+  "role": "agent",
+  "session": 2,
+  "turn": 1,
+  "step": 2
+ },
+ "duration_ms": 5897,
+ "text": "{\"tool\":\"get_profile\",\"query\":null,\"reason\":null,\"text\":null}",
+ "parsed": {
+  "tool": "get_profile",
+  "query": null,
+  "reason": null,
+  "text": null
+ },
+ "usage": {
+  "input_tokens": 35203,
+  "cached_input_tokens": 0,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 85,
+  "reasoning_output_tokens": 0
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bb5c-8236-76f2-99ea-cd6352cf091a"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "Ich prüfe die gewünschte Erinnerung im Bibliotheksprofil, damit ich dir verlässlich sagen kann, ob SMS hinterlegt ist."
+   }
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_1",
+    "type": "agent_message",
+    "text": "{\"tool\":\"get_profile\",\"query\":null,\"reason\":null,\"text\":null}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 35203,
+    "cached_input_tokens": 0,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 85,
+    "reasoning_output_tokens": 0
+   }
+  }
+ ]
+}

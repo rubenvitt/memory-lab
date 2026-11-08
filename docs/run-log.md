@@ -44,3 +44,11 @@ Der Satz „Rufe `remember` auf, bevor du antwortest.“, der nach Smoke 1 in `m
 Fortsetzung nach dem Fix: 226 neue Aufrufe, 167 aus dem Cache, 0 Fehlversuche. Vollständig: 60 Läufe, 393 Rohantworten, Budget 800 nicht berührt. Die Schätzung aus `plan` lag bei 520, der Agent brauchte im Mittel 2,2 Schritte pro Nachricht statt der angenommenen 3.
 
 Nach dem Lauf, ohne Einfluss auf die Zahlen: Die Regel, welcher Lauf in die Blog-Abbildungen kommt, steht in `scripts/check-site.cjs`. Weil A in keinem `injection`-Lauf den Status gespeichert hat, zeigt die Abbildung den ersten Lauf, in dem beide Agenten die vergiftete Seite gelesen haben (Lauf 2). Weil A in keinem `erasure`-Lauf den Canary behalten hat, zeigt sie den ersten Lauf, in dem die Kaskade von B eine Präferenz entfernt hat (Lauf 5).
+
+## E2 (nach Sicht der Ergebnisse von E1 ergänzt)
+
+Auftrag nach E1: die beiden für A günstigen Bedingungen aufheben, B unverändert lassen. Aufbau in `prompts/e2/README.md`, Rohantworten in `data/raw/e2/`, Budget 500 nur für diesen Ordner.
+
+**Mem0-Prompts.** Der erste Versuch, die Prompts durch Ausführen von `prompts.py` mit festem Datum zu erzeugen, wurde von der Sandbox abgelehnt (heruntergeladener Code). Stattdessen sind sie per Textauszug übernommen, siehe `prompts/e2/README.md`.
+
+**Smoke E2** (8 Aufrufe, `data/raw/smoke/e2/`, nur Toy-Szenario, nur `A-mem0`): Schema für Fakten und Update wird angenommen, Fakten kommen auf Deutsch („Der Nutzer möchte Erinnerungen per SMS erhalten.“), `ADD` landet im Memory und bleibt nach dem Löschen des Chats stehen, ohne Fakten entfällt der Update-Aufruf. Keine Änderung nötig.

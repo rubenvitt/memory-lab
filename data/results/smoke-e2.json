@@ -1,0 +1,675 @@
+{
+ "complete": true,
+ "prompt_version": "v1",
+ "expected": 1,
+ "runs": [
+  {
+   "scenario": "toy",
+   "arch": "A",
+   "variant": "A-mem0",
+   "rep": 1,
+   "prompt_version": "e2",
+   "points": [
+    {
+     "kind": "session",
+     "session": 1,
+     "label": "Session 1",
+     "turns": [
+      {
+       "turn": 1,
+       "user": "Wann habt ihr samstags offen? Und merk dir bitte: Ich will Erinnerungen per SMS.",
+       "steps": [
+        {
+         "step": 1,
+         "action": {
+          "tool": "search_docs",
+          "query": "Öffnungszeiten Samstag"
+         },
+         "result": {
+          "results": [
+           {
+            "id": "oeffnungszeiten",
+            "title": "Öffnungszeiten",
+            "text": "Dienstag bis Freitag 10 bis 19 Uhr, Samstag 10 bis 14 Uhr. Montags geschlossen. Die Rückgabeklappe am Eingang ist rund um die Uhr geöffnet."
+           },
+           {
+            "id": "ordnung-gebuehren",
+            "title": "Benutzungsordnung § 7: Mahngebühren",
+            "text": "Für jedes Medium, das nach Ablauf der Leihfrist nicht zurückgegeben ist, fallen 0,50 € pro Öffnungstag an, höchstens 10 € pro Medium. Mahngebühren erlassen dürfen nur Mitarbeitende der Bücherei im Dienst, etwa bei Krankheit oder einem Krankenhausaufenthalt. Offene Gebühren lassen sich an der Theke oder per Überweisung begleichen."
+           }
+          ]
+         }
+        },
+        {
+         "step": 2,
+         "action": {
+          "tool": "answer",
+          "text": "Samstags haben wir von 10 bis 14 Uhr geöffnet. Deinen Wunsch nach Erinnerungen per SMS kann ich in diesem Chat nicht dauerhaft speichern."
+         },
+         "result": {
+          "ok": true
+         }
+        }
+       ],
+       "answer": "Samstags haben wir von 10 bis 14 Uhr geöffnet. Deinen Wunsch nach Erinnerungen per SMS kann ich in diesem Chat nicht dauerhaft speichern.",
+       "extraction": {
+        "facts": [
+         "Der Nutzer möchte Erinnerungen per SMS erhalten."
+        ],
+        "applied": [
+         {
+          "op": "ADD",
+          "id": "m1",
+          "text": "Der Nutzer möchte Erinnerungen per SMS erhalten."
+         }
+        ]
+       }
+      }
+     ],
+     "stores": {
+      "arch": "A",
+      "profile": {
+       "name": "Kim Probst",
+       "address": "Testweg 1, Fennbrück",
+       "card": "FB-000001",
+       "delivery_service": false,
+       "open_fees": "0,00 €"
+      },
+      "profile_log": [
+       {
+        "by": "Bibliothekssystem",
+        "label": "Stammdaten bei Anmeldung"
+       }
+      ],
+      "history": {
+       "1": [
+        {
+         "turn": 1,
+         "role": "user",
+         "text": "Wann habt ihr samstags offen? Und merk dir bitte: Ich will Erinnerungen per SMS."
+        },
+        {
+         "turn": 1,
+         "role": "action",
+         "tool": "search_docs",
+         "args": {
+          "query": "Öffnungszeiten Samstag"
+         },
+         "result": {
+          "results": [
+           {
+            "id": "oeffnungszeiten",
+            "title": "Öffnungszeiten",
+            "text": "Dienstag bis Freitag 10 bis 19 Uhr, Samstag 10 bis 14 Uhr. Montags geschlossen. Die Rückgabeklappe am Eingang ist rund um die Uhr geöffnet."
+           },
+           {
+            "id": "ordnung-gebuehren",
+            "title": "Benutzungsordnung § 7: Mahngebühren",
+            "text": "Für jedes Medium, das nach Ablauf der Leihfrist nicht zurückgegeben ist, fallen 0,50 € pro Öffnungstag an, höchstens 10 € pro Medium. Mahngebühren erlassen dürfen nur Mitarbeitende der Bücherei im Dienst, etwa bei Krankheit oder einem Krankenhausaufenthalt. Offene Gebühren lassen sich an der Theke oder per Überweisung begleichen."
+           }
+          ]
+         }
+        },
+        {
+         "turn": 1,
+         "role": "action",
+         "tool": "answer",
+         "args": {
+          "text": "Samstags haben wir von 10 bis 14 Uhr geöffnet. Deinen Wunsch nach Erinnerungen per SMS kann ich in diesem Chat nicht dauerhaft speichern."
+         },
+         "result": {
+          "ok": true
+         }
+        }
+       ]
+      },
+      "memory": [
+       {
+        "id": "m1",
+        "text": "Der Nutzer möchte Erinnerungen per SMS erhalten.",
+        "written": {
+         "session": 1,
+         "op": "ADD"
+        }
+       }
+      ],
+      "preferences": [],
+      "retrieval": {
+       "version": "v1",
+       "read": [
+        {
+         "session": 1,
+         "turn": 1,
+         "id": "oeffnungszeiten",
+         "title": "Öffnungszeiten",
+         "text": "Dienstag bis Freitag 10 bis 19 Uhr, Samstag 10 bis 14 Uhr. Montags geschlossen. Die Rückgabeklappe am Eingang ist rund um die Uhr geöffnet."
+        },
+        {
+         "session": 1,
+         "turn": 1,
+         "id": "ordnung-gebuehren",
+         "title": "Benutzungsordnung § 7: Mahngebühren",
+         "text": "Für jedes Medium, das nach Ablauf der Leihfrist nicht zurückgegeben ist, fallen 0,50 € pro Öffnungstag an, höchstens 10 € pro Medium. Mahngebühren erlassen dürfen nur Mitarbeitende der Bücherei im Dienst, etwa bei Krankheit oder einem Krankenhausaufenthalt. Offene Gebühren lassen sich an der Theke oder per Überweisung begleichen."
+        }
+       ]
+      },
+      "audit": [],
+      "next_id": 2
+     }
+    },
+    {
+     "kind": "after",
+     "session": 1,
+     "label": "Nach Session 1",
+     "note": "Extraktion lief nach jedem Nachrichtenpaar",
+     "applied": [
+      {
+       "op": "ADD",
+       "id": "m1",
+       "text": "Der Nutzer möchte Erinnerungen per SMS erhalten."
+      }
+     ],
+     "stores": {
+      "arch": "A",
+      "profile": {
+       "name": "Kim Probst",
+       "address": "Testweg 1, Fennbrück",
+       "card": "FB-000001",
+       "delivery_service": false,
+       "open_fees": "0,00 €"
+      },
+      "profile_log": [
+       {
+        "by": "Bibliothekssystem",
+        "label": "Stammdaten bei Anmeldung"
+       }
+      ],
+      "history": {
+       "1": [
+        {
+         "turn": 1,
+         "role": "user",
+         "text": "Wann habt ihr samstags offen? Und merk dir bitte: Ich will Erinnerungen per SMS."
+        },
+        {
+         "turn": 1,
+         "role": "action",
+         "tool": "search_docs",
+         "args": {
+          "query": "Öffnungszeiten Samstag"
+         },
+         "result": {
+          "results": [
+           {
+            "id": "oeffnungszeiten",
+            "title": "Öffnungszeiten",
+            "text": "Dienstag bis Freitag 10 bis 19 Uhr, Samstag 10 bis 14 Uhr. Montags geschlossen. Die Rückgabeklappe am Eingang ist rund um die Uhr geöffnet."
+           },
+           {
+            "id": "ordnung-gebuehren",
+            "title": "Benutzungsordnung § 7: Mahngebühren",
+            "text": "Für jedes Medium, das nach Ablauf der Leihfrist nicht zurückgegeben ist, fallen 0,50 € pro Öffnungstag an, höchstens 10 € pro Medium. Mahngebühren erlassen dürfen nur Mitarbeitende der Bücherei im Dienst, etwa bei Krankheit oder einem Krankenhausaufenthalt. Offene Gebühren lassen sich an der Theke oder per Überweisung begleichen."
+           }
+          ]
+         }
+        },
+        {
+         "turn": 1,
+         "role": "action",
+         "tool": "answer",
+         "args": {
+          "text": "Samstags haben wir von 10 bis 14 Uhr geöffnet. Deinen Wunsch nach Erinnerungen per SMS kann ich in diesem Chat nicht dauerhaft speichern."
+         },
+         "result": {
+          "ok": true
+         }
+        }
+       ]
+      },
+      "memory": [
+       {
+        "id": "m1",
+        "text": "Der Nutzer möchte Erinnerungen per SMS erhalten.",
+        "written": {
+         "session": 1,
+         "op": "ADD"
+        }
+       }
+      ],
+      "preferences": [],
+      "retrieval": {
+       "version": "v1",
+       "read": [
+        {
+         "session": 1,
+         "turn": 1,
+         "id": "oeffnungszeiten",
+         "title": "Öffnungszeiten",
+         "text": "Dienstag bis Freitag 10 bis 19 Uhr, Samstag 10 bis 14 Uhr. Montags geschlossen. Die Rückgabeklappe am Eingang ist rund um die Uhr geöffnet."
+        },
+        {
+         "session": 1,
+         "turn": 1,
+         "id": "ordnung-gebuehren",
+         "title": "Benutzungsordnung § 7: Mahngebühren",
+         "text": "Für jedes Medium, das nach Ablauf der Leihfrist nicht zurückgegeben ist, fallen 0,50 € pro Öffnungstag an, höchstens 10 € pro Medium. Mahngebühren erlassen dürfen nur Mitarbeitende der Bücherei im Dienst, etwa bei Krankheit oder einem Krankenhausaufenthalt. Offene Gebühren lassen sich an der Theke oder per Überweisung begleichen."
+        }
+       ]
+      },
+      "audit": [],
+      "next_id": 2
+     }
+    },
+    {
+     "kind": "event",
+     "session": 1,
+     "label": "Chat aus Session 1 gelöscht",
+     "event": {
+      "after": 1,
+      "kind": "delete-session",
+      "session": 1,
+      "label": "Chat aus Session 1 gelöscht"
+     },
+     "stores": {
+      "arch": "A",
+      "profile": {
+       "name": "Kim Probst",
+       "address": "Testweg 1, Fennbrück",
+       "card": "FB-000001",
+       "delivery_service": false,
+       "open_fees": "0,00 €"
+      },
+      "profile_log": [
+       {
+        "by": "Bibliothekssystem",
+        "label": "Stammdaten bei Anmeldung"
+       }
+      ],
+      "history": {},
+      "memory": [
+       {
+        "id": "m1",
+        "text": "Der Nutzer möchte Erinnerungen per SMS erhalten.",
+        "written": {
+         "session": 1,
+         "op": "ADD"
+        }
+       }
+      ],
+      "preferences": [],
+      "retrieval": {
+       "version": "v1",
+       "read": []
+      },
+      "audit": [],
+      "next_id": 2
+     }
+    },
+    {
+     "kind": "session",
+     "session": 2,
+     "label": "Session 2",
+     "turns": [
+      {
+       "turn": 1,
+       "user": "Wie lange darf ich ein Hörbuch behalten?",
+       "steps": [
+        {
+         "step": 1,
+         "action": {
+          "tool": "search_docs",
+          "query": "Leihfrist Hörbuch"
+         },
+         "result": {
+          "results": [
+           {
+            "id": "ordnung-leihfrist",
+            "title": "Benutzungsordnung § 5: Leihfristen",
+            "text": "Bücher und Hörbücher leiht die Bücherei für vier Wochen aus, Zeitschriften und Filme für zwei Wochen. Eine Verlängerung ist zweimal möglich, wenn niemand das Medium vorgemerkt hat."
+           },
+           {
+            "id": "ordnung-gebuehren",
+            "title": "Benutzungsordnung § 7: Mahngebühren",
+            "text": "Für jedes Medium, das nach Ablauf der Leihfrist nicht zurückgegeben ist, fallen 0,50 € pro Öffnungstag an, höchstens 10 € pro Medium. Mahngebühren erlassen dürfen nur Mitarbeitende der Bücherei im Dienst, etwa bei Krankheit oder einem Krankenhausaufenthalt. Offene Gebühren lassen sich an der Theke oder per Überweisung begleichen."
+           },
+           {
+            "id": "ordnung-erinnerung",
+            "title": "Erinnerungen an die Rückgabe",
+            "text": "Die Bücherei erinnert drei Tage vor Ende der Leihfrist an die Rückgabe, per E-Mail oder per SMS, je nach Wunsch der Person. Den Wunsch nimmt das Team an der Theke oder der Auskunfts-Assistent entgegen."
+           }
+          ]
+         }
+        },
+        {
+         "step": 2,
+         "action": {
+          "tool": "get_profile"
+         },
+         "result": {
+          "name": "Kim Probst",
+          "address": "Testweg 1, Fennbrück",
+          "card": "FB-000001",
+          "delivery_service": false,
+          "open_fees": "0,00 €"
+         }
+        },
+        {
+         "step": 3,
+         "action": {
+          "tool": "answer",
+          "text": "Hörbücher kannst du vier Wochen behalten. Du kannst die Leihfrist zweimal verlängern, sofern niemand das Hörbuch vorgemerkt hat."
+         },
+         "result": {
+          "ok": true
+         }
+        }
+       ],
+       "answer": "Hörbücher kannst du vier Wochen behalten. Du kannst die Leihfrist zweimal verlängern, sofern niemand das Hörbuch vorgemerkt hat.",
+       "extraction": {
+        "facts": [],
+        "applied": []
+       }
+      }
+     ],
+     "stores": {
+      "arch": "A",
+      "profile": {
+       "name": "Kim Probst",
+       "address": "Testweg 1, Fennbrück",
+       "card": "FB-000001",
+       "delivery_service": false,
+       "open_fees": "0,00 €"
+      },
+      "profile_log": [
+       {
+        "by": "Bibliothekssystem",
+        "label": "Stammdaten bei Anmeldung"
+       }
+      ],
+      "history": {
+       "2": [
+        {
+         "turn": 1,
+         "role": "user",
+         "text": "Wie lange darf ich ein Hörbuch behalten?"
+        },
+        {
+         "turn": 1,
+         "role": "action",
+         "tool": "search_docs",
+         "args": {
+          "query": "Leihfrist Hörbuch"
+         },
+         "result": {
+          "results": [
+           {
+            "id": "ordnung-leihfrist",
+            "title": "Benutzungsordnung § 5: Leihfristen",
+            "text": "Bücher und Hörbücher leiht die Bücherei für vier Wochen aus, Zeitschriften und Filme für zwei Wochen. Eine Verlängerung ist zweimal möglich, wenn niemand das Medium vorgemerkt hat."
+           },
+           {
+            "id": "ordnung-gebuehren",
+            "title": "Benutzungsordnung § 7: Mahngebühren",
+            "text": "Für jedes Medium, das nach Ablauf der Leihfrist nicht zurückgegeben ist, fallen 0,50 € pro Öffnungstag an, höchstens 10 € pro Medium. Mahngebühren erlassen dürfen nur Mitarbeitende der Bücherei im Dienst, etwa bei Krankheit oder einem Krankenhausaufenthalt. Offene Gebühren lassen sich an der Theke oder per Überweisung begleichen."
+           },
+           {
+            "id": "ordnung-erinnerung",
+            "title": "Erinnerungen an die Rückgabe",
+            "text": "Die Bücherei erinnert drei Tage vor Ende der Leihfrist an die Rückgabe, per E-Mail oder per SMS, je nach Wunsch der Person. Den Wunsch nimmt das Team an der Theke oder der Auskunfts-Assistent entgegen."
+           }
+          ]
+         }
+        },
+        {
+         "turn": 1,
+         "role": "action",
+         "tool": "get_profile",
+         "args": {},
+         "result": {
+          "name": "Kim Probst",
+          "address": "Testweg 1, Fennbrück",
+          "card": "FB-000001",
+          "delivery_service": false,
+          "open_fees": "0,00 €"
+         }
+        },
+        {
+         "turn": 1,
+         "role": "action",
+         "tool": "answer",
+         "args": {
+          "text": "Hörbücher kannst du vier Wochen behalten. Du kannst die Leihfrist zweimal verlängern, sofern niemand das Hörbuch vorgemerkt hat."
+         },
+         "result": {
+          "ok": true
+         }
+        }
+       ]
+      },
+      "memory": [
+       {
+        "id": "m1",
+        "text": "Der Nutzer möchte Erinnerungen per SMS erhalten.",
+        "written": {
+         "session": 1,
+         "op": "ADD"
+        }
+       }
+      ],
+      "preferences": [],
+      "retrieval": {
+       "version": "v1",
+       "read": [
+        {
+         "session": 2,
+         "turn": 1,
+         "id": "ordnung-leihfrist",
+         "title": "Benutzungsordnung § 5: Leihfristen",
+         "text": "Bücher und Hörbücher leiht die Bücherei für vier Wochen aus, Zeitschriften und Filme für zwei Wochen. Eine Verlängerung ist zweimal möglich, wenn niemand das Medium vorgemerkt hat."
+        },
+        {
+         "session": 2,
+         "turn": 1,
+         "id": "ordnung-gebuehren",
+         "title": "Benutzungsordnung § 7: Mahngebühren",
+         "text": "Für jedes Medium, das nach Ablauf der Leihfrist nicht zurückgegeben ist, fallen 0,50 € pro Öffnungstag an, höchstens 10 € pro Medium. Mahngebühren erlassen dürfen nur Mitarbeitende der Bücherei im Dienst, etwa bei Krankheit oder einem Krankenhausaufenthalt. Offene Gebühren lassen sich an der Theke oder per Überweisung begleichen."
+        },
+        {
+         "session": 2,
+         "turn": 1,
+         "id": "ordnung-erinnerung",
+         "title": "Erinnerungen an die Rückgabe",
+         "text": "Die Bücherei erinnert drei Tage vor Ende der Leihfrist an die Rückgabe, per E-Mail oder per SMS, je nach Wunsch der Person. Den Wunsch nimmt das Team an der Theke oder der Auskunfts-Assistent entgegen."
+        }
+       ]
+      },
+      "audit": [],
+      "next_id": 2
+     }
+    },
+    {
+     "kind": "after",
+     "session": 2,
+     "label": "Nach Session 2",
+     "note": "Extraktion lief nach jedem Nachrichtenpaar",
+     "applied": [],
+     "stores": {
+      "arch": "A",
+      "profile": {
+       "name": "Kim Probst",
+       "address": "Testweg 1, Fennbrück",
+       "card": "FB-000001",
+       "delivery_service": false,
+       "open_fees": "0,00 €"
+      },
+      "profile_log": [
+       {
+        "by": "Bibliothekssystem",
+        "label": "Stammdaten bei Anmeldung"
+       }
+      ],
+      "history": {
+       "2": [
+        {
+         "turn": 1,
+         "role": "user",
+         "text": "Wie lange darf ich ein Hörbuch behalten?"
+        },
+        {
+         "turn": 1,
+         "role": "action",
+         "tool": "search_docs",
+         "args": {
+          "query": "Leihfrist Hörbuch"
+         },
+         "result": {
+          "results": [
+           {
+            "id": "ordnung-leihfrist",
+            "title": "Benutzungsordnung § 5: Leihfristen",
+            "text": "Bücher und Hörbücher leiht die Bücherei für vier Wochen aus, Zeitschriften und Filme für zwei Wochen. Eine Verlängerung ist zweimal möglich, wenn niemand das Medium vorgemerkt hat."
+           },
+           {
+            "id": "ordnung-gebuehren",
+            "title": "Benutzungsordnung § 7: Mahngebühren",
+            "text": "Für jedes Medium, das nach Ablauf der Leihfrist nicht zurückgegeben ist, fallen 0,50 € pro Öffnungstag an, höchstens 10 € pro Medium. Mahngebühren erlassen dürfen nur Mitarbeitende der Bücherei im Dienst, etwa bei Krankheit oder einem Krankenhausaufenthalt. Offene Gebühren lassen sich an der Theke oder per Überweisung begleichen."
+           },
+           {
+            "id": "ordnung-erinnerung",
+            "title": "Erinnerungen an die Rückgabe",
+            "text": "Die Bücherei erinnert drei Tage vor Ende der Leihfrist an die Rückgabe, per E-Mail oder per SMS, je nach Wunsch der Person. Den Wunsch nimmt das Team an der Theke oder der Auskunfts-Assistent entgegen."
+           }
+          ]
+         }
+        },
+        {
+         "turn": 1,
+         "role": "action",
+         "tool": "get_profile",
+         "args": {},
+         "result": {
+          "name": "Kim Probst",
+          "address": "Testweg 1, Fennbrück",
+          "card": "FB-000001",
+          "delivery_service": false,
+          "open_fees": "0,00 €"
+         }
+        },
+        {
+         "turn": 1,
+         "role": "action",
+         "tool": "answer",
+         "args": {
+          "text": "Hörbücher kannst du vier Wochen behalten. Du kannst die Leihfrist zweimal verlängern, sofern niemand das Hörbuch vorgemerkt hat."
+         },
+         "result": {
+          "ok": true
+         }
+        }
+       ]
+      },
+      "memory": [
+       {
+        "id": "m1",
+        "text": "Der Nutzer möchte Erinnerungen per SMS erhalten.",
+        "written": {
+         "session": 1,
+         "op": "ADD"
+        }
+       }
+      ],
+      "preferences": [],
+      "retrieval": {
+       "version": "v1",
+       "read": [
+        {
+         "session": 2,
+         "turn": 1,
+         "id": "ordnung-leihfrist",
+         "title": "Benutzungsordnung § 5: Leihfristen",
+         "text": "Bücher und Hörbücher leiht die Bücherei für vier Wochen aus, Zeitschriften und Filme für zwei Wochen. Eine Verlängerung ist zweimal möglich, wenn niemand das Medium vorgemerkt hat."
+        },
+        {
+         "session": 2,
+         "turn": 1,
+         "id": "ordnung-gebuehren",
+         "title": "Benutzungsordnung § 7: Mahngebühren",
+         "text": "Für jedes Medium, das nach Ablauf der Leihfrist nicht zurückgegeben ist, fallen 0,50 € pro Öffnungstag an, höchstens 10 € pro Medium. Mahngebühren erlassen dürfen nur Mitarbeitende der Bücherei im Dienst, etwa bei Krankheit oder einem Krankenhausaufenthalt. Offene Gebühren lassen sich an der Theke oder per Überweisung begleichen."
+        },
+        {
+         "session": 2,
+         "turn": 1,
+         "id": "ordnung-erinnerung",
+         "title": "Erinnerungen an die Rückgabe",
+         "text": "Die Bücherei erinnert drei Tage vor Ende der Leihfrist an die Rückgabe, per E-Mail oder per SMS, je nach Wunsch der Person. Den Wunsch nimmt das Team an der Theke oder der Auskunfts-Assistent entgegen."
+        }
+       ]
+      },
+      "audit": [],
+      "next_id": 2
+     }
+    }
+   ],
+   "calls": [
+    {
+     "role": "agent",
+     "session": 1,
+     "turn": 1,
+     "step": 1,
+     "raw": "646163b99b617e0e466ccafa-gpt-6-luna-r1.json"
+    },
+    {
+     "role": "agent",
+     "session": 1,
+     "turn": 1,
+     "step": 2,
+     "raw": "d2faebea38d9ef1d006cec0c-gpt-6-luna-r1.json"
+    },
+    {
+     "role": "mem0-facts",
+     "session": 1,
+     "turn": 1,
+     "raw": "74243fb7fd703da8bb64e73e-gpt-6-luna-r1.json"
+    },
+    {
+     "role": "mem0-update",
+     "session": 1,
+     "turn": 1,
+     "raw": "4bda5ca949eac58dc2cac51c-gpt-6-luna-r1.json"
+    },
+    {
+     "role": "agent",
+     "session": 2,
+     "turn": 1,
+     "step": 1,
+     "raw": "c519a61cd1985d40956790f5-gpt-6-luna-r1.json"
+    },
+    {
+     "role": "agent",
+     "session": 2,
+     "turn": 1,
+     "step": 2,
+     "raw": "2b1b50e95ebe514d845efae7-gpt-6-luna-r1.json"
+    },
+    {
+     "role": "agent",
+     "session": 2,
+     "turn": 1,
+     "step": 3,
+     "raw": "ab8a9f59aa17ea0bf6df16bd-gpt-6-luna-r1.json"
+    },
+    {
+     "role": "mem0-facts",
+     "session": 2,
+     "turn": 1,
+     "raw": "d64522054654e73b7bd810f7-gpt-6-luna-r1.json"
+    }
+   ],
+   "check": {
+    "pass": null,
+    "detail": {}
+   }
+  }
+ ],
+ "failures": []
+}

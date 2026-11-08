@@ -1,6 +1,6 @@
 // The assistant under test (a JSON tool loop over stateless model calls) and the extractor of architecture A.
 // Prompt rendering must stay deterministic: it feeds the cache key, so no clock, no random ids.
-import { readFileSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { addAction, addUser, applyExtraction, noteRead, remember } from './memory.mjs';
 
 const dir = (version) => new URL(`../prompts/${version}/`, import.meta.url);
@@ -14,6 +14,10 @@ export function loadPrompts(version = 'v1') {
     'memory-A': read('memory-a.md').trim(),
     'memory-B': read('memory-b.md').trim(),
     extractor: read('extractor.md'),
+    // E2 only: the original Mem0 prompts.
+    ...(existsSync(new URL('mem0-extraction.md', dir(version))) ? {
+      'mem0-extraction': read('mem0-extraction.md'), 'mem0-update': read('mem0-update.md'), 'mem0-update-empty': read('mem0-update-empty.md'),
+    } : {}),
   };
 }
 
@@ -109,15 +113,17 @@ export async function runTurn({ state, tools, session, turn, userText, ctx }) {
 }
 
 // Mem0 pattern, after each session of A: transcript including tool results plus existing entries in, operations out.
-export async function extract({ state, session, ctx }) {
+// E1: after the session on the whole transcript. E2 (`turn` set): after each message pair on that turn's part.
+export async function extract({ state, session, ctx, turn }) {
   const { prompts, engine, rep, meta } = ctx;
   const memories = state.memory.length ? state.memory.map((m) => `- ${m.id}: ${m.text}`).join('\n') : NONE;
+  const messages = (state.history[session] ?? []).filter((m) => turn == null || m.turn === turn);
   const reply = await engine.call({
     model: prompts.params.models.extractor, effort: prompts.params.models.effort, rep,
-    prompt: fill(prompts.extractor, { memories, transcript: renderHistory(state.history[session]) }),
+    prompt: fill(prompts.extractor, { memories, transcript: renderHistory(messages) }),
     schema: EXTRACTOR_SCHEMA,
-    meta: { ...meta, role: 'extractor', session },
+    meta: { ...meta, role: 'extractor', session, ...(turn == null ? {} : { turn }) },
   });
-  ctx.calls.push({ role: 'extractor', session, raw: ctx.rawOf(reply) });
+  ctx.calls.push({ role: 'extractor', session, ...(turn == null ? {} : { turn }), raw: ctx.rawOf(reply) });
   return { proposed: reply.parsed.operations, applied: applyExtraction(state, session, reply.parsed.operations) };
 }

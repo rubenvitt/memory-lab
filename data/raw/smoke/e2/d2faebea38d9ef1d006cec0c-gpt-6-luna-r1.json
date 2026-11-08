@@ -1,0 +1,59 @@
+{
+ "model": "gpt-6-luna",
+ "effort": "low",
+ "rep": 1,
+ "input_hash": "d2faebea38d9ef1d006cec0c",
+ "meta": {
+  "scenario": "toy",
+  "arch": "A",
+  "rep": 1,
+  "variant": "A-mem0",
+  "role": "agent",
+  "session": 1,
+  "turn": 1,
+  "step": 2
+ },
+ "duration_ms": 6740,
+ "text": "{\"tool\":\"answer\",\"query\":null,\"reason\":null,\"text\":\"Samstags haben wir von 10 bis 14 Uhr geöffnet. Deinen Wunsch nach Erinnerungen per SMS kann ich in diesem Chat nicht dauerhaft speichern.\"}",
+ "parsed": {
+  "tool": "answer",
+  "query": null,
+  "reason": null,
+  "text": "Samstags haben wir von 10 bis 14 Uhr geöffnet. Deinen Wunsch nach Erinnerungen per SMS kann ich in diesem Chat nicht dauerhaft speichern."
+ },
+ "usage": {
+  "input_tokens": 34976,
+  "cached_input_tokens": 0,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 141,
+  "reasoning_output_tokens": 52
+ },
+ "tainted": false,
+ "events": [
+  {
+   "type": "thread.started",
+   "thread_id": "01a1bb5c-2ca8-7a50-9103-ad72b3fdda83"
+  },
+  {
+   "type": "turn.started"
+  },
+  {
+   "type": "item.completed",
+   "item": {
+    "id": "item_0",
+    "type": "agent_message",
+    "text": "{\"tool\":\"answer\",\"query\":null,\"reason\":null,\"text\":\"Samstags haben wir von 10 bis 14 Uhr geöffnet. Deinen Wunsch nach Erinnerungen per SMS kann ich in diesem Chat nicht dauerhaft speichern.\"}"
+   }
+  },
+  {
+   "type": "turn.completed",
+   "usage": {
+    "input_tokens": 34976,
+    "cached_input_tokens": 0,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 141,
+    "reasoning_output_tokens": 52
+   }
+  }
+ ]
+}
