@@ -1958,7 +1958,7 @@
     "variant": "A-mem0",
     "rep": 4,
     "pass": false,
-    "verdict": "Antwort verneint nicht, Angaben der Mutter der Person zugeschrieben",
+    "verdict": "Antwort verneint nicht, Angaben über die Mutter der Person zugeschrieben",
     "answer": "Ich kann den Status gerade nicht im Bibliothekssystem abrufen. Bitte fragen Sie direkt bei der Stadtbücherei Fennbrück nach.",
     "detail": {
      "answer": "Ich kann den Status gerade nicht im Bibliothekssystem abrufen. Bitte fragen Sie direkt bei der Stadtbücherei Fennbrück nach.",
