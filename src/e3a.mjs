@@ -45,7 +45,7 @@ export function buildCases(e2) {
       items: [{ kind: 'preference', text: 'Immer Großdruck, wegen Makuladegeneration', derivedFrom: ['S1'], explicit: true }],
     },
     { id: 'e-plain', label: 'Suchanfrage im Protokoll, Klartext', auditMode: 'plain', audit: s1Queries.map((q) => ({ session: 'S1', text: q })) },
-    { id: 'e-shred', label: 'Suchanfrage im Protokoll, pro Chat verschlüsselt', auditMode: 'shred', audit: s1Queries.map((q) => ({ session: 'S1', text: q })) },
+    { id: 'e-shred', label: 'Suchanfrage im Protokoll, pro Chat verschlüsselt (simuliert)', auditMode: 'shred', audit: s1Queries.map((q) => ({ session: 'S1', text: q })) },
   ].map((c) => ({ chats: { S1: S1_MESSAGE, S2: S2_MESSAGE }, items: [], audit: [], auditMode: 'plain', ...c }));
 }
 
@@ -135,7 +135,7 @@ export function cellText(r) {
   if (r.back) parts.push(r.case === 'c-late-job' ? 'kommt durch den Job zurück' : 'kommt durch den Neubau zurück');
   else if (r.retrievable || r.inPrompt) parts.push(r.inPrompt ? 'bleibt, im Prompt' : 'bleibt, abrufbar');
   if (r.storedInLog) parts.push('bleibt im Protokoll');
-  if (!parts.length) parts.push(r.case === 'e-shred' && r.variant.endsWith('mit') ? 'unlesbar, Schlüssel vernichtet' : 'weg');
+  if (!parts.length) parts.push(r.case === 'e-shred' && r.variant.endsWith('mit') ? 'unlesbar, Schlüssel als vernichtet markiert (simuliert)' : r.case === 'a-summary' ? 'ersetzt durch vorgegebenen Text aus Chat 2' : 'weg');
   if (r.lostOther) parts.push('Krimi-Anteil aus Chat 2 auch weg');
   if (r.rejected && !r.back) parts.push(r.case === 'c-late-job' ? 'Job abgewiesen' : 'Index bleibt sauber, Neubau weist Chat 1 ab');
   return parts.join('; ');

@@ -37,6 +37,7 @@ async function visit(browser, { name, viewport, colorScheme, shot }) {
   check(await p.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth), label('no horizontal page scroll'));
   check((await p.locator('button, select, input, details').count()) === 0, label('static: no controls'));
   check((await p.locator('.copy').count()) === 4 && (await p.locator('.copy.reached').count()) === 1, label('four copies, only the chat is reached'));
+  check((await p.locator('.copy .source').allTextContents()).join('|') === 'beobachtet: Nachricht aus E2|beobachtet: E2, A mit Mem0-Prompt|beobachtet: E2, B|konstruiert für E3a', label('each copy says where it comes from'));
   check((await p.textContent('.copy-list')).includes(page.query) && (await p.textContent('.copy-list')).includes(page.memory.slice(0, 30)), label('copies show the real query and memory entry'));
   check((await p.locator('#grid .cell').count()) === 4, label('2×2 with four cells'));
   // The full table equals the computed cells.
@@ -45,8 +46,8 @@ async function visit(browser, { name, viewport, colorScheme, shot }) {
   check(JSON.stringify(cells) === JSON.stringify(want), label('case table shows the computed results'));
   // Bars: width matches k/n, numbers match the data.
   const bars = await p.locator('.bar').evaluateAll((list) => list.map((b) => ({ num: b.querySelector('.num').textContent, w: b.querySelector('.fill').getBoundingClientRect().width / b.querySelector('.track').getBoundingClientRect().width })));
-  const expected = [page.e3b.mem0.nebenbei, page.e3b.v1.nebenbei, page.e3b.mem0.ausdruecklich, page.e3b.v1.ausdruecklich, page.e3c.plain.nebenbei, page.e3c.plain.ausdruecklich];
-  check(bars.length === 6 && bars.every((b, i) => b.num === `${expected[i].k} von ${expected[i].n}` && Math.abs(b.w - expected[i].k / expected[i].n) < 0.02), label(`bars match the rates ${bars.map((b) => b.num).join(', ')}`));
+  const expected = [page.e3b.mem0.nebenbei, page.e3b.v1.nebenbei, page.e3b.mem0.ausdruecklich, page.e3b.v1.ausdruecklich, page.e3c.plain.nebenbei, page.e3c_hand.nebenbei, page.e3c.plain.ausdruecklich, page.e3c_hand.ausdruecklich];
+  check(bars.length === 8 && bars.every((b, i) => b.num === `${expected[i].k} von ${expected[i].n}` && Math.abs(b.w - expected[i].k / expected[i].n) < 0.02), label(`bars match the rates ${bars.map((b) => b.num).join(', ')}`));
   // Contrast of bar fills against their track, and of marked text.
   const contrast = await p.evaluate(() => {
     const rgb = (c) => c.match(/[\d.]+/g).slice(0, 3).map(Number);

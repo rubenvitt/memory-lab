@@ -242,6 +242,8 @@ export function buildE3(e3, e2) {
       tone: preferenceDeleted || lostOther ? 'bad' : c === 'd-preference' ? (preferenceSourceShown ? 'good' : 'mixed') : (inPrompt || retrievable || back) ? 'bad' : stored ? 'mixed' : 'good',
     })),
     e3b: summary.e3b, e3c: summary.e3c, n: e3.extractors.length / 2,
+    // Hand count of E3c, see "Handprüfung E3" in docs/findings.md: +m10p, +m06a, −m20a.
+    e3c_hand: { nebenbei: { k: 7, n: 20 }, ausdruecklich: { k: 4, n: 20 }, total: { k: 11, n: 40 } },
   };
   return { summary, page };
 }

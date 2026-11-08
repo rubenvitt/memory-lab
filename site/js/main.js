@@ -25,7 +25,7 @@ const HEADLINE = {
   'eine-ohne': ['Nur der Chat ist weg', 'Gedächtnis, Zusammenfassung und Suchindex behalten die Diagnose und geben sie in den Prompt. Ein verspäteter Extraktionsjob schreibt sie neu.'],
   'typ-ohne': ['Auch nur der Chat', 'Eigene Regeln je Datenart ändern daran nichts. Sie halten nur den neu gebauten Index aus dem Prompt, abrufbar bleibt er.'],
   'eine-mit': ['Weg, aber zu viel', 'Die Diagnose ist aus allem Abgeleiteten verschwunden, auch Job und Neubau scheitern. Mit ihr verschwinden der ausdrücklich gespeicherte Wunsch und der Krimi-Teil der Zusammenfassung.'],
-  'typ-mit': ['Weg, bis auf den ausdrücklichen Wunsch', 'Aus Gedächtnis, Index und Job ist die Diagnose verschwunden, die Zusammenfassung entsteht aus dem zweiten Chat neu. Der gespeicherte Wunsch enthält hier die Diagnose und bleibt nach der Produktregel stehen, mit sichtbarer Herkunft und einzeln widerrufbar.'],
+  'typ-mit': ['Weg, bis auf den ausdrücklichen Wunsch', 'Aus Gedächtnis, Index und Job ist die Diagnose verschwunden. Die Zusammenfassung wird durch einen vorgegebenen Text aus Chat 2 ersetzt. Der gespeicherte Wunsch enthält hier die Diagnose und bleibt nach der Produktregel stehen, mit sichtbarer Herkunft und einzeln widerrufbar.'],
 };
 
 function copies(d) {
@@ -33,15 +33,16 @@ function copies(d) {
   msg.append(el('span', 'who', 'Die Person schreibt'));
   msg.append(marked(d.message));
   $('fan').textContent = 'Daraus entstehen Kopien:';
+  // Source of each copy: observed in E2 runs, or constructed for E3a.
   const items = [
-    ['Chat', d.message, 'der Verlauf selbst', true],
-    ['Gedächtnis', d.memory, `vom Modell abgeleitet, ${ofRuns(d.memory_runs, d.runs)} mit Diagnose`, false],
-    ['Protokoll', `Suche nach „${d.query}“`, `der Assistent hat so gesucht, ${ofRuns(d.query_runs, d.runs)}; nur anhängen`, false],
-    ['Suchindex', `„${d.query}“`, 'aus dem Protokoll gebaut', false],
+    ['Chat', d.message, 'der Verlauf selbst', true, 'beobachtet: Nachricht aus E2'],
+    ['Gedächtnis', d.memory, `vom Modell abgeleitet, ${ofRuns(d.memory_runs, d.runs)} mit Diagnose`, false, 'beobachtet: E2, A mit Mem0-Prompt'],
+    ['Protokoll', `Suche nach „${d.query}“`, `der Assistent hat so gesucht, ${ofRuns(d.query_runs, d.runs)}; nur anhängen`, false, 'beobachtet: E2, B'],
+    ['Suchindex', `„${d.query}“`, 'aus dem Protokoll gebaut', false, 'konstruiert für E3a'],
   ];
-  $('copy-list').replaceChildren(...items.map(([name, what, how, reached]) => {
+  $('copy-list').replaceChildren(...items.map(([name, what, how, reached, source]) => {
     const li = el('li', `copy${reached ? ' reached' : ''}`);
-    li.append(el('h3', null, name));
+    li.append(el('span', `source${source.startsWith('konstruiert') ? ' made' : ''}`, source), el('h3', null, name));
     const p = el('p', 'what');
     p.append(marked(what.length > 90 ? `${what.slice(0, 88)}…` : what));
     li.append(p, el('p', 'how', how), el('p', 'state', reached ? '„Chat löschen“: weg' : '„Chat löschen“: bleibt'));
@@ -65,7 +66,7 @@ function grid(d) {
       g.append(c);
     }
   }
-  const after = el('p', 'note', 'In allen vier Varianten bleibt die Suchanfrage im Protokoll, solange es im Klartext geführt wird. Pro Chat verschlüsselt wird sie unlesbar, sobald das Löschen den Chat als Quelle kennt.');
+  const after = el('p', 'note', 'In allen vier Varianten bleibt die Suchanfrage im Protokoll, solange es im Klartext geführt wird. Beobachtet sind nur Chat, Gedächtnis und Protokoll aus E2. Zusammenfassung, Extraktionsjob, Index-Neubau und Wunsch sind konstruiert. Die Verschlüsselung pro Chat ist simuliert: Der Versuch markiert den Schlüssel als vernichtet, echte Kryptografie ist nicht geprüft.');
   g.after(after);
   const table = $('cases');
   const head = el('tr');
@@ -117,9 +118,11 @@ function rates(d) {
   ]);
   legend($('rate-memory'));
   bars($('rate-log'), 'Ins Protokoll', `Dieselben Nachrichten an den Assistenten von B, jeweils sein erster Schritt. So oft steht die Angabe in einer Suchanfrage oder einem Speicherschlüssel, also im Klartext im Protokoll, das sich nicht löschen lässt.`, [
-    ['nur nebenbei erwähnt', c.plain.nebenbei, true],
-    ['„Merk dir bitte“', c.plain.ausdruecklich, true],
-  ], `Nach „Merk dir bitte“ speichert B die Angabe außerdem ${c.sealed.ausdruecklich.k}-mal als Wunsch. Das Protokoll führt davon nur Prüfsumme und Länge.`);
+    ['nur nebenbei erwähnt, automatisch gezählt', c.plain.nebenbei, true],
+    ['nur nebenbei erwähnt, von Hand gezählt', d.e3c_hand.nebenbei, true],
+    ['„Merk dir bitte“, automatisch gezählt', c.plain.ausdruecklich, true],
+    ['„Merk dir bitte“, von Hand gezählt', d.e3c_hand.ausdruecklich, true],
+  ], `Zusammen ${c.plain.total.k} von ${c.plain.total.n} automatisch, ${d.e3c_hand.total.k} von ${d.e3c_hand.total.n} von Hand. Das Suchmuster übersah zwei Suchanfragen („Gefangene“, „Suchterkrankung“) und zählte den Schlüssel „monatliches_einkommen“ als Leck, obwohl er den Betrag nicht nennt. Nach „Merk dir bitte“ speichert B die Angabe außerdem ${c.sealed.ausdruecklich.k}-mal als Wunsch, davon führt das Protokoll nur Prüfsumme und Länge.`);
 }
 
 async function start() {

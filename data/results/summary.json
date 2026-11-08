@@ -2331,7 +2331,7 @@
     },
     {
      "id": "e-shred",
-     "label": "Suchanfrage im Protokoll, pro Chat verschlüsselt",
+     "label": "Suchanfrage im Protokoll, pro Chat verschlüsselt (simuliert)",
      "derived": 0
     }
    ],
@@ -2657,7 +2657,7 @@
      "derived": 1,
      "leftWithDiagnosis": 0,
      "rejected": 0,
-     "text": "weg; Krimi-Anteil aus Chat 2 auch weg"
+     "text": "ersetzt durch vorgegebenen Text aus Chat 2; Krimi-Anteil aus Chat 2 auch weg"
     },
     {
      "variant": "eine-mit",
@@ -2742,7 +2742,7 @@
      "derived": 0,
      "leftWithDiagnosis": 0,
      "rejected": 0,
-     "text": "unlesbar, Schlüssel vernichtet"
+     "text": "unlesbar, Schlüssel als vernichtet markiert (simuliert)"
     },
     {
      "variant": "typ-mit",
@@ -2793,7 +2793,7 @@
      "derived": 1,
      "leftWithDiagnosis": 0,
      "rejected": 0,
-     "text": "weg"
+     "text": "ersetzt durch vorgegebenen Text aus Chat 2"
     },
     {
      "variant": "typ-mit",
@@ -2878,7 +2878,7 @@
      "derived": 0,
      "leftWithDiagnosis": 0,
      "rejected": 0,
-     "text": "unlesbar, Schlüssel vernichtet"
+     "text": "unlesbar, Schlüssel als vernichtet markiert (simuliert)"
     }
    ]
   },

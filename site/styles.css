@@ -51,6 +51,8 @@ h3 { font: 700 18px/1.3 var(--display); }
 .copy-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
 .copy { display: flex; flex-direction: column; gap: 6px; padding: 14px; background: var(--raised); border: 1px solid var(--line); border-top: 4px solid var(--line-strong); border-radius: 10px; }
 .copy h3 { font-size: 17px; }
+.copy .source { align-self: flex-start; padding: 1px 7px; font-size: 13px; font-weight: 700; border-radius: 4px; background: var(--petrol-soft); color: var(--petrol); }
+.copy .source.made { background: var(--sunken); color: var(--muted); border: 1px dashed var(--line-strong); }
 .copy .what { font-size: 15px; overflow-wrap: anywhere; }
 .copy .how { margin-top: auto; font-size: 14px; color: var(--muted); }
 .copy.reached { border-top-color: var(--moss); }
@@ -83,7 +85,7 @@ td.good { color: var(--moss); }
 .rate { margin-top: 24px; }
 .rate p { max-width: 64ch; }
 .bars { list-style: none; margin: 12px 0 0; padding: 0; display: grid; gap: 10px; }
-.bar { display: grid; grid-template-columns: 15em 1fr 7.5em; gap: 12px; align-items: center; font-size: 15px; }
+.bar { display: grid; grid-template-columns: 19em 1fr 7.5em; gap: 12px; align-items: center; font-size: 15px; }
 .track { display: block; height: 14px; background: var(--sunken); border-radius: 7px; overflow: hidden; }
 .fill { display: block; height: 100%; background: var(--petrol); border-radius: 7px; }
 .bar.leak .fill { background: var(--signal); }

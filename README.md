@@ -15,9 +15,9 @@ Nach zwei unabhängigen Gutachten zu E1 und E2 ergänzt, Aufbau in [prompts/e3/R
 | | Eine Regel für alles | Eine Regel je Datenart |
 |---|---|---|
 | **Ohne Herkunft** | Nur der Chat ist weg. Gedächtnis, Zusammenfassung und Index behalten die Diagnose, ein verspäteter Extraktionsjob schreibt sie neu. | Ebenso. Nur der neu gebaute Index bleibt aus dem Prompt. |
-| **Mit Herkunft und Kaskade** | Die Diagnose ist weg, aber auch der ausdrücklich gespeicherte Wunsch und der unbeteiligte Teil der Zusammenfassung. | Weg, bis auf den ausdrücklichen Wunsch: Aus Gedächtnis, Index und Job ist die Diagnose verschwunden, die Zusammenfassung entsteht aus dem anderen Chat neu. Der gespeicherte Wunsch enthält hier die Diagnose und bleibt nach der Produktregel stehen, mit sichtbarer Herkunft und einzeln widerrufbar. |
+| **Mit Herkunft und Kaskade** | Die Diagnose ist weg, aber auch der ausdrücklich gespeicherte Wunsch und der unbeteiligte Teil der Zusammenfassung. | Weg, bis auf den ausdrücklichen Wunsch: Aus Gedächtnis, Index und Job ist die Diagnose verschwunden. Die Zusammenfassung wird durch einen vorgegebenen Text aus Chat 2 ersetzt. Der gespeicherte Wunsch enthält hier die Diagnose und bleibt nach der Produktregel stehen, mit sichtbarer Herkunft und einzeln widerrufbar. |
 
-Die Herkunft entscheidet, ob die Diagnose verschwindet. Die Regel je Datenart entscheidet, ob sonst etwas verloren geht. Im Klartext-Protokoll bleibt die Suchanfrage in allen vier Varianten, pro Chat verschlüsselt wird sie mit Herkunft unlesbar.
+Die Herkunft entscheidet, ob die Diagnose verschwindet. Die Regel je Datenart entscheidet, ob sonst etwas verloren geht. Im Klartext-Protokoll bleibt die Suchanfrage in allen vier Varianten, mit Verschlüsselung pro Chat gilt sie mit Herkunft als unlesbar. Die Verschlüsselung ist simuliert (der Schlüssel wird als vernichtet markiert), echte Kryptografie ist nicht geprüft. Beobachtet sind nur die Gedächtniseinträge (E2, A mit Mem0-Prompt) und Suchanfragen (E2, B). Index, Zusammenfassung, Job und Wunsch sind konstruiert.
 
 **E3b und E3c, gemessen** (40 erfundene Nachrichten mit Angaben zu Gesundheit, Angehörigen, Religion oder Geld, je 20 nebenbei und 20 mit „Merk dir bitte“, 120 Modellaufrufe):
 
@@ -25,7 +25,8 @@ Die Herkunft entscheidet, ob die Diagnose verschwindet. Die Regel je Datenart en
 |---|---|---|
 | Mem0-Original-Prompt schreibt die Angabe ins Gedächtnis | 20 von 20 | 20 von 20 |
 | Eigener Prompt (verbietet sensible Angaben ohne Wunsch) | 5 von 20 | 19 von 20 |
-| Assistent schreibt sie in ein Klartext-Argument (landet im Protokoll) | 6 von 20 | 4 von 20 |
+| Assistent schreibt sie in ein Klartext-Argument (landet im Protokoll), automatisch gezählt | 6 von 20 | 4 von 20 |
+| dasselbe von Hand gezählt (Muster übersah zwei Suchanfragen, Fehlalarm bei `monatliches_einkommen`) | 7 von 20 | 4 von 20 |
 
 Erwartung vorher festgehalten (Tag `prompts-e3`). Daneben lag nur der eigene Prompt nach „Merk dir bitte“ (erwartet 12 bis 18).
 
