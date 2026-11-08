@@ -1,4 +1,4 @@
-// Serves site/ under /memory-lab/ like GitHub Pages, plays through the demo and takes screenshots.
+// Serves site/ under /memory-lab/ like GitHub Pages, steps through every scenario and run and takes screenshots.
 // Playwright is no dependency of this project: NODE_PATH=<dir with node_modules> node scripts/check-site.cjs
 // CHROMIUM_PATH optionally names a browser binary, SHOTS the screenshot folder (default .tmp/site-check),
 // BLOG a folder for the three blog images (store-inspektor.png, chat-loeschen.png, matrix.png).
@@ -39,6 +39,8 @@ const erasureRep = reps.find((r) => !run('erasure', 'A', r).pass)
   ?? reps.find((r) => run('erasure', 'B', r).points.some((p) => p.stores.audit.some((a) => a.type === 'delete-session' && a.removed.preferences > 0))) ?? 1;
 const erasurePoint = run('erasure', 'A', 1).points.findIndex((p) => p.kind === 'event') + 1;
 const lateLeft = (v, r) => { const x = run('erasure-late', v, r, E2); return markerIn(x.points.find((p) => p.kind === 'event').stores, 'erasure-late', ['memory'], E2); };
+const stepsOf = (r) => r.points.filter((p) => p.kind === 'after' || p.kind === 'event').length;
+const SCENARIOS = { 'erasure-late': 'e2', injection: 'e1', stale: 'e1', proxy: 'e1', implicit: 'e1', explicit: 'e1' };
 const late = E2 && ([['A-mem0'], ['A-v1']].map(([v]) => ({ v, r: reps.find((r) => lateLeft(v, r)) })).find((x) => x.r) ?? { v: 'A-mem0', r: 1 });
 const latePoint = E2 && run('erasure-late', 'A-mem0', 1, E2).points.findIndex((p) => p.kind === 'event') + 1;
 
@@ -51,113 +53,110 @@ async function visit(browser, { name, viewport, colorScheme, shot }) {
   page.on('request', (r) => requests.push(r));
   const label = (t) => `[${name}] ${t}`;
   const noHScroll = () => page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth);
+  const stepText = () => page.textContent('#step');
 
   await page.goto(BASE, { waitUntil: 'networkidle' });
   await page.waitForSelector('#matrices tbody tr');
   await page.keyboard.press('Tab');
   check(await page.evaluate(() => document.activeElement.classList.contains('skip')), label('first Tab reaches the skip link'));
   check(requests.filter((r) => r.url().startsWith('http://localhost')).every((r) => new URL(r.url()).pathname.startsWith('/memory-lab/')), label('all same-origin requests stay under /memory-lab/'));
-  check(await page.evaluate(() => [...document.querySelectorAll('[data-prose]')].map((n) => n.textContent.trim().split(/\s+/).length).reduce((a, b) => a + b, 0) <= 60), label('prose stays short'));
-  check((await page.locator('#scenarios button').count()) === 6, label('six scenarios'));
   check(await noHScroll(), label('no horizontal page scroll at start'));
+  check((await page.locator('#questions button').count()) === 5, label('five questions, the control sits under Details'));
+  check((await page.getAttribute('#questions li:first-child button', 'aria-pressed')) === 'true', label('erasure-late comes first'));
+  check((await stepText()).startsWith('Schritt 1 von 3'), label(`start at step 1: ${await stepText()}`));
+  check(await page.locator('#details').evaluate((d) => !d.open), label('details closed by default'));
+  check(await page.isHidden('#result'), label('no result before the last step'));
 
-  // Matrices equal the recorded runs.
-  for (const x of demo.experiments) {
-    const cells = await page.locator(`#table-${x.id} tbody tr`).evaluateAll((rows) => rows.map((r) => [...r.querySelectorAll('.frac')].map((c) => c.textContent)));
-    const want = x.matrix.map((m) => x.variants.map((v) => `${m.cells[v.id].pass}/${m.cells[v.id].runs}`));
-    check(JSON.stringify(cells) === JSON.stringify(want), label(`${x.id} matrix shows the recorded results ${JSON.stringify(cells)}`));
+  // Every question by click, every step by Weiter, the result on the last one.
+  for (let q = 0; q < 5; q++) {
+    await page.locator('#questions button').nth(q).click();
+    const total = Number((await stepText()).match(/von (\d+)/)[1]);
+    for (let i = 1; i < total; i++) await page.click('#next');
+    check((await stepText()).startsWith(`Schritt ${total} von ${total}`) && await page.isDisabled('#next'), label(`question ${q + 1}: last step reached`));
+    check(/Bestanden: A in \d von 5 Läufen, B in \d von 5\./.test(await page.textContent('#result')), label(`question ${q + 1}: result with counts`));
   }
-  const dots = await page.locator('#matrices .dot').count();
-  const allRuns = demo.experiments.reduce((n, x) => n + x.runs.length, 0);
-  check(dots === allRuns, label(`one dot per run: ${dots}`));
 
-  // Every point of every run renders, A and B have the same timeline. E2 for both A variants.
-  let points = 0, expected = 0;
+  // Every recorded run and step through the hash, as Details would set it.
+  let views = 0, expected = 0;
   for (const x of demo.experiments) {
-    await page.click(`#experiments button:text-is("${x.label}")`);
-    check(await page.locator('#avariant-field').isHidden() === (x.id === 'e1'), label(`${x.id}: A variant picker only in E2`));
-    const aVariants = x.variants.filter((v) => v.id !== 'B').map((v) => v.id);
-    for (const s of x.scenarios) {
-      await page.click(`#scenarios button:has(code:text-is("${s.id}"))`);
-      for (const av of aVariants) {
-        if (x.id !== 'e1') await page.selectOption('#avariant', av);
+    const variants = x.id === 'e1' ? ['A'] : ['A-mem0', 'A-v1'];
+    for (const sc of x.scenarios.filter((s) => SCENARIOS[s.id])) {
+      for (const v of variants) {
         for (const rep of reps) {
-          await page.selectOption('#rep', String(rep));
-          const n = await page.locator('#timeline button').count();
-          check(n === run(s.id, av, rep, x).points.length && n === run(s.id, 'B', rep, x).points.length, label(`${x.id} ${s.id} ${av} ${rep}: timeline has ${n} points for A and B`));
-          if (!(await page.textContent('#title-A')).startsWith(x.variants.find((v) => v.id === av).label)) check(false, label(`${x.id} ${av}: column title`));
-          for (let i = 0; i < n; i++) {
-            await page.locator('#timeline button').nth(i).click();
-            points++;
+          const n = stepsOf(run(sc.id, v, rep, x));
+          expected += n;
+          for (let i = 1; i <= n; i++) {
+            await page.goto(`${BASE}#${sc.id}/${i}/${x.id}/${rep}/${v === 'A' ? 'A-mem0' : v}`);
+            await page.waitForFunction((t) => document.getElementById('step').textContent.startsWith(t), `Schritt ${i} von ${n}`, { timeout: 3000 }).then(() => views++, () => {});
           }
-          expected += run(s.id, av, rep, x).points.length;
         }
       }
     }
   }
-  check(points === expected, label(`every point renders: ${points}`));
-  check(!consoleLines.some((l) => l.type === 'pageerror'), label('no page error while clicking through'));
-  check(await noHScroll(), label('no horizontal scroll after every point'));
+  check(views === expected, label(`every step of every run renders: ${views} of ${expected}`));
+  check(!consoleLines.some((l) => l.type === 'pageerror'), label('no page error while stepping through'));
+  check(await noHScroll(), label('no horizontal scroll after every step'));
 
-  // Deep link and the stored canary in erasure.
-  await page.goto(`${BASE}#erasure/${erasureRep}/${erasurePoint}`, { waitUntil: 'networkidle' }); // old link format, means E1
-  await page.waitForSelector('.store');
-  check((await page.locator('#timeline button[aria-current="step"]').textContent()).includes('löscht'), label('deep link selects the deletion'));
-  const aHits = await page.locator('.g-A .entry.hit').count();
-  const recordedA = !run('erasure', 'A', erasureRep).pass;
-  check((aHits > 0) === recordedA, label(`erasure A: canary marks match the check (${aHits} marks, failed: ${recordedA})`));
-  const bHitsOutsideAudit = await page.locator('.g-B .store:not(:last-child) .entry.hit').count();
-  check(bHitsOutsideAudit === 0 || !run('erasure', 'B', erasureRep).pass, label('erasure B: marks outside the audit match the check'));
-  check((await page.locator('#log-A.deleted').count()) === 1 && (await page.locator('.chat .msg.hit').count()) === 0, label('deleted chat is marked as recording, without hit marks'));
+  // The deletion step of erasure-late: what A kept is marked, B shows the matching log entry only if there is one.
+  await page.goto(`${BASE}#erasure-late/2/e2/${late.r}/${late.v}`);
+  await page.waitForFunction(() => document.getElementById('step').textContent.startsWith('Schritt 2'));
+  check((await page.textContent('#chat')).includes('gelöscht'), label('deletion step says the chat is gone'));
+  check((await page.locator('#store-a .item.hit').count() > 0) === lateLeft(late.v, late.r), label('A: marked entries match the recording'));
+  const bLog = run('erasure-late', 'B', late.r, E2).points.find((p) => p.kind === 'event').stores.audit.some((a) => re('erasure-late', E2).test(JSON.stringify(a)));
+  check((await page.locator('#store-b h4:text-is("Protokoll")').count() > 0) === bLog, label('B: log shown exactly when it holds a match'));
+  check((await page.locator('#store-a .item.gone').count()) > 0, label('the deleted chat stays visible once, struck through'));
   if (shot) await page.screenshot({ path: `${SHOTS}/${name}-erasure.png`, fullPage: true });
 
-  // "Chat löschen" on the last point of explicit: A keeps the SMS wish, B drops it if it came from session 2.
-  await page.goto(`${BASE}#e1/explicit/1/2`, { waitUntil: 'networkidle' });
-  await page.waitForSelector('.store');
-  await page.click('#erase');
-  check((await page.getAttribute('#erase', 'aria-pressed')) === 'true' && (await page.textContent('#status')).includes('gelöscht'), label('Chat löschen simulates and says so'));
-  check((await page.textContent('#inspector-source')).includes('simuliert'), label('inspector marks the simulation'));
-  check((await page.locator('.g-B .store:nth-child(1) .entry').count()) === 0, label('B session store empty after deletion'));
-  await page.click('#erase');
-  check((await page.textContent('#inspector-source')).includes('aufgezeichnet'), label('second click restores the recording'));
-
-  // Keyboard: matrix row loads a scenario.
-  await page.locator('#table-e1 tbody tr:nth-child(5) th button').focus();
-  await page.keyboard.press('Enter');
-  check((await page.getAttribute('#scenarios button:nth-child(5)', 'aria-pressed')) === 'true', label('matrix row by keyboard loads implicit'));
-  check(await page.evaluate(() => document.activeElement.closest('#scenarios') !== null), label('focus moves to the scenario buttons'));
-  if (E2) {
-    await page.locator('#table-e2 tbody tr:nth-child(1) th button').click();
-    check((await page.getAttribute('#experiments button:nth-child(2)', 'aria-pressed')) === 'true' && (await page.getAttribute('#scenarios button:nth-child(1)', 'aria-pressed')) === 'true', label('E2 matrix row switches experiment'));
-    check(await page.isVisible('#exp-note'), label('E2 is marked as added after E1'));
-    await page.goto(`${BASE}#e2/erasure-late/${late.r}/${latePoint}/${late.v}`, { waitUntil: 'networkidle' });
-    await page.waitForSelector('.store');
-    check((await page.inputValue('#avariant')) === late.v && (await page.locator('#log-A.deleted').count()) === 1, label('E2 deep link with A variant'));
-    check((await page.locator('.g-A .entry.hit').count() > 0) === lateLeft(late.v, late.r), label('erasure-late: marks match the stores'));
+  // Matrices equal the recorded results.
+  for (const x of demo.experiments) {
+    const cells = await page.locator(`#table-${x.id} tbody tr`).evaluateAll((rows) => rows.map((r) => [...r.querySelectorAll('td')].map((c) => c.textContent)));
+    const want = x.matrix.map((m) => x.variants.map((v) => `${m.cells[v.id].pass}/${m.cells[v.id].runs}`));
+    check(JSON.stringify(cells) === JSON.stringify(want), label(`${x.id} matrix shows the recorded results`));
   }
-  if (shot) await page.screenshot({ path: `${SHOTS}/${name}-full.png`, fullPage: true });
+
+  // Details and the control scenario, by keyboard.
+  await page.goto(`${BASE}#injection/1/e1/2/A-mem0`);
+  await page.waitForFunction(() => document.getElementById('step').textContent.startsWith('Schritt 1'));
+  await page.locator('#details summary').focus();
+  await page.keyboard.press('Enter');
+  check(await page.isHidden('#variant-field'), label('no variant picker in E1'));
+  await page.selectOption('#exp', 'e2');
+  check(await page.isVisible('#variant-field') && (await page.textContent('#exp-note')).includes('nach den Ergebnissen von E1'), label('E2 is marked as added after E1'));
+  await page.selectOption('#exp', 'e1');
+  await page.locator('#control').focus();
+  await page.keyboard.press('Enter');
+  check((await page.textContent('#question')).includes('SMS'), label('control scenario reachable from Details'));
+  await page.locator('#next').focus();
+  await page.keyboard.press('Enter');
+  check((await stepText()).startsWith('Schritt 2'), label('Weiter by keyboard'));
+  if (shot) await page.screenshot({ path: `${SHOTS}/${name}-control.png`, fullPage: true });
 
   const relevant = consoleLines.filter((l) => ['error', 'warning', 'pageerror'].includes(l.type) && !/fonts\.g/.test(l.text));
   check(relevant.length === 0, label(`console clean ${relevant.map((l) => `${l.type}: ${l.text}`).join(' | ')}`));
   await context.close();
 }
 
-// The three images for the blog post: light, about 1600 px wide, element shots.
+// The three images for the blog post: light, element shots of the 936 px wide content column scaled to 1600 px.
 async function blogShots(browser) {
-  const context = await browser.newContext({ viewport: { width: 1200, height: 900 }, deviceScaleFactor: 4 / 3, colorScheme: 'light' });
+  const context = await browser.newContext({ viewport: { width: 1200, height: 900 }, deviceScaleFactor: 1600 / 936, colorScheme: 'light' });
   const page = await context.newPage();
   const shotOf = async (hash, selector, file) => {
     await page.goto(`${BASE}#${hash}`, { waitUntil: 'networkidle' });
-    await page.waitForSelector('.store');
     await page.evaluate(() => document.fonts.ready);
     await page.waitForTimeout(300);
-    await page.locator(selector).screenshot({ path: path.join(BLOG, file) });
+    // From the first to the last selected element, with a margin, so the image stands without the page around it.
+    const boxes = await page.locator(selector).evaluateAll((els) => els.filter((e) => e.offsetParent).map((e) => e.getBoundingClientRect().toJSON()));
+    const top = Math.min(...boxes.map((b) => b.top)) + await page.evaluate(() => scrollY);
+    const bottom = Math.max(...boxes.map((b) => b.bottom)) + await page.evaluate(() => scrollY);
+    const left = Math.min(...boxes.map((b) => b.left)), right = Math.max(...boxes.map((b) => b.right));
+    const pad = 32;
+    await page.screenshot({ path: path.join(BLOG, file), fullPage: true, clip: { x: left - pad, y: top - pad, width: right - left + 2 * pad, height: bottom - top + 2 * pad } });
   };
-  await shotOf(`e1/injection/${injectionRep}/2`, 'main', 'store-inspektor.png');
-  if (E2) await shotOf(`e2/erasure-late/${late.r}/${latePoint}/${late.v}`, 'main', 'chat-loeschen.png');
-  else await shotOf(`e1/erasure/${erasureRep}/${erasurePoint}`, 'main', 'chat-loeschen.png');
-  await shotOf('e1/injection/1/1', '.matrix', 'matrix.png'); // a point without marks, so no highlight reaches into the shot
-  console.log(`blog: injection E1 run ${injectionRep}; ${E2 ? `erasure-late E2 ${late.v} run ${late.r} point ${latePoint}` : `erasure E1 run ${erasureRep}`} -> ${BLOG}`);
+  const story = '.question, .stepper, .legend, .chat, .minds, .result';
+  await shotOf(`erasure-late/2/e2/${late.r}/${late.v}`, story, 'chat-loeschen.png');
+  await shotOf(`injection/1/e1/${injectionRep}/A-mem0`, story, 'store-inspektor.png');
+  await shotOf('erasure-late/1/e2/1/A-mem0', '.matrix', 'matrix.png');
+  console.log(`blog: erasure-late E2 ${late.v} run ${late.r} step 2; injection E1 run ${injectionRep} step 1 -> ${BLOG}`);
   await context.close();
 }
 

@@ -1,5 +1,5 @@
 // Recomputes every figure from data/results/series.json (itself replayed from data/raw by `npm run report`),
-// writes summary.json and demo.json, fills the generated block of docs/findings.md and copies data and store logic into site/.
+// writes summary.json and demo.json, fills the generated block of docs/findings.md and copies the data into site/.
 import { copyFileSync, existsSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { loadPrompts } from './agent.mjs';
@@ -260,7 +260,6 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   writeFileSync(join(RESULTS, 'demo.json'), JSON.stringify(demo));
   writeFileSync(findings, text);
   for (const f of ['summary.json', 'demo.json']) copyFileSync(join(RESULTS, f), join(root, 'site/data', f));
-  copyFileSync(join(root, 'src/memory.mjs'), join(root, 'site/js/memory.js'));
   console.log(JSON.stringify({
     e1: summary.matrix.map((m) => `${m.scenario} A ${m.A.pass}/${m.A.runs} B ${m.B.pass}/${m.B.runs}`),
     e2: summary.e2?.matrix.map((m) => `${m.scenario} ${Object.entries(m.cells).map(([v, c]) => `${v} ${c.pass}/${c.runs}`).join(' ')}`),

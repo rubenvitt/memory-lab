@@ -5,74 +5,78 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light dark">
   <title>Memory Lab</title>
-  <meta name="description" content="Zwei Gedächtnis-Architekturen für einen Bücherei-Assistenten, sechs Szenarien, aufgezeichnete Läufe mit Store-Inspektor.">
+  <meta name="description" content="Gleiches Gespräch, zwei Gedächtnisse: was ein Assistent behält, wenn ein Modell entscheidet, und was, wenn getrennte Speicher es tun.">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:wght@400..700&family=Atkinson+Hyperlegible+Next:ital,wght@0,400..700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,400..800&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,400..700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,400..800&display=swap">
   <link rel="stylesheet" href="styles.css">
   <script type="module" src="js/main.js"></script>
 </head>
 <body>
-  <a class="skip" href="#inspector">Zum Store-Inspektor</a>
-  <header class="top">
-    <h1 class="brand"><span class="brand-mark" aria-hidden="true"></span>Memory Lab</h1>
-    <p class="pitch" data-prose>Ein Bücherei-Assistent, zwei Gedächtnisse: <strong>A</strong> wirft alles in einen Topf, <strong>B</strong> trennt Stores nach Herkunft und Löschpfad.</p>
+  <a class="skip" href="#story">Zum Szenario</a>
+  <header class="head">
+    <h1>Memory Lab</h1>
+    <p class="lede">Gleiches Gespräch, zwei Gedächtnisse.</p>
   </header>
 
   <main>
-    <section class="stage" aria-label="Szenario">
-      <div class="pick">
-        <div class="seg exp" id="experiments" role="group" aria-label="Experiment"></div>
-        <div class="seg" id="scenarios" role="group" aria-label="Szenario"></div>
-        <label class="field">Lauf <select id="rep"></select></label>
-        <label class="field" id="avariant-field" hidden>A-Variante <select id="avariant"></select></label>
-      </div>
-      <p class="exp-note" id="exp-note" hidden data-prose>E2 ist nach Sicht der Ergebnisse von E1 ergänzt: Mem0-Original-Extraktor, Löschung ohne Löschbitte im Chat.</p>
-      <p class="check" id="check"></p>
-      <ol class="timeline" id="timeline" aria-label="Zeitleiste"></ol>
-      <div class="erase">
-        <button type="button" class="quiet" id="erase"></button>
-        <p class="status" id="status" role="status"></p>
-      </div>
-    </section>
+    <nav class="questions" aria-label="Szenarien">
+      <ol id="questions"></ol>
+    </nav>
 
-    <section class="chats" aria-label="Gespräch">
-      <article class="arch" id="chat-A" aria-labelledby="title-A">
-        <div class="arch-head"><h2 id="title-A">A · ein Topf</h2><p class="verdict" id="verdict-A"></p></div>
-        <div class="note" id="note-A"></div>
-        <ol class="chat" id="log-A"></ol>
-      </article>
-      <article class="arch" id="chat-B" aria-labelledby="title-B">
-        <div class="arch-head"><h2 id="title-B">B · getrennte Stores</h2><p class="verdict" id="verdict-B"></p></div>
-        <div class="note" id="note-B"></div>
-        <ol class="chat" id="log-B"></ol>
-      </article>
-    </section>
-
-    <section class="inspector" id="inspector" aria-labelledby="inspector-title" tabindex="-1">
-      <div class="group-head">
-        <h2 id="inspector-title">Store-Inspektor</h2>
-        <p class="source" id="inspector-source"></p>
+    <section class="story" id="story" aria-labelledby="question" tabindex="-1">
+      <h2 class="question" id="question"></h2>
+      <div class="stepper">
+        <p class="step" id="step" aria-live="polite"></p>
+        <div class="nav">
+          <button type="button" id="prev">Zurück</button>
+          <button type="button" id="next">Weiter</button>
+        </div>
       </div>
-      <div class="stores" id="stores"></div>
+
+      <p class="legend" id="legend"></p>
+      <ol class="chat" id="chat" aria-label="Gespräch"></ol>
+
+      <div class="minds">
+        <section class="mind" aria-labelledby="mind-a">
+          <h3 id="mind-a">A merkt sich</h3>
+          <p class="how" id="how-a"></p>
+          <div id="store-a"></div>
+        </section>
+        <section class="mind" aria-labelledby="mind-b">
+          <h3 id="mind-b">B speichert</h3>
+          <p class="how" id="how-b"></p>
+          <div id="store-b"></div>
+        </section>
+      </div>
+
+      <p class="result" id="result" hidden></p>
+
+      <details class="details" id="details">
+        <summary>Details</summary>
+        <div class="details-body">
+          <label>Experiment <select id="exp"></select></label>
+          <label>Lauf <select id="rep"></select></label>
+          <label id="variant-field">Variante von A <select id="variant"></select></label>
+          <p class="note" id="exp-note"></p>
+          <p class="note"><button type="button" class="link" id="control"></button></p>
+        </div>
+      </details>
     </section>
   </main>
 
-  <section class="matrix" aria-labelledby="matrix-title">
-    <div class="group-head">
-      <h2 id="matrix-title">Szenario × Variante</h2>
-      <p class="source" id="matrix-source"></p>
-    </div>
-    <div id="matrices"></div>
-  </section>
-
-  <footer class="limits">
-    <p data-prose>Grenzen: synthetische Daten, ein Modell, fünf Läufe pro Zelle, Prüfungen per Textregel, beide Architekturen aus einer Hand.</p>
-    <nav aria-label="Weiterlesen">
+  <footer class="foot">
+    <section class="matrix" aria-labelledby="matrix-title">
+      <h2 id="matrix-title">Alle Läufe</h2>
+      <p class="note">Bestanden von je fünf Läufen. A: Ein Modell entscheidet, was es sich merkt (A-mem0 mit dem Original-Prompt von Mem0, A-v1 mit eigenem Prompt). B: getrennte Speicher, dauerhaft nur ausdrückliche Wünsche mit wörtlichem Zitat.</p>
+      <div id="matrices"></div>
+    </section>
+    <p class="limits">Synthetische Daten, ein Modell, fünf Läufe pro Zelle, Prüfungen per Textregel, alles aus einer Hand.</p>
+    <nav class="links" aria-label="Weiterlesen">
       <a href="https://rubeen.dev/blog/memory-datenarchitektur/">Blogpost</a>
       <a href="https://github.com/rubenvitt/memory-lab">Repo</a>
-      <a href="https://github.com/rubenvitt/memory-lab/blob/main/docs/findings.md">docs/findings.md</a>
+      <a href="https://github.com/rubenvitt/memory-lab/blob/main/docs/findings.md">Befunde</a>
     </nav>
   </footer>
 </body>

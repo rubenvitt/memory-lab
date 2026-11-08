@@ -41,20 +41,20 @@ Beide sehen dieselben Tools und denselben Agent-Prompt, nur der Memory-Teil unte
 
 ## Demo
 
-`site/` ist eine statische Seite ohne Build: Experiment (E1 oder E2, in E2 dazu die A-Variante), Szenario und Lauf wählen, die Zeitleiste durchklicken, A und B nebeneinander, darunter der Store-Inspektor mit allen Stores als Spalten. Jeder Eintrag zeigt, welcher Schritt ihn geschrieben hat, Treffer des Szenarios sind markiert. „Chat löschen“ führt die Löschlogik beider Architekturen im Browser auf dem aufgezeichneten Stand aus. Alle Gespräche sind aufgezeichnete Läufe der Messreihe, es gibt keinen Live-Modus. Die Seite braucht wegen `fetch` einen lokalen Server, alle Pfade sind relativ:
+`site/` ist eine statische Seite ohne Build und erzählt die Szenarien als Fragen, Schritt für Schritt: das Gespräch in der Mitte, darunter, was A sich merkt und was B speichert. Standardmäßig zeigt sie den aussagekräftigsten Lauf (der erste, in dem A und B verschieden ausgehen). Experiment, Lauf und Variante von A stehen unter „Details“. Alle Gespräche sind aufgezeichnete Läufe, es gibt keinen Live-Modus. Die Seite braucht wegen `fetch` einen lokalen Server, alle Pfade sind relativ:
 
 ```sh
 python3 -m http.server -d site 8000
 ```
 
-`npm run report` kopiert `src/memory.mjs` nach `site/js/memory.js` und die Daten nach `site/data/`. Ein Test prüft, dass beides Byte für Byte übereinstimmt.
+`npm run report` kopiert die Daten nach `site/data/`, ein Test prüft, dass sie Byte für Byte übereinstimmen.
 
 `scripts/check-site.cjs` spielt die Seite mit Playwright durch (hell, dunkel, Desktop, Mobil) und erzeugt mit `BLOG=<ordner>` die drei Abbildungen für den Post. Playwright ist bewusst keine Abhängigkeit, die Kopfzeile des Skripts sagt, wie es läuft.
 
 ## Aufbau
 
 - `fixtures/`: Bücherei (Dokumente, Katalog) und die sechs Szenarien, alles erfunden
-- `src/memory.mjs`: Stores, Schreibregeln und Löschpfade beider Architekturen, ohne Node-Importe
+- `src/memory.mjs`: Stores, Schreibregeln und Löschpfade beider Architekturen
 - `src/tools.mjs`, `src/agent.mjs`, `src/scenario.mjs`: Tools, Agent-Schleife und Extraktor, ein Lauf als Zeitleiste
 - `src/checks.mjs`, `src/checks-e2.mjs`: deterministische Prüfungen, kein Judge
 - `src/mem0.mjs`: Extraktor von A-mem0 (E2) mit den Original-Prompts von Mem0

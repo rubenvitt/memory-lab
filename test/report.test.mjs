@@ -18,7 +18,6 @@ test('verdict texts name what happened', () => {
 });
 
 // If this fails, the demo shows something else than what was recorded.
-test('site data and store logic are exact copies', { skip: !existsSync(`${root}data/results/demo.json`) }, () => {
+test('site data are exact copies', { skip: !existsSync(`${root}data/results/demo.json`) }, () => {
   for (const file of ['summary.json', 'demo.json']) assert.ok(readFileSync(`${root}site/data/${file}`).equals(readFileSync(`${root}data/results/${file}`)), file);
-  assert.ok(readFileSync(`${root}site/js/memory.js`).equals(readFileSync(`${root}src/memory.mjs`)));
 });
